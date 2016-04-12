@@ -43,17 +43,73 @@ void Java_org_fmod_playsound_Example_cBegin(JNIEnv *env, jobject thiz)
 
 	//
 	///sdcard/fmod/drumloop.wav
-	result = FMOD_System_CreateSound(gSystem, "/sdcard/bosa.wav", FMOD_DEFAULT | FMOD_LOOP_OFF, 0, &gSound[0]);
+	result = FMOD_System_CreateSound(gSystem, "/sdcard/fmod/bosa.wav", FMOD_DEFAULT | FMOD_LOOP_OFF, 0, &gSound[0]);
 	CHECK_RESULT(result);
 
 	///sdcard/fmod/jaguar.wav
-	result = FMOD_System_CreateSound(gSystem, "/sdcard/bass.wav", FMOD_DEFAULT, 0, &gSound[1]);
+	result = FMOD_System_CreateSound(gSystem, "/sdcard/fmod/bass.wav", FMOD_DEFAULT, 0, &gSound[1]);
 	CHECK_RESULT(result);
 
 	///sdcard/fmod/swish.wav
-	result = FMOD_System_CreateSound(gSystem, "/sdcard/hat.wav", FMOD_DEFAULT, 0, &gSound[2]);
+	result = FMOD_System_CreateSound(gSystem, "/sdcard/fmod/hat.wav", FMOD_DEFAULT, 0, &gSound[2]);
 	CHECK_RESULT(result);
 }
+
+
+void Java_org_fmod_playsound_Example_cBeginWith(JNIEnv *env,
+		jobject thiz, jstring path1, jstring path2, jstring path3, jstring path4) {
+	FMOD_RESULT result = FMOD_OK;
+
+	result = FMOD_System_Create(&gSystem);
+	CHECK_RESULT(result);
+
+	int numBuffers = 0;
+	int size = 0;
+	result = FMOD_System_GetDSPBufferSize(gSystem, &size, &numBuffers);
+	CHECK_RESULT(result);
+	__android_log_print(ANDROID_LOG_ERROR, "fmod",
+			"(Before)DSP buffer size is %d, num of buff is %d", size,
+			numBuffers);
+
+	result = FMOD_System_SetDSPBufferSize(gSystem, 256, numBuffers);
+	CHECK_RESULT(result);
+	__android_log_print(ANDROID_LOG_ERROR, "fmod", "Set DSP buffer size to %d",
+			256);
+
+	result = FMOD_System_GetDSPBufferSize(gSystem, &size, &numBuffers);
+	CHECK_RESULT(result);
+	__android_log_print(ANDROID_LOG_ERROR, "fmod",
+			"(After)DSP buffer size is %d, num of buff is %d", size,
+			numBuffers);
+
+	result = FMOD_System_Init(gSystem, 32, FMOD_INIT_NORMAL, 0);
+	CHECK_RESULT(result);
+
+	const char *p1 = (*env)->GetStringUTFChars(env, path1, 0);
+	const char *p2 = (*env)->GetStringUTFChars(env, path2, 0);
+	const char *p3 = (*env)->GetStringUTFChars(env, path3, 0);
+	const char *p4 = (*env)->GetStringUTFChars(env, path4, 0);
+
+
+
+	result = FMOD_System_CreateSound(gSystem, p1,
+			FMOD_DEFAULT | FMOD_LOOP_OFF, 0, &gSound[0]);
+	CHECK_RESULT(result);
+
+	result = FMOD_System_CreateSound(gSystem, p2,
+			FMOD_DEFAULT, 0, &gSound[1]);
+	CHECK_RESULT(result);
+
+	result = FMOD_System_CreateSound(gSystem, p3,
+			FMOD_DEFAULT, 0, &gSound[2]);
+	CHECK_RESULT(result);
+
+	result = FMOD_System_CreateSound(gSystem, p4,
+			FMOD_DEFAULT, 0, &gSound[3]);
+	CHECK_RESULT(result);
+
+}
+
 
 void Java_org_fmod_playsound_Example_cUpdate(JNIEnv *env, jobject thiz)
 {
