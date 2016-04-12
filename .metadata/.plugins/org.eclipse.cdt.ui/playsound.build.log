@@ -1,9 +1,19 @@
-15:25:31 **** Auto Build of configuration Default for project playsound ****
+17:55:36 **** Auto Build of configuration Default for project playsound ****
 /Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
 Install        : libfmodex.so => libs/armeabi/libfmodex.so
 Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
 Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
 Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
 
-15:25:32 Build Finished (took 112ms)
+17:55:37 Build Finished (took 269ms)
 

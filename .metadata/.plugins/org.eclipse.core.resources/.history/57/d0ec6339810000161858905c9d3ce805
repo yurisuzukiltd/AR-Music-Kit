@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FramaLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        >
+
+    <FrameLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="playSound1"
+            android:text="Play &apos;drumloop.wav&apos; (Mono)" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="playSound2"
+            android:text="Play &apos;jaguar.wav&apos; (Mono)" >
+        </Button>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="playSound3"
+            android:text="Play &apos;swish.wav&apos; (Stereo)" >
+        </Button>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Position:"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtPos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="00:00:00 / 00:00:00" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State:"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtState"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Paused" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Channels Playing:"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtChans"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="0" >
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center"
+            android:text="@string/copyright" >
+        </TextView>
+    </LinearLayout>
+
+</FramaLayout>

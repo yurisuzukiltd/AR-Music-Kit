@@ -3,21 +3,24 @@ package org.fmod.playsound;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.artoolkit.ar.base.ARActivity;
+import org.artoolkit.ar.base.rendering.ARRenderer;
 import org.fmod.FMODAudioDevice;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Example extends Activity 
+public class Example extends ARActivity 
 {
 	static String TAG = "Example";
 	boolean isPlayerReady = false;
@@ -52,6 +55,16 @@ public class Example extends Activity
 		}
 	};
 	
+	/**
+     * A custom renderer is used to produce a new visual experience.
+     */
+    private SimpleRenderer simpleRenderer = new SimpleRenderer();
+
+    /**
+     * The FrameLayout where the AR view is displayed.
+     */
+    private FrameLayout mainLayout;
+	
    
 	
     @Override
@@ -76,6 +89,25 @@ public class Example extends Activity
     	//cBegin();
     	//mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
     	this.downloadTrack();
+    	
+    	
+    	mainLayout = (FrameLayout)this.findViewById(R.id.mainLayout);
+
+		
+		
+		// When the screen is tapped, inform the renderer and vibrate the phone
+    	/*
+				mainLayout.setOnClickListener(new View.OnClickListener() {
+		            public void onClick(View v) {
+
+		                simpleRenderer.click();
+
+		                Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+		                vib.vibrate(40);
+		            }
+
+		        });
+		        */
     }
     
     @Override
@@ -359,4 +391,26 @@ public class Example extends Activity
 		loadingMark.clearAnimation();
 		*/
 	}
+	
+	
+	/* ARToolKit */
+	/**
+	 * Provide our own SimpleRenderer.
+	 */
+	@Override
+	protected ARRenderer supplyRenderer() {
+		
+		//return new SimpleRenderer();
+		return new DrumsRenderer(this);
+	}
+	
+	/**
+	 * Use the FrameLayout in this Activity's UI.
+	 */
+	@Override
+	protected FrameLayout supplyFrameLayout() {
+		return (FrameLayout)this.findViewById(R.id.mainLayout);    	
+	}
+
+
 }
