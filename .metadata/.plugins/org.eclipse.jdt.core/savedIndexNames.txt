@@ -1,0 +1,15 @@
+INDEX VERSION 1.127+/Users/Mizutori/Project/GoogleIO_Installation/googleio_workspace/.metadata/.plugins/org.eclipse.jdt.core
+108983651.index
+3332767204.index
+2733320833.index
+1466037413.index
+963007213.index
+360409547.index
+851096706.index
+2016071961.index
+38535638.index
+3188581133.index
+676078179.index
+474412674.index
+1334006379.index
+2975725132.index

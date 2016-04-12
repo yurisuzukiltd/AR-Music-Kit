@@ -1,0 +1,9 @@
+14:23:34 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+
+14:23:34 Build Finished (took 114ms)
+
