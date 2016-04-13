@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -63,8 +62,7 @@ public class Example extends ARActivity
     /**
      * The FrameLayout where the AR view is displayed.
      */
-    private FrameLayout mainLayout;
-	
+    private FrameLayout mainLayout;	
    
 	
     @Override
@@ -78,6 +76,7 @@ public class Example extends ARActivity
         trackUrls.add(trackUrlRoot + soundFile1);
         trackUrls.add(trackUrlRoot + soundFile2);
         trackUrls.add(trackUrlRoot + soundFile3);
+                      
         
     }
     
@@ -88,7 +87,20 @@ public class Example extends ARActivity
     	mFMODAudioDevice.start();
     	//cBegin();
     	//mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
-    	this.downloadTrack();
+    	
+    	
+    	//this.downloadTrack();
+    	
+    	
+    	final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+		    @Override
+		    public void run() {
+		    	startPlayer();
+		    }
+		}, 1000);
+		
+    	
     	
     	
     	mainLayout = (FrameLayout)this.findViewById(R.id.mainLayout);
@@ -299,14 +311,20 @@ public class Example extends ARActivity
 
 	public String getTrackDirectory(){
 		
+		/*
 		String directoryPath = Environment.getExternalStorageDirectory()
 				.getPath()
 				+ "/Android/data/"
 				+ this.getPackageName()
 				+ "/track";
 		return directoryPath;
+		*/
 		
 		//return "/sdcard/fmod";
+		
+		
+		return this.getCacheDir().getAbsolutePath() + "/Music";
+		
 	}
 	public void endPlayer() {
 		isPlayerReady = false;
@@ -411,6 +429,6 @@ public class Example extends ARActivity
 	protected FrameLayout supplyFrameLayout() {
 		return (FrameLayout)this.findViewById(R.id.mainLayout);    	
 	}
-
+	
 
 }

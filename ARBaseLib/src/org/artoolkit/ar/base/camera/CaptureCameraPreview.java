@@ -48,15 +48,14 @@ import org.artoolkit.ar.base.R;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.ImageFormat;
 import android.graphics.PixelFormat;
-import android.graphics.YuvImage;
 import android.hardware.Camera;
-import android.hardware.Camera.Size;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -98,8 +97,8 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
      * Listener to inform of camera related events: start, frame, and stop.
      */
     private CameraEventListener listener;
-    
-    private boolean cameraIsFrontFacing = false;
+
+	private Activity mActivity;
     
     /**
      * Constructor takes a {@link CameraEventListener} which will be called on 
@@ -107,8 +106,9 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
      * @param cel CameraEventListener to use. Can be null.
      */
     @SuppressWarnings("deprecation")
-	public CaptureCameraPreview(Context context, CameraEventListener cel) {
-        super(context);
+	public CaptureCameraPreview(Activity activity, CameraEventListener cel) {
+        super(activity);
+        mActivity = activity;
 
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);      
@@ -116,6 +116,30 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
         setCameraEventListener(cel);
         
+    }
+    
+    public void setCameraDisplayOrientation(int cameraId, android.hardware.Camera camera) {
+        android.hardware.Camera.CameraInfo info =
+                new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = mActivity.getWindowManager().getDefaultDisplay()
+                .getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0: degrees = 0; break;
+            case Surface.ROTATION_90: degrees = 90; break;
+            case Surface.ROTATION_180: degrees = 180; break;
+            case Surface.ROTATION_270: degrees = 270; break;
+        }
+
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360;  // compensate the mirror
+        } else {  // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        camera.setDisplayOrientation(result);
     }
     
     /**
@@ -137,8 +161,6 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
     	try {
     		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) camera = Camera.open(cameraIndex);
     		else camera = Camera.open();
-    		
-    		camera.setDisplayOrientation((cameraIndex==0)?180:0);
             
     	} catch (RuntimeException exception) {
     		Log.e(TAG, "Cannot open camera. It may be in use by another process.");
@@ -149,6 +171,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
             
         try {
 
+        	setCameraDisplayOrientation(cameraIndex, camera);
         	camera.setPreviewDisplay(holder);
                
         } catch (IOException exception) {
@@ -198,7 +221,6 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
         Camera.Parameters parameters = camera.getParameters();
         parameters.setPreviewSize(Integer.parseInt(dims[0]), Integer.parseInt(dims[1]));
         parameters.setPreviewFrameRate(30);
-        //parameters.setRotation(90);
         camera.setParameters(parameters);
 
         parameters = camera.getParameters();
@@ -209,6 +231,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
         PixelFormat pixelinfo = new PixelFormat();
         PixelFormat.getPixelFormatInfo(pixelformat, pixelinfo);
         int cameraIndex = 0;
+        boolean cameraIsFrontFacing = false;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
 			Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
 			cameraIndex = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("pref_cameraIndex", "0"));
@@ -222,67 +245,31 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
         cameraWrapper.configureCallback(this, true, 10, bufSize); // For the default NV21 format, bitsPerPixel = 12.
         
         camera.startPreview();
+
+        camera.autoFocus(new Camera.AutoFocusCallback() {
+            @Override
+            public void onAutoFocus(boolean success, Camera camera) {
+                Log.i(TAG, "Autofocused....");
+            }
+        });
         
         if (listener != null) listener.cameraPreviewStarted(captureWidth, captureHeight, captureRate, cameraIndex, cameraIsFrontFacing);
 
     }
 
-    private byte[] mirroredData=null;
-    
     @Override
 	public void onPreviewFrame (byte[] data, Camera camera) {
-    	Size size = camera.getParameters().getPreviewSize();	
+		
+		if (listener != null) listener.cameraPreviewFrame(data);
+		
+		cameraWrapper.frameReceived(data);
+		
+		
+		if (fpsCounter.frame()) {
+			Log.i(TAG, "Camera capture FPS: " + fpsCounter.getFPS());			
+		}
+
     	
-    	if(cameraIsFrontFacing){
-	    	mirroredData=new byte[data.length];
-	    	rotateNV21(data,mirroredData,size.width,size.height,180);
-	    	
-			if (listener != null) listener.cameraPreviewFrame(mirroredData);
-			cameraWrapper.frameReceived(mirroredData);
-    	}
-    	else{
-    		if (listener != null) listener.cameraPreviewFrame(data);
-			cameraWrapper.frameReceived(data);
-    	}
 	}
-    
-    public static void rotateNV21(byte[] input, byte[] output, int width, int height, int rotation) {
-        boolean swap = (rotation == 90 || rotation == 270);
-        boolean yflip = (rotation == 90 || rotation == 180);
-        boolean xflip = (rotation == 270 || rotation == 180);
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                int xo = x, yo = y;
-                int w = width, h = height;
-                int xi = xo, yi = yo;
-                if (swap) {
-                    xi = w * yo / h;
-                    yi = h * xo / w;
-                }
-                if (yflip) {
-                    //yi = h - yi - 1;
-                }
-                if (xflip) {
-                    xi = w - xi - 1;
-                }
-                output[w * yo + xo] = input[w * yi + xi];
-                int fs = w * h;
-                int qs = (fs >> 2);
-                xi = (xi >> 1);
-                yi = (yi >> 1);
-                xo = (xo >> 1);
-                yo = (yo >> 1);
-                w = (w >> 1);
-                h = (h >> 1);
-                // adjust for interleave here
-                int ui = fs + (w * yi + xi) * 2;
-                int uo = fs + (w * yo + xo) * 2;
-                // and here
-                int vi = ui + 1;
-                int vo = uo + 1;
-                output[uo] = input[ui]; 
-                output[vo] = input[vi]; 
-            }
-        }
-    }   
+ 
 }

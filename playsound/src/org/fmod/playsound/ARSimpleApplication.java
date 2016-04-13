@@ -82,5 +82,7 @@ public class ARSimpleApplication extends Application {
     	// versionCode integer in the AndroidManifest.xml file.
 		AssetHelper assetHelper = new AssetHelper(getAssets());        
 		assetHelper.cacheAssetFolder(getInstance(), "Data");
+		
+		assetHelper.cacheAssetFolder(getInstance(), "Music");
     }
 }
