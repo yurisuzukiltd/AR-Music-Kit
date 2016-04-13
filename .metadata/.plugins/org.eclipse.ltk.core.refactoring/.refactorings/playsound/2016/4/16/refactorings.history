@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;org.fmod.playsound&apos; to &apos;com.goldrushcomputing.playsound&apos;&#x0A;- Original project: &apos;playsound&apos;&#x0A;- Original element: &apos;playsound/src/org.fmod.playsound&apos;&#x0A;- Renamed element: &apos;playsound/src/com.goldrushcomputing.playsound&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;org.fmod.playsound&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;org.fmod.playsound" name="com.goldrushcomputing.playsound" qualified="false" references="true" stamp="1460530100186" textual="false" version="1.0"/>
+</session>

@@ -31,7 +31,7 @@ FMOD_SOUND	 *gSound[NUM_SOUNDS];
 	} \
 }
 
-void Java_org_fmod_playsound_Example_cBegin(JNIEnv *env, jobject thiz)
+void Java_com_goldrushcomputing_playsound_Example_cBegin(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 
@@ -56,7 +56,7 @@ void Java_org_fmod_playsound_Example_cBegin(JNIEnv *env, jobject thiz)
 }
 
 
-void Java_org_fmod_playsound_Example_cBeginWith(JNIEnv *env,
+void Java_com_goldrushcomputing_playsound_Example_cBeginWith(JNIEnv *env,
 		jobject thiz, jstring path1, jstring path2, jstring path3, jstring path4) {
 	FMOD_RESULT result = FMOD_OK;
 
@@ -111,7 +111,7 @@ void Java_org_fmod_playsound_Example_cBeginWith(JNIEnv *env,
 }
 
 
-void Java_org_fmod_playsound_Example_cUpdate(JNIEnv *env, jobject thiz)
+void Java_com_goldrushcomputing_playsound_Example_cUpdate(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT	result = FMOD_OK;
 
@@ -119,7 +119,7 @@ void Java_org_fmod_playsound_Example_cUpdate(JNIEnv *env, jobject thiz)
 	CHECK_RESULT(result);
 }
 
-void Java_org_fmod_playsound_Example_cEnd(JNIEnv *env, jobject thiz)
+void Java_com_goldrushcomputing_playsound_Example_cEnd(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	unsigned int i = 0;
@@ -134,7 +134,7 @@ void Java_org_fmod_playsound_Example_cEnd(JNIEnv *env, jobject thiz)
 	CHECK_RESULT(result);
 }
 
-void Java_org_fmod_playsound_Example_cPlaySound(JNIEnv *env, jobject thiz, int id)
+void Java_com_goldrushcomputing_playsound_Example_cPlaySound(JNIEnv *env, jobject thiz, int id)
 {
 	FMOD_RESULT result = FMOD_OK;
 
@@ -142,7 +142,7 @@ void Java_org_fmod_playsound_Example_cPlaySound(JNIEnv *env, jobject thiz, int i
 	CHECK_RESULT(result);
 }
 
-jint Java_org_fmod_playsound_Example_cGetChannelsPlaying(JNIEnv *env, jobject thiz)
+jint Java_com_goldrushcomputing_playsound_Example_cGetChannelsPlaying(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	int chans = 0;
@@ -153,7 +153,7 @@ jint Java_org_fmod_playsound_Example_cGetChannelsPlaying(JNIEnv *env, jobject th
 	return chans;
 }
 
-jboolean Java_org_fmod_playsound_Example_cGetPlaying(JNIEnv *env, jobject thiz)
+jboolean Java_com_goldrushcomputing_playsound_Example_cGetPlaying(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	FMOD_BOOL playing = 0;
@@ -170,7 +170,7 @@ jboolean Java_org_fmod_playsound_Example_cGetPlaying(JNIEnv *env, jobject thiz)
 	return playing;
 }
 
-jint Java_org_fmod_playsound_Example_cGetPosition(JNIEnv *env, jobject thiz)
+jint Java_com_goldrushcomputing_playsound_Example_cGetPosition(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	int position = 0;
@@ -187,7 +187,7 @@ jint Java_org_fmod_playsound_Example_cGetPosition(JNIEnv *env, jobject thiz)
 	return position;
 }
 
-jint Java_org_fmod_playsound_Example_cGetLength(JNIEnv *env, jobject thiz)
+jint Java_com_goldrushcomputing_playsound_Example_cGetLength(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	FMOD_SOUND *sound = 0;

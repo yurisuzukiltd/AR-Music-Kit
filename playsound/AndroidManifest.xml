@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.fmod.playsound"
+      package="com.goldrushcomputing.playsound"
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk 
@@ -21,12 +21,12 @@
     
     
     <application 
-        android:name="org.fmod.playsound.ARSimpleApplication"        
+        android:name="com.goldrushcomputing.playsound.ARSimpleApplication"        
 	    android:icon="@drawable/icon" 
 	    android:label="@string/app_name">
 	    
         <activity 
-        	android:name="org.fmod.playsound.Example"
+        	android:name="com.goldrushcomputing.playsound.Example"
 			android:label="@string/app_name"
 			android:screenOrientation="landscape">
 			
