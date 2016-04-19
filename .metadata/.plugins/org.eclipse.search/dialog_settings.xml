@@ -3,6 +3,9 @@
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
+	<section name="">
+		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item value="569" key="DIALOG_WIDTH"/>
 		<item value="386" key="DIALOG_Y_ORIGIN"/>
@@ -37,11 +40,11 @@
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="SEARCH_DERIVED"/>
 		<item value="false" key="WHOLE_WORD"/>
-		<item value="6" key="HISTORY_SIZE"/>
+		<item value="9" key="HISTORY_SIZE"/>
 		<section name="HISTORY2">
 			<item value="false" key="isRegExSearch"/>
-			<item value="MatrixStack" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="ARBaseLib" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<item value="false" key="isWholeWord"/>
 			<list key="fileNamePatterns">
@@ -55,8 +58,8 @@
 		</section>
 		<section name="HISTORY3">
 			<item value="false" key="isRegExSearch"/>
-			<item value="MatrixGrabber" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="Button" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<item value="false" key="isWholeWord"/>
 			<list key="fileNamePatterns">
@@ -67,7 +70,7 @@
 		</section>
 		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>
-			<item value="Button" key="textPattern"/>
+			<item value="patt" key="textPattern"/>
 			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<item value="false" key="isWholeWord"/>
@@ -79,8 +82,8 @@
 		</section>
 		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
-			<item value="MatrixTrackingGL" key="textPattern"/>
-			<item value="0" key="scope"/>
+			<item value="org.fmod" key="textPattern"/>
+			<item value="3" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<item value="false" key="isWholeWord"/>
 			<list key="fileNamePatterns">
@@ -89,7 +92,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY5">
+		<section name="HISTORY8">
 			<item value="false" key="isRegExSearch"/>
 			<item value="playSound" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -101,9 +104,45 @@
 			<list key="workingSets">
 			</list>
 		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isRegExSearch"/>
+			<item value="MatrixStack" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="false" key="isWholeWord"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
 		<section name="HISTORY4">
 			<item value="false" key="isRegExSearch"/>
+			<item value="MatrixTrackingGL" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="false" key="isWholeWord"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
 			<item value="keycode" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="false" key="isWholeWord"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="MatrixGrabber" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<item value="false" key="isWholeWord"/>

@@ -33,7 +33,7 @@ public class DrumsRenderer extends ARRenderer {
 	
 	@Override
 	public boolean configureARScene() {
-		drum1_MarkerID = ARToolKit.getInstance().addMarker("single;Data/patt.drum1;88");
+		drum1_MarkerID = ARToolKit.getInstance().addMarker("single;Data/patt.a;64");
 		drum2_MarkerID = ARToolKit.getInstance().addMarker("single;Data/patt.drum2;88");
 		drum3_MarkerID = ARToolKit.getInstance().addMarker("single;Data/patt.drum3;88");
 		if (drum1_MarkerID < 0 || drum2_MarkerID<0 || drum3_MarkerID<0) return false;

@@ -2,29 +2,34 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="265" key="DIALOG_WIDTH"/>
-		<item value="474" key="DIALOG_Y_ORIGIN"/>
-		<item value="569" key="DIALOG_X_ORIGIN"/>
+		<item value="471" key="DIALOG_Y_ORIGIN"/>
 		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="1054" key="DIALOG_X_ORIGIN"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="cBegin" key="selection"/>
+		<item value="drum1_MarkerID" key="selection"/>
 		<list key="findhistory">
-			<item value="cBegin"/>
-			<item value="pl"/>
-			<item value="bass"/>
-			<item value="onStop"/>
-			<item value="download"/>
-			<item value="downloadTask"/>
-			<item value="downloa"/>
-			<item value="downloadTa"/>
+			<item value="drum1_MarkerID"/>
+			<item value="single;Data/patt.a;64"/>
+			<item value="patt"/>
+			<item value="patt.a"/>
+			<item value="drum1LastSeen"/>
+			<item value="256"/>
+			<item value="beginwith"/>
+			<item value="Java_org_fmod_"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Java_com_goldrushcomputing_"/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="327" key="DIALOG_Y_ORIGIN"/>
+		<item value="482" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

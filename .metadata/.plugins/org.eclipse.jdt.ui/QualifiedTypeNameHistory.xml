@@ -3,4 +3,5 @@
 <fullyQualifiedTypeName name="org.apache.http.StatusLine"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
 </qualifiedTypeNameHistroy>

@@ -71,10 +71,10 @@ void Java_com_goldrushcomputing_playsound_Example_cBeginWith(JNIEnv *env,
 			"(Before)DSP buffer size is %d, num of buff is %d", size,
 			numBuffers);
 
-	result = FMOD_System_SetDSPBufferSize(gSystem, 256, numBuffers);
+	result = FMOD_System_SetDSPBufferSize(gSystem, 512, numBuffers);
 	CHECK_RESULT(result);
 	__android_log_print(ANDROID_LOG_ERROR, "fmod", "Set DSP buffer size to %d",
-			256);
+			512);
 
 	result = FMOD_System_GetDSPBufferSize(gSystem, &size, &numBuffers);
 	CHECK_RESULT(result);

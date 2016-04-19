@@ -1,6 +1,0 @@
-eclipse.preferences.version=1
-environment/project/com.android.toolchain.gcc.533485198/ANDROID_NDK_ROOT/delimiter=\:
-environment/project/com.android.toolchain.gcc.533485198/ANDROID_NDK_ROOT/operation=replace
-environment/project/com.android.toolchain.gcc.533485198/ANDROID_NDK_ROOT/value=/Users/Mizutori/android/android-ndk-r8c
-environment/project/com.android.toolchain.gcc.533485198/append=true
-environment/project/com.android.toolchain.gcc.533485198/appendContributed=true
