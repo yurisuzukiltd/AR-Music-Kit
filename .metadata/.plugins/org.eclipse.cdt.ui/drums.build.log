@@ -1,4 +1,4 @@
-13:44:30 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
+15:34:46 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
 /Users/Mizutori/android/android-ndk-r8c/ndk-build all 
 Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
 Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
@@ -15,5 +15,5 @@ Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
 Install        : libmain.so => libs/armeabi-v7a/libmain.so
 Install        : libssl.so => libs/armeabi-v7a/libssl.so
 
-13:44:30 Build Finished (took 437ms)
+15:34:46 Build Finished (took 314ms)
 

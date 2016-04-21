@@ -49,7 +49,7 @@ public class DrumsRenderer extends ARRenderer {
 		
 		drum1_MarkerID = ARToolKit.getInstance().addMarker("single;Data/guitar_el64.pat;64");
 		drum2_MarkerID = ARToolKit.getInstance().addMarker("single;Data/b64.pat;64");
-		drum3_MarkerID = ARToolKit.getInstance().addMarker("single;Data/a_small.pat;64");
+		drum3_MarkerID = ARToolKit.getInstance().addMarker("single;Data/a_mid.pat;64");
 		
 		
 		if (drum1_MarkerID < 0 || drum2_MarkerID<0 || drum3_MarkerID<0) return false;

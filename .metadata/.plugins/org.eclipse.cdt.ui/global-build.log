@@ -10346,3 +10346,330 @@ Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
 Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
 Install        : libmain.so => libs/armeabi-v7a/libmain.so
 Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:24:42 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:24:46 **** Clean-only build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build clean 
+Clean: ARWrapper [armeabi]
+Clean: c++_shared [armeabi]
+Clean: crypto [armeabi]
+Clean: curl [armeabi]
+Clean: fmodex [armeabi]
+Clean: main [armeabi]
+Clean: ssl [armeabi]
+Clean: stdc++ [armeabi]
+Clean: ARWrapper [armeabi-v7a]
+Clean: c++_shared [armeabi-v7a]
+Clean: crypto [armeabi-v7a]
+Clean: curl [armeabi-v7a]
+Clean: fmodex [armeabi-v7a]
+Clean: main [armeabi-v7a]
+Clean: ssl [armeabi-v7a]
+Clean: stdc++ [armeabi-v7a]
+14:24:47 **** Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi/
+Install        : libssl.so => libs/armeabi/libssl.so
+Prebuilt       : libARWrapper.so <= jni/./armeabi-v7a/
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi-v7a/
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi-v7a/
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi-v7a/
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi-v7a/
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi-v7a/
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:24:48 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Prebuilt       : libARWrapper.so <= jni/./armeabi-v7a/
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi-v7a/
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi-v7a/
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi-v7a/
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi-v7a/
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:24:56 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:25:09 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:25:57 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:26:09 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:26:16 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+14:26:25 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:26 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:37 **** Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:37 **** Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:44 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:45 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:46 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:34:46 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:36:27 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:36:38 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
