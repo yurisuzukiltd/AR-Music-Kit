@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="265" key="DIALOG_WIDTH"/>
 		<item value="471" key="DIALOG_Y_ORIGIN"/>
-		<item value="399" key="DIALOG_HEIGHT"/>
 		<item value="1054" key="DIALOG_X_ORIGIN"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="drum1_MarkerID" key="selection"/>
+		<item value="Front" key="selection"/>
 		<list key="findhistory">
+			<item value="front"/>
+			<item value="setCameraDisplayOrientation"/>
+			<item value="setDisplayOrien"/>
+			<item value="getCameraInstance"/>
+			<item value="getCameraIns"/>
+			<item value="getCameraIn"/>
 			<item value="drum1_MarkerID"/>
 			<item value="single;Data/patt.a;64"/>
-			<item value="patt"/>
-			<item value="patt.a"/>
-			<item value="drum1LastSeen"/>
-			<item value="256"/>
-			<item value="beginwith"/>
-			<item value="Java_org_fmod_"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Java_com_goldrushcomputing_"/>

@@ -10993,3 +10993,1318 @@ Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
 Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
 Install        : libmain.so => libs/armeabi-v7a/libmain.so
 Install        : libssl.so => libs/armeabi-v7a/libssl.so
+15:18:03 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:19 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:26 **** Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:26 **** Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:34 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:35 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:36 **** Auto Build of configuration PlaySoundConfiguration for project drums ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:41:36 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:43:47 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+18:43:54 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:04:01 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c:113:6: error: conflicting types for 'Java_com_goldrushcomputing_playsound_Example_cBeginWith'
+jni/main.c:59:6: note: previous definition of 'Java_com_goldrushcomputing_playsound_Example_cBeginWith' was here
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWith':
+jni/main.c:142:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:142:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:143:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:144:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:145:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:04:28 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSounds':
+jni/main.c:142:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:142:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:143:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:144:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:145:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:06:26 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:142:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:142:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:143:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:144:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:145:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:07:37 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:143:40: error: 'stringArray' undeclared (first use in this function)
+jni/main.c:143:40: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:144:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:144:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:146:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:153:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:154:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:155:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:156:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:07:46 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:144:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:146:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:153:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:153:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:154:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:155:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:156:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:09:50 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:144:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:146:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:149:35: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:149:51: error: 'prdctini' undeclared (first use in this function)
+jni/main.c:149:51: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:157:44: error: 'p1' undeclared (first use in this function)
+jni/main.c:161:44: error: 'p2' undeclared (first use in this function)
+jni/main.c:165:44: error: 'p3' undeclared (first use in this function)
+jni/main.c:169:44: error: 'p4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:10:34 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:8: error: redefinition of 'stringCount'
+jni/main.c:143:6: note: previous definition of 'stringCount' was here
+jni/main.c:144:28: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:44: error: 'prdctini' undeclared (first use in this function)
+jni/main.c:144:44: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:10:36 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:8: error: redefinition of 'stringCount'
+jni/main.c:143:6: note: previous definition of 'stringCount' was here
+jni/main.c:144:28: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:10:53 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:142:28: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:144:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:144:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:146:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:153:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:153:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:154:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:155:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:156:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:11:36 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:25: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:11:46 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:12:12 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:23: error: request for member 'GetArrayLength' in something not a structure or union
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:14:28 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:2: error: too few arguments to function '(*env)->GetArrayLength'
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:15:42 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:143:2: error: too few arguments to function '(*env)->GetArrayLength'
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:16:17 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:16:24 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:16:33 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:145:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:145:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:147:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:154:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:154:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:155:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:156:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:17:21 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:14: error: redefinition of 'i'
+jni/main.c:145:6: note: previous definition of 'i' was here
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:17:28 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:14: error: redeclaration of 'i' with no linkage
+jni/main.c:145:6: note: previous declaration of 'i' was here
+jni/main.c:146:5: error: 'for' loop initial declarations are only allowed in C99 mode
+jni/main.c:146:5: note: use option -std=c99 or -std=gnu99 to compile your code
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:17:31 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:17:49 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:33: warning: initialization makes pointer from integer without a cast [enabled by default]
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:18:29 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:155:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:155:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:156:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:157:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:19:27 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:156:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:156:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:157:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:19:33 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c:23:21: error: 'NUM_SOUNDS' undeclared here (not in a function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:156:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:156:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:157:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path4' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:19:43 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:157:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:157:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:158:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:20:55 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:157:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:157:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:158:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:01 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:17: error: 'stringCount' undeclared (first use in this function)
+jni/main.c:148:17: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:157:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:158:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:05 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:157:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:157:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:158:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:159:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:17 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:155:44: error: 'p1' undeclared (first use in this function)
+jni/main.c:155:44: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:159:44: error: 'p2' undeclared (first use in this function)
+jni/main.c:163:44: error: 'p3' undeclared (first use in this function)
+jni/main.c:167:44: error: 'p4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:186:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:26 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:153:48: error: 'p1' undeclared (first use in this function)
+jni/main.c:153:48: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:159:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:39 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:153:48: error: 'p1' undeclared (first use in this function)
+jni/main.c:153:48: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:159:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:21:45 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:159:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:159:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:195:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:22:09 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:18: error: expected expression before ']' token
+jni/main.c:148:2: error: 'gSound' has an incomplete type
+jni/main.c:149:10: error: 'i' undeclared (first use in this function)
+jni/main.c:149:10: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:163:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:196:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:22:13 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:2: error: 'gSound' has an incomplete type
+jni/main.c:148:2: error: expected ';' before 'unsigned'
+jni/main.c:149:10: error: 'i' undeclared (first use in this function)
+jni/main.c:149:10: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:163:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:196:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:23:01 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:2: error: 'gSound' has an incomplete type
+jni/main.c:148:2: error: expected ';' before 'unsigned'
+jni/main.c:149:10: error: 'i' undeclared (first use in this function)
+jni/main.c:149:10: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:163:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:196:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:23:04 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:148:2: error: 'gSound' has an incomplete type
+jni/main.c:148:2: error: expected ';' before 'unsigned'
+jni/main.c:149:10: error: 'i' undeclared (first use in this function)
+jni/main.c:149:10: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:163:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:196:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c: At top level:
+jni/main.c:23:14: warning: array 'gSound' assumed to have one element [enabled by default]
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:23:11 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:146:9: error: incompatible types when assigning to type 'struct FMOD_SOUND *[50]' from type 'struct FMOD_SOUND *'
+jni/main.c:148:2: error: expected ';' before 'unsigned'
+jni/main.c:149:10: error: 'i' undeclared (first use in this function)
+jni/main.c:149:10: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:160:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:162:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:163:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:196:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:23:53 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:158:50: error: 'path1' undeclared (first use in this function)
+jni/main.c:158:50: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c:159:50: error: 'path2' undeclared (first use in this function)
+jni/main.c:160:50: error: 'path3' undeclared (first use in this function)
+jni/main.c:161:50: error: 'path4' undeclared (first use in this function)
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:194:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:18 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:172:18: error: 'NUM_SOUNDS' undeclared (first use in this function)
+jni/main.c:172:18: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:32 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:172:18: error: 'numOfSounds' undeclared (first use in this function)
+jni/main.c:172:18: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:42 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:26:46 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:172:18: error: 'numOfSounds' undeclared (first use in this function)
+jni/main.c:172:18: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:49 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:147:17: error: 'numOfSounds' undeclared (first use in this function)
+jni/main.c:147:17: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:172:18: error: 'numOfSounds' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:50 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray':
+jni/main.c:145:2: error: 'numOfSounds' undeclared (first use in this function)
+jni/main.c:145:2: note: each undeclared identifier is reported only once for each function it appears in
+jni/main.c: In function 'Java_com_goldrushcomputing_playsound_Example_cEnd':
+jni/main.c:172:18: error: 'numOfSounds' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/main/main.o] Error 1
+19:26:55 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:28:59 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:29:22 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:29:27 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:29:28 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:30:59 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:31:22 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:31:30 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:32:15 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:32:29 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:32:51 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:32:55 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:145: error: undefined reference to 'GetArrayLength'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:33:36 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:148: error: undefined reference to 'GetObjectArrayElement'
+/Users/Mizutori/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/main/main.o: in function Java_com_goldrushcomputing_playsound_Example_cBeginWithSoundPathArray:jni/main.c:149: error: undefined reference to 'GetStringUTFChars'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libmain.so] Error 1
+19:33:46 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi/
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:33:52 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Prebuilt       : libARWrapper.so <= jni/./armeabi-v7a/
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi-v7a/
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi-v7a/
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi-v7a/
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi-v7a/
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi-v7a/
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:33:56 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi/
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:35:25 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Compile thumb  : main <= main.c
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:36:17 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Prebuilt       : libARWrapper.so <= jni/./armeabi/
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi/
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi/
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi/
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi/
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi/
+Install        : libssl.so => libs/armeabi/libssl.so
+Prebuilt       : libARWrapper.so <= jni/./armeabi-v7a/
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Prebuilt       : libc++_shared.so <= jni/./armeabi-v7a/
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Prebuilt       : libcrypto.so <= jni/./armeabi-v7a/
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Prebuilt       : libcurl.so <= jni/./armeabi-v7a/
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Prebuilt       : libfmodex.so <= jni/../../../../../../../../../../../../../android/fmodapi44408android/api/lib/armeabi-v7a/
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+SharedLibrary  : libmain.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Prebuilt       : libssl.so <= jni/./armeabi-v7a/
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:36:23 **** Incremental Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
+19:36:26 **** Auto Build of configuration Default for project playsound ****
+/Users/Mizutori/android/android-ndk-r8c/ndk-build all 
+Install        : libARWrapper.so => libs/armeabi/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi/libcrypto.so
+Install        : libcurl.so => libs/armeabi/libcurl.so
+Install        : libfmodex.so => libs/armeabi/libfmodex.so
+Install        : libmain.so => libs/armeabi/libmain.so
+Install        : libssl.so => libs/armeabi/libssl.so
+Install        : libARWrapper.so => libs/armeabi-v7a/libARWrapper.so
+Install        : libc++_shared.so => libs/armeabi-v7a/libc++_shared.so
+Install        : libcrypto.so => libs/armeabi-v7a/libcrypto.so
+Install        : libcurl.so => libs/armeabi-v7a/libcurl.so
+Install        : libfmodex.so => libs/armeabi-v7a/libfmodex.so
+Install        : libmain.so => libs/armeabi-v7a/libmain.so
+Install        : libssl.so => libs/armeabi-v7a/libssl.so
