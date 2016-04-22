@@ -2,6 +2,7 @@ package com.goldrushcomputing.playsound;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.rendering.ARRenderer;
@@ -137,8 +138,7 @@ public class Example extends ARActivity
         System.loadLibrary("main");
     }
     
-	public native void cBegin();
-	public native void cBeginWith(String path0, String path1, String path2, String path3);
+	public native void cBegin(String[] soundPathArray);
 	public native void cUpdate();
 	public native void cEnd();
 	public native void cPlaySound(int id);
@@ -277,8 +277,17 @@ public class Example extends ARActivity
 		//path3 = "/sdcard/hat.wav";
 		//path4 = "/sdcard/snaredrum.wav";
 				
+		List<String> list = new ArrayList<String>();
+		//add some stuff
+		list.add(path1);
+		list.add(path2);
+		list.add(path3);
+		list.add(path4);
 		
-		cBeginWith(path1, path2, path3, path4);
+		String[] stringArray = list.toArray(new String[0]);
+		
+		
+		cBegin(stringArray);
 		//cBegin();
 		
 		mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);

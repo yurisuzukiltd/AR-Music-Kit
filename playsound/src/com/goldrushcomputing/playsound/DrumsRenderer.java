@@ -20,9 +20,6 @@ public class DrumsRenderer extends ARRenderer {
 	private int drum2_MarkerID = -1;
 	private int drum3_MarkerID = -1;
 	
-		
-	
-	
 	private long drum1LastSeen = -1;
 	private long drum2LastSeen = -1;
 	private long drum3LastSeen = -1;
