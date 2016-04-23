@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 import org.artoolkit.ar.base.ARToolKit;
 import org.artoolkit.ar.base.rendering.ARRenderer;
-import org.artoolkit.ar.base.rendering.Cube;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -24,22 +23,36 @@ public class PianoRenderer extends ARRenderer {
 			"single;Data/Do-.pat;64",
 	};
 
+	private static final String[] markerTexturePaths = {
+			"Texture/Do.png",
+			"Texture/Re.png",
+			"Texture/Mi.png",
+			"Texture/Fa.png",
+			"Texture/So.png",
+			"Texture/La.png",
+			"Texture/Si.png",
+			"Texture/Do-.png",
+	};
+
 	private Marker[] markers = new Marker[markerParams.length];
 
 	public PianoRenderer(Example activity) {
 		this.activity = activity;
+
+		for (int i = 0; i < markers.length; ++i) {
+			Marker marker = new Marker();
+			markers[i] = marker;
+		}
 	}
 
 	@Override
 	public boolean configureARScene() {
-		for(int i=0; i<markers.length; ++i) {
-			Marker marker = new Marker();
-			boolean ret = marker.init(markerParams[i]);
-			if( !ret ) {
+		for (int i = 0; i < markers.length; ++i) {
+			boolean ret = markers[i].init(markerParams[i]);
+			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParams[i]);
 				return false;
 			}
-			markers[i] = marker;
 		}
 		return true;
 	}
@@ -47,17 +60,15 @@ public class PianoRenderer extends ARRenderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		super.onSurfaceCreated(gl, config);
+		for (int i = 0; i < markers.length; ++i) {
+			boolean ret = markers[i].loadTexture(gl, activity, markerTexturePaths[i]);
+			if( !ret ) {
+				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
+			}
+		}
 
-		/*
-		gl.glEnable(GL10.GL_TEXTURE_2D);           //Enable Texture Mapping ( NEW )
-		gl.glShadeModel(GL10.GL_SMOOTH);           //Enable Smooth Shading
-		gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);   //Black Background
-		gl.glClearDepthf(1.0f);                    //Depth Buffer Setup
-		gl.glEnable(GL10.GL_DEPTH_TEST);           //Enables Depth Testing
-		gl.glDepthFunc(GL10.GL_LEQUAL);            //The Type Of Depth Testing To Do
-
-		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
-		*/
+		// Enable Texture Mapping
+		gl.glEnable(GL10.GL_TEXTURE_2D);
 	}
 
 	@Override
@@ -66,7 +77,7 @@ public class PianoRenderer extends ARRenderer {
 
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-		for(Marker marker : markers) {
+		for (Marker marker : markers) {
 			marker.checkPlaySound(now, activity);
 		}
 
@@ -81,7 +92,7 @@ public class PianoRenderer extends ARRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		for(Marker marker : markers) {
+		for (Marker marker : markers) {
 			marker.draw(gl);
 		}
 	}
@@ -89,6 +100,8 @@ public class PianoRenderer extends ARRenderer {
 	private static class Marker {
 		private int markerId;
 		private long lastTrackedTime = -1L;
+
+		private Plane plane = new Plane(64.0f);
 
 		Marker() {
 		}
@@ -98,10 +111,8 @@ public class PianoRenderer extends ARRenderer {
 			return markerId >= 0;
 		}
 
-		boolean loadTexture(GL10 gl, Context contxt) {
-			//guitar.loadGLTexture(gl, context, R.drawable.android);
-
-			return true;
+		boolean loadTexture(GL10 gl, Context context, String textureAssetPath) {
+			return plane.loadGLTexture(gl, context, textureAssetPath);
 		}
 
 		private boolean isTracked() {
@@ -110,7 +121,7 @@ public class PianoRenderer extends ARRenderer {
 		}
 
 		void checkPlaySound(long now, Example activity) {
-			if( isTracked() ) {
+			if (isTracked()) {
 				lastTrackedTime = now;
 			} else {
 				if (lastTrackedTime > 0 && (now - lastTrackedTime) < 1000) {
@@ -122,10 +133,8 @@ public class PianoRenderer extends ARRenderer {
 			}
 		}
 
-		private Cube debugCube = new Cube(40.0f, 0.0f, 0.0f, 20.0f);
-
 		void draw(GL10 gl) {
-			if( !isTracked() ) {
+			if (!isTracked()) {
 				return;
 			}
 
@@ -135,7 +144,7 @@ public class PianoRenderer extends ARRenderer {
 			}
 
 			gl.glLoadMatrixf(markerMatrix, 0);
-			debugCube.draw(gl);
+			plane.draw(gl);
 		}
 	}
 }
