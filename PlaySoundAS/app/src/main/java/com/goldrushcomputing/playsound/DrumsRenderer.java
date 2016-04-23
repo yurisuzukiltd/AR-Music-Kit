@@ -123,7 +123,7 @@ public class DrumsRenderer extends ARRenderer {
 		if(getDebug()){
     		gl.glMatrixMode(GL10.GL_PROJECTION);
     		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
-    		gl.glRotatef(180,0.0f,0.0f,1.0f);
+			gl.glRotatef(180,0.0f,0.0f,1.0f);
     		
     		gl.glEnable(GL10.GL_CULL_FACE);
             gl.glShadeModel(GL10.GL_SMOOTH);
