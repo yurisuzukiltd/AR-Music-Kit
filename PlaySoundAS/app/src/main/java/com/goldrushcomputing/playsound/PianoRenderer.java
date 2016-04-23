@@ -36,6 +36,10 @@ public class PianoRenderer extends ARRenderer {
 
 	private Marker[] markers = new Marker[markerParams.length];
 
+	// 発音時に表示するテクスチャ
+	// (Zファイティングを避けるために若干上にずらしてみている)
+	private Plane playPlane = new Plane(64.0f * 1.3f, 1.0f);
+
 	public PianoRenderer(Example activity) {
 		this.activity = activity;
 
@@ -60,12 +64,17 @@ public class PianoRenderer extends ARRenderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		super.onSurfaceCreated(gl, config);
+
+		// 各マーカーテクスチャロード
 		for (int i = 0; i < markers.length; ++i) {
 			boolean ret = markers[i].loadTexture(gl, activity, markerTexturePaths[i]);
-			if( !ret ) {
+			if (!ret) {
 				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
 			}
 		}
+
+		// 発音テクスチャロード
+		playPlane.loadGLTexture(gl, activity, "Texture/play.png");
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -93,13 +102,14 @@ public class PianoRenderer extends ARRenderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
 		for (Marker marker : markers) {
-			marker.draw(gl);
+			marker.draw(gl, playPlane, now);
 		}
 	}
 
 	private static class Marker {
 		private int markerId;
 		private long lastTrackedTime = -1L;
+		private long lastPlayTime = -1L;
 
 		private Plane plane = new Plane(64.0f);
 
@@ -127,13 +137,35 @@ public class PianoRenderer extends ARRenderer {
 				if (lastTrackedTime > 0 && (now - lastTrackedTime) < 1000) {
 					Log.d(TAG, "marker hidden detected");
 					lastTrackedTime = -1;
+					lastPlayTime = now;
 					// TODO: 鳴らす音の指定
 					activity.playSound1(null);
 				}
 			}
 		}
 
-		void draw(GL10 gl) {
+		private float[] cachedMarkerMatrix = null;
+		private boolean markerMatrixCached;
+
+		private void cacheMarkerMatrix(float markerMatrix[]) {
+			if (cachedMarkerMatrix == null || cachedMarkerMatrix.length != markerMatrix.length) {
+				cachedMarkerMatrix = new float[markerMatrix.length];
+			}
+			System.arraycopy(markerMatrix, 0, cachedMarkerMatrix, 0, markerMatrix.length);
+			markerMatrixCached = true;
+		}
+
+		void draw(GL10 gl, Plane playPlane, long now) {
+			if (lastPlayTime > 0) {
+				if (now - lastPlayTime < 200 & markerMatrixCached) {
+					// 発音テクスチャを表示する
+					gl.glLoadMatrixf(cachedMarkerMatrix, 0);
+					playPlane.draw(gl);
+				} else {
+					lastPlayTime = -1L;
+				}
+			}
+
 			if (!isTracked()) {
 				return;
 			}
@@ -145,6 +177,7 @@ public class PianoRenderer extends ARRenderer {
 
 			gl.glLoadMatrixf(markerMatrix, 0);
 			plane.draw(gl);
+			cacheMarkerMatrix(markerMatrix);
 		}
 	}
 }

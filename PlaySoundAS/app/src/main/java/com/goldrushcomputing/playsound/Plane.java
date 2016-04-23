@@ -19,15 +19,6 @@ public class Plane {
 	private int[] textureId = new int[1];
 	private FloatBuffer vertexBuffer;
 
-	/*
-	private float vertices[] = {
-			-18.0f, -18.0f, 0.0f,
-			-18.0f, 18.0f, 0.0f,
-			18.0f, -18.0f, 0.0f,
-			18.0f, 18.0f, 0.0f
-	};
-	*/
-
 	private float vertices[] = {
 			-0.5f, -0.5f, 0.0f,
 			-0.5f, 0.5f, 0.0f,
@@ -44,9 +35,17 @@ public class Plane {
 	};
 
 	public Plane(float size) {
+		this(size, 0.0f);
+	}
+
+	public Plane(float size, float offsetZ) {
 		float[] scaledVertices = new float[vertices.length];
 		for(int i=0; i<vertices.length; ++i) {
 			scaledVertices[i] = size * vertices[i];
+			if( i % 3 == 2 ) {
+				// z座標にオフセットを加える
+				scaledVertices[i] += offsetZ;
+			}
 		}
 
 		ByteBuffer byteBuffer = ByteBuffer.allocateDirect(scaledVertices.length * 4);
