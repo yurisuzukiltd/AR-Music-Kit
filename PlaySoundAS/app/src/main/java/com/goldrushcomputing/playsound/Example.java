@@ -2,6 +2,7 @@ package com.goldrushcomputing.playsound;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.rendering.ARRenderer;
@@ -137,9 +138,8 @@ public class Example extends ARActivity
     	System.loadLibrary("fmodex");
         System.loadLibrary("main");
     }
-
-	public native void cBegin();
-	public native void cBeginWith(String path0, String path1, String path2, String path3);
+    
+	public native void cBegin(String[] soundPathArray);
 	public native void cUpdate();
 	public native void cEnd();
 	public native void cPlaySound(int id);
@@ -147,7 +147,106 @@ public class Example extends ARActivity
 	public native int cGetPosition();
 	public native boolean cGetPlaying();
 	public native int cGetChannelsPlaying();
+	
+	
 
+	public void downloadTrack() {
+		this.showLoadingPanel();
+		
+		if (Environment.MEDIA_MOUNTED.equals(Environment
+				.getExternalStorageState())) {
+
+			/*String directoryPath = Environment.getExternalStorageDirectory()
+					.getPath()
+					+ "/Android/data/"
+					+ this.getPackageName()
+					+ "/track";
+					*/
+			
+			//directoryPath = "/sdcard/fmod";
+			
+			String directoryPath = getTrackDirectory();
+
+			File directory = new File(directoryPath);
+
+			if (!directory.exists()) {
+				directory.mkdirs();
+				if (!directory.exists()) {
+					Log.e(TAG, "Failed to create directory:" + directoryPath);
+				}
+			}
+			
+			boolean needToDownload = false;
+			for (int i = 0; i < this.trackUrls.size(); i++) {
+				String trackUrl = this.trackUrls.get(i);
+				String fileName = trackUrl
+						.substring(trackUrl.lastIndexOf("/") + 1);
+				
+				
+				File file = new File(directory, fileName);
+				if(!file.exists()){
+					needToDownload = true;
+				}
+				
+			}
+			
+			if(needToDownload == false){
+				this.hideLoadingPanel();
+				this.startPlayer();
+				//startPlaySync();	
+			}else{
+				/*
+				for (int i = 0; i < this.trackUrls.size(); i++) {
+					String trackUrl = this.trackUrls.get(i);
+					String fileName = trackUrl
+							.substring(trackUrl.lastIndexOf("/") + 1);
+					File file = new File(directory, fileName);
+
+					DownloadFileAsyncTask task = new DownloadFileAsyncTask() {
+						@Override
+						protected void onPostExecute(Boolean result) {
+							if (result == true) {
+								
+								downloadCount ++;
+								
+								if(downloadCount == 4){
+									hideLoadingPanel();
+									// Log.i(TAG, "Finished downloading moview");
+									Toast.makeText(Example.this, "Music Loaded", Toast.LENGTH_SHORT)
+											.show();
+									startPlayer();
+									//startPlaySync();
+								}							
+								
+							} else {
+								hideLoadingPanel();
+								new AlertDialog.Builder(Example.this)
+										.setMessage("Failed to load music")
+										.setPositiveButton(
+												"OK",
+												new DialogInterface.OnClickListener() {
+													public void onClick(
+															DialogInterface dialog,
+															int which) {
+
+													}
+												}).show();
+							}
+						}
+					};
+					String filePath = file.getPath();
+					task.execute(trackUrl, file.getPath());
+					// Log.i(TAG, "Start downloading movie of " + this.movieUrl);
+
+				}
+				*/
+			}
+		}
+	}
+	
+	
+	
+	
 	/* FMOD Player */
 	public void startPlayer() {
 		isPlayerReady = true;
@@ -179,8 +278,17 @@ public class Example extends ARActivity
 		//path3 = "/sdcard/hat.wav";
 		//path4 = "/sdcard/snaredrum.wav";
 				
+		List<String> list = new ArrayList<String>();
+		//add some stuff
+		list.add(path1);
+		list.add(path2);
+		list.add(path3);
+		list.add(path4);
 		
-		cBeginWith(path1, path2, path3, path4);
+		String[] stringArray = list.toArray(new String[0]);
+		
+		
+		cBegin(stringArray);
 		//cBegin();
 		
 		mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
