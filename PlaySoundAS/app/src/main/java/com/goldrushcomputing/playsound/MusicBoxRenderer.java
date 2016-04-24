@@ -7,7 +7,7 @@ import org.artoolkit.ar.base.rendering.ARRenderer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class PianoRenderer extends ARRenderer {
+public class MusicBoxRenderer extends ARRenderer {
 	private static final String TAG = "PianoRenderer";
 	private Example activity;
 
@@ -39,7 +39,9 @@ public class PianoRenderer extends ARRenderer {
 	// (Zファイティングを避けるために若干上にずらしてみている)
 	private Plane playPlane = new Plane(64.0f * 1.3f, 1.0f);
 
-	public PianoRenderer(Example activity) {
+	private Matrix4f projMatrix = new Matrix4f();
+
+	public MusicBoxRenderer(Example activity) {
 		this.activity = activity;
 
 		for (int i = 0; i < markers.length; ++i) {
@@ -90,8 +92,9 @@ public class PianoRenderer extends ARRenderer {
 		}
 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
-		//gl.glRotatef(180, 0.0f, 0.0f, 1.0f);
+		float[] projectionMatrixArray = ARToolKit.getInstance().getProjectionMatrix();
+		gl.glLoadMatrixf(projectionMatrixArray, 0);
+		projMatrix.set(projectionMatrixArray);
 
 		gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
@@ -101,6 +104,9 @@ public class PianoRenderer extends ARRenderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
 		for (Marker marker : markers) {
+			// TODO: テスト中
+			marker.checkViewportInside(projMatrix, 0.5f, 0.5f);
+
 			marker.draw(gl, playPlane, now);
 		}
 	}

@@ -26,6 +26,8 @@ public class Plane {
 			0.5f, 0.5f, 0.0f
 	};
 
+	private float scaledVertices[];
+
 	private FloatBuffer texcoordBuffer;
 	private float texcoord[] = {
 			0.0f, 1.0f,        // top left		(V2)
@@ -39,10 +41,10 @@ public class Plane {
 	}
 
 	public Plane(float size, float offsetZ) {
-		float[] scaledVertices = new float[vertices.length];
-		for(int i=0; i<vertices.length; ++i) {
+		scaledVertices = new float[vertices.length];
+		for (int i = 0; i < vertices.length; ++i) {
 			scaledVertices[i] = size * vertices[i];
-			if( i % 3 == 2 ) {
+			if (i % 3 == 2) {
 				// z座標にオフセットを加える
 				scaledVertices[i] += offsetZ;
 			}
@@ -96,7 +98,7 @@ public class Plane {
 			return false;
 		}
 
-		if( bitmap == null ) {
+		if (bitmap == null) {
 			Log.d(TAG, "texture load failed:" + assetPath);
 			return false;
 		}
@@ -116,6 +118,34 @@ public class Plane {
 		// Clean up
 		bitmap.recycle();
 
+		return true;
+	}
+
+	private Vector4f workVec0 = new Vector4f();
+	private Vector4f workVec1 = new Vector4f();
+
+	/**
+	 * ViewPort座標内での各頂点の位置(-1.0~1.0)を算出し、それが指定の範囲内かどうかを調べる.
+	 */
+	public boolean checkViewportInside(Matrix4f mat, float rangeX, float rangeY) {
+		for (int i = 0; i < 4; ++i) {
+			float vx = scaledVertices[3 * i];
+			float vy = scaledVertices[3 * i + 1];
+			float vz = scaledVertices[3 * i + 2];
+			workVec0.set(vx, vy, vz, 1.0f);
+
+			mat.transform(workVec0, workVec1);
+
+			float sx = workVec1.x / workVec1.w;
+			float sy = workVec1.y / workVec1.w;
+			if( sx < -rangeX || sx > rangeX || sy < -rangeY || sy > rangeY ) {
+				Log.d(TAG, "vertex outside of region");
+				// どれかの頂点が範囲外に出ていた
+				return false;
+			}
+		}
+
+		Log.d(TAG, "all vertex inside region");
 		return true;
 	}
 
