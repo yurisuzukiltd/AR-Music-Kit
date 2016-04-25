@@ -1,14 +1,9 @@
 package com.goldrushcomputing.playsound;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.opengl.GLUtils;
 import android.util.Log;
 
 import javax.microedition.khronos.opengles.GL10;
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -16,10 +11,10 @@ import java.nio.FloatBuffer;
 public class Plane {
 	private static final String TAG = "Plane";
 
-	private int[] textureId;
+	private Texture texture;
 	private FloatBuffer vertexBuffer;
 
-	private float vertices[] = {
+	private static final float vertices[] = {
 			-0.5f, -0.5f, 0.0f,
 			-0.5f, 0.5f, 0.0f,
 			0.5f, -0.5f, 0.0f,
@@ -29,11 +24,11 @@ public class Plane {
 	private float scaledVertices[];
 
 	private FloatBuffer texcoordBuffer;
-	private float texcoord[] = {
-			0.0f, 1.0f,        // top left		(V2)
-			0.0f, 0.0f,        // bottom left	(V1)
-			1.0f, 1.0f,        // top right	(V4)
-			1.0f, 0.0f        // bottom right	(V3)
+	private static final float texcoord[] = {
+			0.0f, 1.0f, // top left		(V2)
+			0.0f, 0.0f, // bottom left	(V1)
+			1.0f, 1.0f, // top right	(V4)
+			1.0f, 0.0f  // bottom right	(V3)
 	};
 
 	private Vector4f workVec0 = new Vector4f();
@@ -44,7 +39,7 @@ public class Plane {
 	}
 
 	public boolean hasTexture() {
-		return textureId != null;
+		return texture != null;
 	}
 
 	public Plane(float size, float offsetZ) {
@@ -71,12 +66,12 @@ public class Plane {
 	}
 
 	public void draw(GL10 gl) {
-		if( !hasTexture() ) {
+		if (!hasTexture()) {
 			return;
 		}
 
 		// bind the previously generated texture
-		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId[0]);
+		texture.bind(gl);
 
 		// Point to our buffers
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
@@ -98,40 +93,8 @@ public class Plane {
 	}
 
 	public boolean loadGLTexture(GL10 gl, Context context, String assetPath) {
-		textureId = new int[1];
-
-		// loading texture
-		Bitmap bitmap;
-
-		try {
-			InputStream is = context.getResources().getAssets().open(assetPath);
-			bitmap = BitmapFactory.decodeStream(is);
-		} catch (IOException e) {
-			Log.d(TAG, "texture load failed:" + assetPath);
-			return false;
-		}
-
-		if (bitmap == null) {
-			Log.d(TAG, "texture load failed:" + assetPath);
-			return false;
-		}
-
-		// generate one texture pointer
-		gl.glGenTextures(1, textureId, 0);
-		// and bind it to our array
-		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId[0]);
-
-		// create nearest filtered texture
-		gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
-		gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
-
-		// Use Android GLUtils to specify a two-dimensional texture image from our bitmap
-		GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-
-		// Clean up
-		bitmap.recycle();
-
-		return true;
+		texture = new Texture();
+		return texture.load(gl, context, assetPath);
 	}
 
 	/**
@@ -148,7 +111,7 @@ public class Plane {
 
 			float sx = workVec1.x / workVec1.w;
 			float sy = workVec1.y / workVec1.w;
-			if( sx < -rangeX || sx > rangeX || sy < -rangeY || sy > rangeY ) {
+			if (sx < -rangeX || sx > rangeX || sy < -rangeY || sy > rangeY) {
 				Log.d(TAG, "vertex outside of region");
 				// どれかの頂点が範囲外に出ていた
 				return false;
