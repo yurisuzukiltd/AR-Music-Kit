@@ -79,6 +79,10 @@ public class PianoRenderer extends ARRenderer {
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
+
+		// 発音テクスチャが重なって表示された時の抜き表示
+		gl.glAlphaFunc(GL10.GL_GEQUAL, 0.5f);
+		gl.glEnable(GL10.GL_ALPHA_TEST);
 	}
 
 	@Override
@@ -93,7 +97,6 @@ public class PianoRenderer extends ARRenderer {
 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
-		//gl.glRotatef(180, 0.0f, 0.0f, 1.0f);
 
 		gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
