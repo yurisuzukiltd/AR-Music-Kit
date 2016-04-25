@@ -16,7 +16,7 @@ import java.nio.FloatBuffer;
 public class Plane {
 	private static final String TAG = "Plane";
 
-	private int[] textureId = new int[1];
+	private int[] textureId;
 	private FloatBuffer vertexBuffer;
 
 	private float vertices[] = {
@@ -36,8 +36,15 @@ public class Plane {
 			1.0f, 0.0f        // bottom right	(V3)
 	};
 
+	private Vector4f workVec0 = new Vector4f();
+	private Vector4f workVec1 = new Vector4f();
+
 	public Plane(float size) {
 		this(size, 0.0f);
+	}
+
+	public boolean hasTexture() {
+		return textureId != null;
 	}
 
 	public Plane(float size, float offsetZ) {
@@ -64,6 +71,10 @@ public class Plane {
 	}
 
 	public void draw(GL10 gl) {
+		if( !hasTexture() ) {
+			return;
+		}
+
 		// bind the previously generated texture
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId[0]);
 
@@ -87,6 +98,8 @@ public class Plane {
 	}
 
 	public boolean loadGLTexture(GL10 gl, Context context, String assetPath) {
+		textureId = new int[1];
+
 		// loading texture
 		Bitmap bitmap;
 
@@ -120,9 +133,6 @@ public class Plane {
 
 		return true;
 	}
-
-	private Vector4f workVec0 = new Vector4f();
-	private Vector4f workVec1 = new Vector4f();
 
 	/**
 	 * ViewPort座標内での各頂点の位置(-1.0~1.0)を算出し、それが指定の範囲内かどうかを調べる.

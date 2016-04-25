@@ -22,6 +22,7 @@ public class MusicBoxRenderer extends ARRenderer {
 			"single;Data/Do-.pat;64",
 	};
 
+	/*
 	private static final String[] markerTexturePaths = {
 			"Texture/Do.png",
 			"Texture/Re.png",
@@ -32,6 +33,7 @@ public class MusicBoxRenderer extends ARRenderer {
 			"Texture/Si.png",
 			"Texture/Do-.png",
 	};
+	*/
 
 	private Marker[] markers = new Marker[markerParams.length];
 
@@ -53,7 +55,9 @@ public class MusicBoxRenderer extends ARRenderer {
 	@Override
 	public boolean configureARScene() {
 		for (int i = 0; i < markers.length; ++i) {
-			boolean ret = markers[i].init(markerParams[i]);
+			// TODO: サウンドIDは仮のものを入れている
+			int soundId = 0;
+			boolean ret = markers[i].init(markerParams[i], soundId);
 			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParams[i]);
 				return false;
@@ -67,12 +71,14 @@ public class MusicBoxRenderer extends ARRenderer {
 		super.onSurfaceCreated(gl, config);
 
 		// 各マーカーテクスチャロード
+		/*
 		for (int i = 0; i < markers.length; ++i) {
 			boolean ret = markers[i].loadTexture(gl, activity, markerTexturePaths[i]);
 			if (!ret) {
 				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
 			}
 		}
+		*/
 
 		// 発音テクスチャロード
 		playPlane.loadGLTexture(gl, activity, "Texture/play.png");
@@ -87,10 +93,6 @@ public class MusicBoxRenderer extends ARRenderer {
 
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-		for (Marker marker : markers) {
-			marker.checkPlaySound(now, activity);
-		}
-
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		float[] projectionMatrixArray = ARToolKit.getInstance().getProjectionMatrix();
 		gl.glLoadMatrixf(projectionMatrixArray, 0);
@@ -104,9 +106,8 @@ public class MusicBoxRenderer extends ARRenderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
 		for (Marker marker : markers) {
-			// TODO: テスト中
-			marker.checkViewportInside(projMatrix, 0.5f, 0.5f);
-
+			// 範囲を指定して発音チェック
+			marker.checkPlaySoundWithRange(now, activity, projMatrix, 2.0f/3.0f, 2.0f/3.0f);
 			marker.draw(gl, playPlane, now);
 		}
 	}

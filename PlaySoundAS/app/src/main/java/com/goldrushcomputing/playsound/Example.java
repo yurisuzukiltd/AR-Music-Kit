@@ -238,8 +238,8 @@ public class Example extends ARActivity {
 	@Override
 	protected ARRenderer supplyRenderer() {
 		//return new DrumsRenderer(this);
-		//return new PianoRenderer(this);
-		return new MusicBoxRenderer(this);
+		return new PianoRenderer(this);
+		//return new MusicBoxRenderer(this);
 	}
 
 	/**

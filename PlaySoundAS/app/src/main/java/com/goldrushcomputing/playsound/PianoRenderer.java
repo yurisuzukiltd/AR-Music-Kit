@@ -51,7 +51,9 @@ public class PianoRenderer extends ARRenderer {
 	@Override
 	public boolean configureARScene() {
 		for (int i = 0; i < markers.length; ++i) {
-			boolean ret = markers[i].init(markerParams[i]);
+			// TODO: サウンドIDは仮のものを入れている
+			int soundId = 0;
+			boolean ret = markers[i].init(markerParams[i], soundId);
 			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParams[i]);
 				return false;
