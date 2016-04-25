@@ -1,4 +1,4 @@
-/*
+ /*
  *  SimpleRenderer.java
  *  ARToolKit5
  *

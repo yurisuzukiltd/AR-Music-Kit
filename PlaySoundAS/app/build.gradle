@@ -9,7 +9,7 @@ model {
             applicationId = "com.goldrushcomputing.playsound"
             minSdkVersion.apiLevel = 15
             targetSdkVersion.apiLevel = 22
-            versionCode = 12
+            versionCode = 14
             //Integer type incremented by 1 for every release, major or minor, to Google store
             versionName = "1.4" //Real fully qualified major and minor release description
 

@@ -3,7 +3,6 @@ package com.goldrushcomputing.playsound;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -26,10 +25,66 @@ public class Example extends ARActivity {
 	private boolean isPlayerReady = false;
 	private boolean isPlaying = false;
 
-	private String soundFile0 = "bass.wav";
-	private String soundFile1 = "hat.wav";
-	private String soundFile2 = "snaredrum.wav";
-	private String soundFile3 = "bosa.wav";
+	private static final String[] pianoSounds = {
+			"piano/l-do.wav",
+			"piano/l-re.wav",
+			"piano/l-mi.wav",
+			"piano/l-fa.wav",
+			"piano/l-so.wav",
+			"piano/l-la.wav",
+			"piano/l-si.wav",
+			"piano/l-do-.wav",
+			"piano/m-do.wav",
+			"piano/m-re.wav",
+			"piano/m-mi.wav",
+			"piano/m-fa.wav",
+			"piano/m-so.wav",
+			"piano/m-la.wav",
+			"piano/m-si.wav",
+			"piano/m-do-.wav",
+			"piano/h-do.wav",
+			"piano/h-re.wav",
+			"piano/h-mi.wav",
+			"piano/h-fa.wav",
+			"piano/h-so.wav",
+			"piano/h-la.wav",
+			"piano/h-si.wav",
+			"piano/h-do-.wav"
+	};
+
+	private static final String[] musicBoxSounds = {
+			"musicbox/l-do.wav",
+			"musicbox/l-re.wav",
+			"musicbox/l-mi.wav",
+			"musicbox/l-fa.wav",
+			"musicbox/l-so.wav",
+			"musicbox/l-la.wav",
+			"musicbox/l-si.wav",
+			"musicbox/l-do-.wav",
+			"musicbox/m-do.wav",
+			"musicbox/m-re.wav",
+			"musicbox/m-mi.wav",
+			"musicbox/m-fa.wav",
+			"musicbox/m-so.wav",
+			"musicbox/m-la.wav",
+			"musicbox/m-si.wav",
+			"musicbox/m-do-.wav",
+			"musicbox/h-do.wav",
+			"musicbox/h-re.wav",
+			"musicbox/h-mi.wav",
+			"musicbox/h-fa.wav",
+			"musicbox/h-so.wav",
+			"musicbox/h-la.wav",
+			"musicbox/h-si.wav",
+			"musicbox/h-do-.wav"
+	};
+
+	private static final String[] drumSounds = {
+			"drum/bass.wav",
+			"drum/hat.wav",
+			"drum/snaredrum.wav",
+			"drum/bosa.wav"
+	};
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
@@ -50,11 +105,6 @@ public class Example extends ARActivity {
 		}
 	};
 
-	/**
-	 * The FrameLayout where the AR view is displayed.
-	 */
-	private FrameLayout mainLayout;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,7 +115,6 @@ public class Example extends ARActivity {
 	public void onStart() {
 		super.onStart();
 		mFMODAudioDevice.start();
-		//cBegin();
 
 		final Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
@@ -107,50 +156,25 @@ public class Example extends ARActivity {
 		isPlayerReady = true;
 		mFMODAudioDevice.start();
 
-		//String directoryPath = Environment.getExternalStorageDirectory().getPath() + "/Android/data/" + this.getPackageName() + "/track";
-
-		String directoryPath = getTrackDirectory();
-
-		//directoryPath = directoryPath.replace("/0/", "/legacy/");
-
-		String path1 = directoryPath + "/" + soundFile0;
-		String path2 = directoryPath + "/" + soundFile1;
-		String path3 = directoryPath + "/" + soundFile2;
-		String path4 = directoryPath + "/" + soundFile3;
-
-		//path1 = path1.substring(path1.indexOf("/sdcard"));
-		//path2 = path2.substring(path2.indexOf("/sdcard"));
-		//path3 = path3.substring(path3.indexOf("/sdcard"));
-		//path4 = path4.substring(path4.indexOf("/sdcard"));
-
-		Log.d(TAG, path1);
-		Log.d(TAG, path2);
-		Log.d(TAG, path3);
-		Log.d(TAG, path4);
-
-		//path1 = "/sdcard/bosa.wav";
-		//path2 = "/sdcard/bass.wav";
-		//path3 = "/sdcard/hat.wav";
-		//path4 = "/sdcard/snaredrum.wav";
-
-		List<String> list = new ArrayList<String>();
-		//add some stuff
-		list.add(path1);
-		list.add(path2);
-		list.add(path3);
-		list.add(path4);
-
-		String[] stringArray = list.toArray(new String[0]);
-
-
-		cBegin(stringArray);
-		//cBegin();
+		loadSoundFiles(musicBoxSounds);
 
 		mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
 	}
 
+	private void loadSoundFiles(String[] soundPathes) {
+		String directoryPath = getTrackDirectory();
+		List<String> list = new ArrayList<>();
+		for (String soundFilePath : soundPathes) {
+			list.add(directoryPath + "/" + soundFilePath);
+		}
+
+		String[] filePathes = list.toArray(new String[list.size()]);
+		cBegin(filePathes);
+	}
+
 	public String getTrackDirectory() {
 		return this.getCacheDir().getAbsolutePath() + "/Music";
+		//return this.getExternalCacheDir().getAbsolutePath() + "/Music";
 	}
 
 	public void endPlayer() {
@@ -180,60 +204,6 @@ public class Example extends ARActivity {
 		this.isPlaying = true;
 	}
 
-	/*
-	public void playSoundFrom(int trackIndex, int position) {
-		Log.d(TAG, "PlaySoundFrom " + position);
-		cPlaySoundFrom(trackIndex, position);
-		this.isPlaying = true;
-	}
-	*/
-
-	public void seekSoundTo(int position) {
-		//cSeekSoundTo(position);
-	}
-
-	/*
-	public void pauseSound() {
-		cPauseSound();
-		this.isPlaying = false;
-	}
-	*/
-
-	/*
-	public void stopSound(int trackIndex) {
-		cStopSound();
-		this.isPlaying = false;
-	}
-	*/
-
-	/*
-	public void inspectBufferSize() {
-		int size = cGetDSPBufferSize();
-		Log.d(TAG, "DSP Buffer Size is " + size);
-	}
-	*/
-
-
-	public void showLoadingPanel() {
-		/*
-		View view = (View) this.findViewById(R.id.loading_panel);
-		view.setVisibility(View.VISIBLE);
-		
-		ImageView loadingMark = (ImageView) this.findViewById(R.id.loading_mark);
-		Animation animationSlideIn = AnimationUtils.loadAnimation(this, R.anim.spinning);
-		loadingMark.startAnimation(animationSlideIn);
-		*/
-	}
-
-	public void hideLoadingPanel() {
-		/*
-		View view = (View) this.findViewById(R.id.loading_panel);
-		view.setVisibility(View.GONE);
-		
-		ImageView loadingMark = (ImageView) this.findViewById(R.id.loading_mark);
-		loadingMark.clearAnimation();
-		*/
-	}
 
 	@Override
 	protected ARRenderer supplyRenderer() {

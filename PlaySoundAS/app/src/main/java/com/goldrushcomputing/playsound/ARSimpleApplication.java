@@ -52,8 +52,6 @@
 // 
 package com.goldrushcomputing.playsound;
 
-import org.artoolkit.ar.base.assets.AssetHelper;
-
 import android.app.Application;
 
 public class ARSimpleApplication extends Application {
@@ -80,7 +78,8 @@ public class ARSimpleApplication extends Application {
 		// Unpack assets to cache directory so native library can read them.
     	// N.B.: If contents of assets folder changes, be sure to increment the
     	// versionCode integer in the AndroidManifest.xml file.
-		AssetHelper assetHelper = new AssetHelper(getAssets());        
+		//AssetHelper assetHelper = new AssetHelper(getAssets());
+		CustomAssetHelper assetHelper = new CustomAssetHelper(getAssets());
 		assetHelper.cacheAssetFolder(getInstance(), "Data");
 		assetHelper.cacheAssetFolder(getInstance(), "Music");
     }
