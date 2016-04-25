@@ -3,9 +3,7 @@ package com.goldrushcomputing.playsound;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 import org.fmod.FMODAudioDevice;
@@ -15,15 +13,15 @@ import java.util.List;
 
 @SuppressWarnings("JniMissingFunction")
 public class Example extends ARActivity {
-	static String TAG = "Example";
-
 	static {
 		System.loadLibrary("fmodex");
 		System.loadLibrary("main");
 	}
 
-	private boolean isPlayerReady = false;
-	private boolean isPlaying = false;
+	public static final int INSTRUMENT_TYPE_PIANO = 0;
+	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 1;
+	public static final int INSTRUMENT_TYPE_ACOUSTIC_GUITAR = 2;
+	public static final int INSTRUMENT_TYPE_ELECTRIC_GUITAR = 3;
 
 	private static final String[] pianoSounds = {
 			"piano/l-do.wav",
@@ -79,6 +77,26 @@ public class Example extends ARActivity {
 			"musicbox/h-do-.wav"
 	};
 
+	private static final String[] acousticGuitarSounds = {
+			"acousticguitar/C.wav",
+			"acousticguitar/Dm.wav",
+			"acousticguitar/Em.wav",
+			"acousticguitar/F.wav",
+			"acousticguitar/G.wav",
+			"acousticguitar/Am.wav",
+			"acousticguitar/B5.wav"
+	};
+
+	private static final String[] electricGuitarSounds = {
+			"electronicguitar/C.wav",
+			"electronicguitar/Dm.wav",
+			"electronicguitar/Em.wav",
+			"electronicguitar/F.wav",
+			"electronicguitar/G.wav",
+			"electronicguitar/Am.wav",
+			"electronicguitar/B5.wav",
+	};
+
 	private static final String[] drumSounds = {
 			"drum/bass.wav",
 			"drum/hat.wav",
@@ -91,15 +109,6 @@ public class Example extends ARActivity {
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			cUpdate();
-
-			int position = cGetPosition();
-			int length = cGetLength();
-			int channels = cGetChannelsPlaying();
-
-			((TextView) findViewById(R.id.txtState)).setText(cGetPlaying() ? "Playing" : "Stopped");
-			((TextView) findViewById(R.id.txtPos)).setText(String.format("%02d:%02d:%02d / %02d:%02d:%02d", position / 1000 / 60, position / 1000 % 60, position / 10 % 100, length / 1000 / 60, length / 1000 % 60, length / 10 % 100));
-			((TextView) findViewById(R.id.txtChans)).setText(String.format("%d", channels));
-
 			removeMessages(0);
 			sendMessageDelayed(obtainMessage(0), 50);
 		}
@@ -153,10 +162,9 @@ public class Example extends ARActivity {
 
 	/* FMOD Player */
 	public void startPlayer() {
-		isPlayerReady = true;
 		mFMODAudioDevice.start();
 
-		loadSoundFiles(musicBoxSounds);
+		loadSoundFiles(pianoSounds);
 
 		mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
 	}
@@ -174,42 +182,22 @@ public class Example extends ARActivity {
 
 	public String getTrackDirectory() {
 		return this.getCacheDir().getAbsolutePath() + "/Music";
-		//return this.getExternalCacheDir().getAbsolutePath() + "/Music";
 	}
 
 	public void endPlayer() {
-		isPlayerReady = false;
 		cEnd();
 		mFMODAudioDevice.stop();
 	}
 
-	public void playSound1(View view) {
-		cPlaySound(0);
-	}
-
-	public void playSound2(View view) {
-		cPlaySound(1);
-	}
-
-	public void playSound3(View view) {
-		cPlaySound(2);
-	}
-
-	public void playSound4(View view) {
-		cPlaySound(3);
-	}
-
 	public void playSound(int trackIndex) {
 		cPlaySound(trackIndex);
-		this.isPlaying = true;
 	}
-
 
 	@Override
 	protected ARRenderer supplyRenderer() {
 		//return new DrumsRenderer(this);
-		//return new PianoRenderer(this);
-		return new MusicBoxRenderer(this);
+		return new PianoRenderer(this);
+		//return new MusicBoxRenderer(this);
 	}
 
 	/**

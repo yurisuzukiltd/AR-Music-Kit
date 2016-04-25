@@ -91,7 +91,7 @@ public class DrumsRenderer extends ARRenderer {
 			if(drum1LastSeen>0 && (now-drum1LastSeen)<1000){
 				//((DrumsApplication)(DrumsApplication.getInstance())).playSound(DrumsApplication.drum1_SoundID,1.0f,1.0f);
 				Log.d(TAG,  "detected -> playSound1");
-				this.activity.playSound1(null);
+				this.activity.playSound(0);
 				drum1LastSeen=-1;
 			}
 		}
@@ -103,7 +103,7 @@ public class DrumsRenderer extends ARRenderer {
 			if(drum2LastSeen>0 && (now-drum2LastSeen)<1000){
 				//((DrumsApplication)(DrumsApplication.getInstance())).playSound(DrumsApplication.drum2_SoundID,1.0f,1.0f);
 				Log.d(TAG,  "detected -> playSound2");
-				this.activity.playSound2(null);
+				this.activity.playSound(1);
 				drum2LastSeen=-1;
 			}
 		}
@@ -115,7 +115,7 @@ public class DrumsRenderer extends ARRenderer {
 			if(drum3LastSeen>0 && (now-drum3LastSeen)<1000){
 				//((DrumsApplication)(DrumsApplication.getInstance())).playSound(DrumsApplication.drum3_SoundID,1.0f,1.0f);
 				Log.d(TAG,  "detected -> playSound3");
-				this.activity.playSound3(null);
+				this.activity.playSound(2);
 				drum3LastSeen=-1;
 			}
 		}
@@ -180,10 +180,5 @@ public class DrumsRenderer extends ARRenderer {
 	
 	boolean getDebug(){
 		return true;
-		//return(((DrumsApplication)(DrumsApplication.getInstance())).getDebug());
-	}
-	
-	void setDebug(boolean d){
-		//((DrumsApplication)(DrumsApplication.getInstance())).setDebug(d);
 	}
 }
