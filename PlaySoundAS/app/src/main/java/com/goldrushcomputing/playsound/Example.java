@@ -112,7 +112,8 @@ public class Example extends ARActivity {
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
-	private int instrumentType = INSTRUMENT_TYPE_PIANO;
+	/// 楽器タイプの切り替え
+	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
 
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -197,6 +198,10 @@ public class Example extends ARActivity {
 		mFMODAudioDevice.stop();
 	}
 
+	/**
+	 * TODO:
+	 * low,mid,highを切り替える時は、ここで値にoffsetを加えて、cPlaySound()を呼び出す.
+	 */
 	public void playSound(int trackIndex) {
 		cPlaySound(trackIndex);
 	}
