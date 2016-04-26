@@ -97,14 +97,23 @@ public class Example extends ARActivity {
 			"electronicguitar/B5.wav",
 	};
 
+	/*
 	private static final String[] drumSounds = {
 			"drum/bass.wav",
 			"drum/hat.wav",
 			"drum/snaredrum.wav",
 			"drum/bosa.wav"
 	};
+	*/
+
+	private static final String[][] instrumentSounds = {
+			pianoSounds, musicBoxSounds, acousticGuitarSounds, electricGuitarSounds,
+	};
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
+
+	/// 楽器タイプの切り替え
+	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
 
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -164,8 +173,8 @@ public class Example extends ARActivity {
 	public void startPlayer() {
 		mFMODAudioDevice.start();
 
-		loadSoundFiles(pianoSounds);
-
+		String[] sounds = instrumentSounds[instrumentType];
+		loadSoundFiles(sounds);
 		mUpdateHandler.sendMessageDelayed(mUpdateHandler.obtainMessage(0), 0);
 	}
 
@@ -189,15 +198,25 @@ public class Example extends ARActivity {
 		mFMODAudioDevice.stop();
 	}
 
+	/**
+	 * TODO:
+	 * low,mid,highを切り替える時は、ここで値にoffsetを加えて、cPlaySound()を呼び出す.
+	 */
 	public void playSound(int trackIndex) {
 		cPlaySound(trackIndex);
 	}
 
 	@Override
 	protected ARRenderer supplyRenderer() {
-		//return new DrumsRenderer(this);
-		return new PianoRenderer(this);
-		//return new MusicBoxRenderer(this);
+		if( instrumentType == INSTRUMENT_TYPE_PIANO ) {
+			return new PianoRenderer(this);
+		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
+			return new MusicBoxRenderer(this);
+		} else if( instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR ) {
+			return new GuitarRenderer(this, true);
+		} else {
+			return new GuitarRenderer(this, false);
+		}
 	}
 
 	/**

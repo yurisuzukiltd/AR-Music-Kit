@@ -33,11 +33,18 @@ public class PianoRenderer extends ARRenderer {
 			"Texture/Do-.png",
 	};
 
-	private Marker[] markers = new Marker[markerParams.length];
+	private static final String[] actionTexturePaths = {
+			"Texture/Action_purple.png",
+			"Texture/Action_blue.png",
+			"Texture/Action_green.png",
+			"Texture/Action_yellow.png",
+			"Texture/Action_orange.png",
+			"Texture/Action_red.png",
+			"Texture/Action_brown.png",
+			"Texture/Action_black.png",
+	};
 
-	// 発音時に表示する共通テクスチャ
-	// (Zファイティングを避けるために若干上にずらしてみている)
-	private Plane playPlane = new Plane(64.0f * 1.3f, 1.0f);
+	private Marker[] markers = new Marker[markerParams.length];
 
 	public PianoRenderer(Example activity) {
 		this.activity = activity;
@@ -66,14 +73,15 @@ public class PianoRenderer extends ARRenderer {
 
 		// 各マーカーテクスチャロード
 		for (int i = 0; i < markers.length; ++i) {
-			boolean ret = markers[i].loadTexture(gl, activity, markerTexturePaths[i]);
-			if (!ret) {
+			boolean ret0 = markers[i].loadMarkerTexture(gl, activity, markerTexturePaths[i]);
+			boolean ret1 = markers[i].loadActionTexture(gl, activity, actionTexturePaths[i]);
+			if (!ret0) {
 				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
 			}
+			if (!ret1) {
+				Log.d(TAG, "action texture failed:" + actionTexturePaths[i]);
+			}
 		}
-
-		// 発音テクスチャロード
-		playPlane.loadGLTexture(gl, activity, "Texture/play.png");
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -104,7 +112,7 @@ public class PianoRenderer extends ARRenderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
 		for (Marker marker : markers) {
-			marker.draw(gl, playPlane, now);
+			marker.draw(gl, now);
 		}
 	}
 }

@@ -1,7 +1,6 @@
 package com.goldrushcomputing.playsound;
 
 import android.content.Context;
-import android.util.Log;
 
 import javax.microedition.khronos.opengles.GL10;
 import java.nio.ByteBuffer;
@@ -31,8 +30,8 @@ public class Plane {
 			1.0f, 0.0f  // bottom right	(V3)
 	};
 
-	private Vector4f workVec0 = new Vector4f();
-	private Vector4f workVec1 = new Vector4f();
+	//private Vector4f workVec0 = new Vector4f();
+	//private Vector4f workVec1 = new Vector4f();
 
 	public Plane(float size) {
 		this(size, 0.0f);
@@ -95,31 +94,6 @@ public class Plane {
 	public boolean loadGLTexture(GL10 gl, Context context, String assetPath) {
 		texture = new Texture();
 		return texture.load(gl, context, assetPath);
-	}
-
-	/**
-	 * ViewPort座標内での各頂点の位置(-1.0~1.0)を算出し、それが指定の範囲内かどうかを調べる.
-	 */
-	public boolean checkViewportInside(Matrix4f mat, float rangeX, float rangeY) {
-		for (int i = 0; i < 4; ++i) {
-			float vx = scaledVertices[3 * i];
-			float vy = scaledVertices[3 * i + 1];
-			float vz = scaledVertices[3 * i + 2];
-			workVec0.set(vx, vy, vz, 1.0f);
-
-			mat.transform(workVec0, workVec1);
-
-			float sx = workVec1.x / workVec1.w;
-			float sy = workVec1.y / workVec1.w;
-			if (sx < -rangeX || sx > rangeX || sy < -rangeY || sy > rangeY) {
-				Log.d(TAG, "vertex outside of region");
-				// どれかの頂点が範囲外に出ていた
-				return false;
-			}
-		}
-
-		Log.d(TAG, "all vertex inside region");
-		return true;
 	}
 
 	// TODO: テクスチャメモリの解放
