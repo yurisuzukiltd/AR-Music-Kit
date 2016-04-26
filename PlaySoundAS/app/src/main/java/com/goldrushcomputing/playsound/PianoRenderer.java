@@ -33,7 +33,6 @@ public class PianoRenderer extends ARRenderer {
 			"Texture/Do-.png",
 	};
 
-	/*
 	private static final String[] actionTexturePaths = {
 			"Texture/Action_purple.png",
 			"Texture/Action_blue.png",
@@ -43,18 +42,6 @@ public class PianoRenderer extends ARRenderer {
 			"Texture/Action_red.png",
 			"Texture/Action_brown.png",
 			"Texture/Action_black.png",
-	};
-	*/
-
-	private static final String[] actionTexturePaths = {
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
-			"Texture/play.png",
 	};
 
 	private Marker[] markers = new Marker[markerParams.length];
