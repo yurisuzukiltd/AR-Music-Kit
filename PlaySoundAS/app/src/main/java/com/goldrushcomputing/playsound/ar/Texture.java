@@ -1,4 +1,4 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.ar;
 
 import android.content.Context;
 import android.graphics.Bitmap;

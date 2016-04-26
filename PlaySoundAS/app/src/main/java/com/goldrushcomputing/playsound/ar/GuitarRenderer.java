@@ -1,6 +1,7 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.ar;
 
 import android.util.Log;
+import com.goldrushcomputing.playsound.Example;
 import org.artoolkit.ar.base.ARToolKit;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 
@@ -8,11 +9,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 public class GuitarRenderer extends ARRenderer {
-private static final String TAG = "GuitarRenderer";
+	private static final String TAG = "GuitarRenderer";
 	private Example activity;
 
+	// マーカーデータ
 	private static final String[] acousticMarkerParams = {
-			"single;Data/guitar.pat;64",
 			"single;Data/C.pat;64",
 			"single;Data/Dm.pat;64",
 			"single;Data/Em.pat;64",
@@ -21,9 +22,10 @@ private static final String TAG = "GuitarRenderer";
 			"single;Data/Am.pat;64",
 			"single;Data/B5.pat;64",
 	};
+
+	private static final String acousticPlayMarkerParam = "single;Data/guitar.pat;64";
 
 	private static final String[] electricMarkerParams = {
-			"single;Data/ElectricGuitar.pat;64",
 			"single;Data/C.pat;64",
 			"single;Data/Dm.pat;64",
 			"single;Data/Em.pat;64",
@@ -33,8 +35,10 @@ private static final String TAG = "GuitarRenderer";
 			"single;Data/B5.pat;64",
 	};
 
+	private static final String electricPlayMarkerParam = "single;Data/ElectricGuitar.pat;64";
+
+	// 認識時のテクスチャ
 	private static final String[] acousticMarkerTexturePaths = {
-			"Texture/Guitar_Acoustic.png",
 			"Texture/Code_C.png",
 			"Texture/Code_Dm.png",
 			"Texture/Code_Em.png",
@@ -43,9 +47,10 @@ private static final String TAG = "GuitarRenderer";
 			"Texture/Code_Am.png",
 			"Texture/Code_B5.png",
 	};
+
+	private static final String acousticPlayMarkerTexturePath = "Texture/Guitar_Acoustic.png";
 
 	private static final String[] electricMarkerTexturePaths = {
-			"Texture/Guitar_Electric.png",
 			"Texture/Code_C.png",
 			"Texture/Code_Dm.png",
 			"Texture/Code_Em.png",
@@ -55,45 +60,64 @@ private static final String TAG = "GuitarRenderer";
 			"Texture/Code_B5.png",
 	};
 
+	// コードホールド時用テクスチャ
+	private static final String[] holdTexturePaths = {
+			"Texture/Action_purple.png",
+			"Texture/Action_blue.png",
+			"Texture/Action_green.png",
+			"Texture/Action_yellow.png",
+			"Texture/Action_orange.png",
+			"Texture/Action_brown.png",
+			"Texture/Action_black.png",
+	};
+
+	private static final String electricPlayMarkerTexturePath = "Texture/Guitar_Electric.png";
+
+	// ギターの発音時のテクスチャ
 	private static final String actionTexturePath = "Texture/Action_red.png";
 
 	private boolean acoustic;
-	private Marker[] markers;
+	private GuitarCodeMarker[] codeMarkers;
+	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
 
 	public GuitarRenderer(Example activity, boolean acoustic) {
 		this.activity = activity;
 		this.acoustic = acoustic;
 
-		if( acoustic ) {
-			markers = new Marker[acousticMarkerParams.length];
+		if (acoustic) {
+			codeMarkers = new GuitarCodeMarker[acousticMarkerParams.length];
 		} else {
-			markers = new Marker[electricMarkerParams.length];
+			codeMarkers = new GuitarCodeMarker[electricMarkerParams.length];
 		}
 
-		for (int i = 0; i < markers.length; ++i) {
-			Marker marker = new Marker();
-			markers[i] = marker;
+		for (int i = 0; i < codeMarkers.length; ++i) {
+			codeMarkers[i] = new GuitarCodeMarker();
 		}
 	}
 
 	@Override
 	public boolean configureARScene() {
-		for (int i = 0; i < markers.length; ++i) {
+		for (int i = 0; i < codeMarkers.length; ++i) {
 			boolean ret;
 			String markerParam;
-			if( acoustic ) {
+			if (acoustic) {
 				markerParam = acousticMarkerParams[i];
 			} else {
 				markerParam = electricMarkerParams[i];
 			}
-			// TODO: サウンドIDの指定を仕様が固まったら対応すること
-			int soundId = 0;
-			ret = markers[i].init(markerParam, soundId);
+			ret = codeMarkers[i].init(markerParam, i);
 			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParam);
 				return false;
 			}
 		}
+
+		if (acoustic) {
+			playMarker.init(acousticPlayMarkerParam, -1);
+		} else {
+			playMarker.init(electricPlayMarkerParam, -1);
+		}
+
 		return true;
 	}
 
@@ -102,23 +126,31 @@ private static final String TAG = "GuitarRenderer";
 		super.onSurfaceCreated(gl, config);
 
 		// 各マーカーテクスチャロード
-		for (int i = 0; i < markers.length; ++i) {
+		for (int i = 0; i < codeMarkers.length; ++i) {
 			String texturePath;
-			if( acoustic ) {
+			if (acoustic) {
 				texturePath = acousticMarkerTexturePaths[i];
 			} else {
 				texturePath = electricMarkerTexturePaths[i];
 			}
-			boolean ret = markers[i].loadMarkerTexture(gl, activity, texturePath);
-			if (!ret) {
+			boolean ret0 = codeMarkers[i].loadMarkerTexture(gl, activity, texturePath);
+			if (!ret0) {
 				Log.d(TAG, "marker texture failed:" + texturePath);
 			}
 
-			if( i == 0 ) {
-				// ギターマーカーは、発音テクスチャ利用
-				markers[i].loadActionTexture(gl, activity, actionTexturePath);
+			// コードホールド時用のテクスチャ
+			boolean ret1 = codeMarkers[i].loadActionTexture(gl, activity, holdTexturePaths[i]);
+			if (!ret1) {
+				Log.d(TAG, "marker texture failed:" + holdTexturePaths[i]);
 			}
 		}
+
+		if (acoustic) {
+			playMarker.loadMarkerTexture(gl, activity, acousticPlayMarkerTexturePath);
+		} else {
+			playMarker.loadMarkerTexture(gl, activity, electricPlayMarkerTexturePath);
+		}
+		playMarker.loadActionTexture(gl, activity, actionTexturePath);
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -134,9 +166,10 @@ private static final String TAG = "GuitarRenderer";
 
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-		for (Marker marker : markers) {
-			marker.checkPlaySound(now, activity);
+		for (GuitarCodeMarker codeMarker : codeMarkers) {
+			codeMarker.checkHold(now, activity);
 		}
+		playMarker.checkPlaySound(now, activity);
 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
@@ -148,7 +181,7 @@ private static final String TAG = "GuitarRenderer";
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		for (Marker marker : markers) {
+		for (Marker marker : codeMarkers) {
 			marker.draw(gl, now);
 		}
 	}

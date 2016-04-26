@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.FrameLayout;
+import com.goldrushcomputing.playsound.ar.GuitarRenderer;
+import com.goldrushcomputing.playsound.ar.MusicBoxRenderer;
+import com.goldrushcomputing.playsound.ar.PianoRenderer;
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 import org.fmod.FMODAudioDevice;
@@ -113,6 +116,7 @@ public class Example extends ARActivity {
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
+	//private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
 	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
 
 	private Handler mUpdateHandler = new Handler() {
@@ -204,6 +208,10 @@ public class Example extends ARActivity {
 	 */
 	public void playSound(int trackIndex) {
 		cPlaySound(trackIndex);
+	}
+
+	public void playCurrentSound() {
+		// TODO:
 	}
 
 	@Override

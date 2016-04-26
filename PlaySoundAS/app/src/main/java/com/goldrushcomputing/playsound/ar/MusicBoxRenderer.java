@@ -1,8 +1,10 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.ar;
 
 import android.content.Context;
 import android.opengl.GLU;
 import android.util.Log;
+import com.goldrushcomputing.playsound.Example;
+import com.goldrushcomputing.playsound.geom.Matrix4f;
 import org.artoolkit.ar.base.ARToolKit;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 
@@ -38,7 +40,7 @@ public class MusicBoxRenderer extends ARRenderer {
 			"Texture/Action_black.png",
 	};
 
-	private Marker[] markers = new Marker[markerParams.length];
+	private MusicBoxMarker[] markers = new MusicBoxMarker[markerParams.length];
 
 	private Matrix4f projMatrix = new Matrix4f();
 
@@ -48,7 +50,7 @@ public class MusicBoxRenderer extends ARRenderer {
 		this.activity = activity;
 
 		for (int i = 0; i < markers.length; ++i) {
-			Marker marker = new Marker();
+			MusicBoxMarker marker = new MusicBoxMarker();
 			markers[i] = marker;
 		}
 	}
@@ -124,8 +126,8 @@ public class MusicBoxRenderer extends ARRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		for (Marker marker : markers) {
-			// 範囲を指定して発音チェック
+		for (MusicBoxMarker marker : markers) {
+			// ラインをまたいだかどうかをチェックして発音
 			marker.checkPlaySoundOverLine(now, activity, projMatrix);
 			marker.draw(gl, now);
 		}

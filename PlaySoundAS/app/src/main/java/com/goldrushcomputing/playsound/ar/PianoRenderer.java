@@ -1,6 +1,7 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.ar;
 
 import android.util.Log;
+import com.goldrushcomputing.playsound.Example;
 import org.artoolkit.ar.base.ARToolKit;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 
@@ -44,13 +45,13 @@ public class PianoRenderer extends ARRenderer {
 			"Texture/Action_black.png",
 	};
 
-	private Marker[] markers = new Marker[markerParams.length];
+	private PianoMarker[] markers = new PianoMarker[markerParams.length];
 
 	public PianoRenderer(Example activity) {
 		this.activity = activity;
 
 		for (int i = 0; i < markers.length; ++i) {
-			Marker marker = new Marker();
+			PianoMarker marker = new PianoMarker();
 			markers[i] = marker;
 		}
 	}
@@ -97,7 +98,7 @@ public class PianoRenderer extends ARRenderer {
 
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-		for (Marker marker : markers) {
+		for (PianoMarker marker : markers) {
 			marker.checkPlaySound(now, activity);
 		}
 

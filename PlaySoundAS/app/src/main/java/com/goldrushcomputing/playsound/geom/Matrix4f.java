@@ -1,4 +1,4 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.geom;
 
 //====================================
 //            [Matrix4f]

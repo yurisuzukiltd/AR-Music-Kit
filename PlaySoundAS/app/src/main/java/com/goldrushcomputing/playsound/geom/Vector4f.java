@@ -1,4 +1,4 @@
-package com.goldrushcomputing.playsound;
+package com.goldrushcomputing.playsound.geom;
 
 public class Vector4f {
 	public float x;
@@ -46,6 +46,6 @@ public class Vector4f {
 
 	@Override
 	public String toString() {
-		return "Vector3f [x=" + x + ", y=" + y + ", z=" + z + ", w=" + w + "]";
+		return "Vector4f [x=" + x + ", y=" + y + ", z=" + z + ", w=" + w + "]";
 	}
 }
