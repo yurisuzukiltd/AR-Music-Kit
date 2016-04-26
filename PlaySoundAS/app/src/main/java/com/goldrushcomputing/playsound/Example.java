@@ -112,7 +112,7 @@ public class Example extends ARActivity {
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
-	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	private int instrumentType = INSTRUMENT_TYPE_PIANO;
 
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -207,9 +207,10 @@ public class Example extends ARActivity {
 			return new PianoRenderer(this);
 		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
 			return new MusicBoxRenderer(this);
+		} else if( instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR ) {
+			return new GuitarRenderer(this, true);
 		} else {
-			// TODO:
-			return new PianoRenderer(this);
+			return new GuitarRenderer(this, false);
 		}
 	}
 

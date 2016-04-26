@@ -137,8 +137,10 @@ public class Marker {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
-				gl.glLoadMatrixf(cachedMarkerMatrix, 0);
-				actionPlane.draw(gl);
+				if( actionPlane.hasTexture() ) {
+					gl.glLoadMatrixf(cachedMarkerMatrix, 0);
+					actionPlane.draw(gl);
+				}
 			} else {
 				lastPlayTime = -1L;
 			}
