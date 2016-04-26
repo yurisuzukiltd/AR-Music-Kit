@@ -27,11 +27,31 @@ public class MusicBoxRenderer extends ARRenderer {
 			"single;Data/Do-.pat;64",
 	};
 
-	private Marker[] markers = new Marker[markerParams.length];
+	/*
+	private static final String[] actionTexturePaths = {
+			"Texture/Action_purple.png",
+			"Texture/Action_blue.png",
+			"Texture/Action_green.png",
+			"Texture/Action_yellow.png",
+			"Texture/Action_orange.png",
+			"Texture/Action_red.png",
+			"Texture/Action_brown.png",
+			"Texture/Action_black.png",
+	};
+	*/
 
-	// 発音時に表示する共通テクスチャ
-	// (Zファイティングを避けるために若干上にずらしてみている)
-	private Plane playPlane = new Plane(64.0f * 1.3f, 1.0f);
+	private static final String[] actionTexturePaths = {
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+			"Texture/play.png",
+	};
+
+	private Marker[] markers = new Marker[markerParams.length];
 
 	private Matrix4f projMatrix = new Matrix4f();
 
@@ -63,7 +83,14 @@ public class MusicBoxRenderer extends ARRenderer {
 		super.onSurfaceCreated(gl, config);
 
 		// 発音テクスチャロード
-		playPlane.loadGLTexture(gl, activity, "Texture/play.png");
+
+		// 各マーカーテクスチャロード
+		for (int i = 0; i < markers.length; ++i) {
+			boolean ret = markers[i].loadActionTexture(gl, activity, actionTexturePaths[i]);
+			if (!ret) {
+				Log.d(TAG, "action texture failed:" + actionTexturePaths[i]);
+			}
+		}
 
 		// UI用オーバーレイテクスチャロード
 		ui.loadGLTexture(gl, activity, "Texture/gray20.png");
@@ -112,8 +139,8 @@ public class MusicBoxRenderer extends ARRenderer {
 
 		for (Marker marker : markers) {
 			// 範囲を指定して発音チェック
-			marker.checkPlaySoundWithRange(now, activity, projMatrix, 2.0f / 3.0f, 2.0f / 3.0f);
-			marker.draw(gl, playPlane, now);
+			marker.checkPlaySoundOverLine(now, activity, projMatrix);
+			marker.draw(gl, now);
 		}
 
 		draw2D(gl);
@@ -142,8 +169,9 @@ public class MusicBoxRenderer extends ARRenderer {
 		};
 
 		public UI() {
-			float sizeX = 2.0f / 3.0f;
-			float sizeY = 2.0f / 3.0f;
+			// 縦横が反転しているので、横方向がY軸
+			float sizeX = 0.005f;
+			float sizeY = 1.1f;
 
 			scaledVertices = new float[vertices.length];
 			for (int i = 0; i < vertices.length; ++i) {

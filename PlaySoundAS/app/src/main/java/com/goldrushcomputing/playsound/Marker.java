@@ -17,11 +17,19 @@ public class Marker {
 	private boolean markerMatrixCached;
 
 	/// ストライプ画像Plane
-	private Plane plane = new Plane(64.0f);
+	private Plane markerPlane = new Plane(64.0f);
+
+	/// Action画像Plane (Zファイティングを避けるために若干上にずらしてみている)
+	private Plane actionPlane = new Plane(64.0f * 1.3f, 1.0f);
 
 	private static final Matrix4f workMat = new Matrix4f();
+	private Vector4f workVec0 = new Vector4f();
+	private Vector4f workVec1 = new Vector4f();
 
 	private Matrix4f markerMat;
+
+	/// 最後にトラックされた位置が画面の上半分か下半分か
+	private int lastTrackSide = 0;
 
 	Marker() {
 	}
@@ -36,8 +44,15 @@ public class Marker {
 	 * マーカー認識時に表示するテクスチャ(ストライプ画像)をロード
 	 * (MusicBoxの場合は呼ばれない)
 	 */
-	boolean loadTexture(GL10 gl, Context context, String textureAssetPath) {
-		return plane.loadGLTexture(gl, context, textureAssetPath);
+	boolean loadMarkerTexture(GL10 gl, Context context, String textureAssetPath) {
+		return markerPlane.loadGLTexture(gl, context, textureAssetPath);
+	}
+
+	/**
+	 * 発音時に表示するテクスチャ(パッ画像)をロード
+	 */
+	boolean loadActionTexture(GL10 gl, Context context, String textureAssetPath) {
+		return actionPlane.loadGLTexture(gl, context, textureAssetPath);
 	}
 
 	private boolean isTracked() {
@@ -46,16 +61,16 @@ public class Marker {
 	}
 
 	/**
-	 * 指定した範囲内でトラックされているかどうか.
+	 *
 	 */
-	private boolean isTrackedInsideRange(Matrix4f projMat, float rangeX, float rangeY) {
+	private int calcTrackingSide(Matrix4f projMat) {
 		if( !isTracked() ) {
-			return false;
+			return 0;
 		}
 
 		float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 		if (markerMatrix == null) {
-			return false;
+			return 0;
 		}
 
 		if (markerMat == null) {
@@ -68,7 +83,20 @@ public class Marker {
 		workMat.set(projMat);
 		workMat.mul(markerMat);
 
-		return plane.checkViewportInside(workMat, rangeX, rangeY);
+		workVec0.set(0.0f, 0.0f, 0.0f, 1.0f);
+		workMat.transform(workVec0, workVec1);
+
+		// ViewPort座標系でのX座標値を得る
+		// 縦横が反転しているので、縦方向がX軸
+		float sx = workVec1.x / workVec1.w;
+
+		if ( sx < 0.0f ) {
+			// 画面の下半分
+			return -1;
+		} else {
+			// 画面の上半分
+			return 1;
+		}
 	}
 
 	void checkPlaySound(long now, Example activity) {
@@ -86,19 +114,15 @@ public class Marker {
 		}
 	}
 
-	void checkPlaySoundWithRange(long now, Example activity, Matrix4f projMat, float rangeX, float rangeY) {
-		if( isTrackedInsideRange(projMat, rangeX, rangeY ) ) {
-			// 指定範囲内でマーカーを認識していたら、lastTrackedTimeを更新
-			lastTrackedTime = now;
-		} else {
-			// 現在認識しておらず、最後に認識してから1000msec以内だったら、発音する
-			if (lastTrackedTime > 0 && (now - lastTrackedTime) < 1000) {
-				Log.d(TAG, "marker hidden detected");
-				lastTrackedTime = -1;
-				lastPlayTime = now;
+	void checkPlaySoundOverLine(long now, Example activity, Matrix4f projMat) {
+		int side = calcTrackingSide(projMat);
+		if( side != 0 && lastTrackSide != 0 && side != lastTrackSide ) {
+			if( now - lastPlayTime > 100 ) {
 				activity.playSound(soundId);
+				lastPlayTime = now;
 			}
 		}
+		lastTrackSide = side;
 	}
 
 	private void cacheMarkerMatrix(float markerMatrix[]) {
@@ -109,12 +133,12 @@ public class Marker {
 		markerMatrixCached = true;
 	}
 
-	void draw(GL10 gl, Plane playPlane, long now) {
+	void draw(GL10 gl, long now) {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
 				gl.glLoadMatrixf(cachedMarkerMatrix, 0);
-				playPlane.draw(gl);
+				actionPlane.draw(gl);
 			} else {
 				lastPlayTime = -1L;
 			}
@@ -133,10 +157,10 @@ public class Marker {
 		cacheMarkerMatrix(markerMatrix);
 
 		// トラックマークを表示する
-		if( plane.hasTexture() ) {
+		if( markerPlane.hasTexture() ) {
 			// MusicBoxの場合はPlanceにテクスチャが無いので表示しない
 			gl.glLoadMatrixf(markerMatrix, 0);
-			plane.draw(gl);
+			markerPlane.draw(gl);
 		}
 	}
 }
