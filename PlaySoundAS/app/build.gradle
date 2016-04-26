@@ -55,6 +55,7 @@ dependencies {
     compile project(':aRBaseLib')
 
     compile files("libs/fmodex.jar")
+    compile 'com.android.support:appcompat-v7:23.3.0'
 }
 //the compile and target of the app being deployed to the device
 

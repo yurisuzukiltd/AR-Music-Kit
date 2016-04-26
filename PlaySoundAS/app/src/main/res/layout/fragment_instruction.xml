@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.goldrushcomputing.playsound.view.SlidingFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    >
+
+
+    <!-- Make Markers -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/menu_item_margin_top"
+        android:paddingBottom="@dimen/menu_item_margin_bottom"
+        >
+        <ImageView
+            android:id="@+id/inst_icon"
+            android:layout_width="@dimen/menu_item_icon_make_markers_width"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/char_markers"
+            />
+
+        <com.goldrushcomputing.playsound.view.TextViewHelveticaNeueBd
+            android:id="@+id/inst_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/inst_icon"
+            android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+            android:layout_centerVertical="true"
+            android:text="Guitar"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/inst_illust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/illust_guitar"
+        />
+
+
+    <TextView
+        android:id="@+id/inst_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:text="Some description here."
+        android:textColor="@android:color/black"
+        android:textSize="28sp"
+        />
+
+
+</com.goldrushcomputing.playsound.view.SlidingFrameLayout>

@@ -144,7 +144,7 @@ public class CustomAssetHelper {
 		}
 
 		//..
-		//..reCache = true;
+		reCache = true;
 		//..
 
 		// If needed, write a fresh copy of the folder to the cache.

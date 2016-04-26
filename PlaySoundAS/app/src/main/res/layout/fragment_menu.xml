@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.goldrushcomputing.playsound.view.SlidingFrameLayout
+android:id="@+id/menu_container"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity"
+    >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Make Markers -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            >
+            <ImageView
+                android:id="@+id/menu_icon_make_markers"
+                android:layout_width="@dimen/menu_item_icon_make_markers_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_markers"
+                />
+
+            <TextView
+                android:id="@+id/menu_title_make_markers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_make_markers"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="Maker Markers"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="marker"
+                />
+        </RelativeLayout>
+
+        <!-- Play Guitars -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            >
+            <ImageView
+                android:id="@+id/menu_icon_play_guitar"
+                android:layout_width="@dimen/menu_item_icon_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/menu_item_icon_left_margin"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_guitar" />
+
+            <TextView
+                android:id="@+id/menu_title_play_guitar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_play_guitar"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="Play Guitar"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="guitar"
+                />
+        </RelativeLayout>
+
+        <!-- Play Piano -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            >
+            <ImageView
+                android:id="@+id/menu_icon_play_piano"
+                android:layout_width="@dimen/menu_item_icon_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/menu_item_icon_left_margin"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_piano" />
+
+            <TextView
+                android:id="@+id/menu_title_play_piano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_play_piano"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="Play Piano"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="piano"
+                />
+        </RelativeLayout>
+
+        <!-- Play Music Box -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            >
+            <ImageView
+                android:id="@+id/menu_icon_music_box"
+                android:layout_width="@dimen/menu_item_icon_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/menu_item_icon_left_margin"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_music_box" />
+
+            <TextView
+                android:id="@+id/menu_title_play_music_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_music_box"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="Play Music Box"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="musicbox"
+                />
+        </RelativeLayout>
+
+        <!-- About -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            >
+            <ImageView
+                android:id="@+id/menu_icon_about"
+                android:layout_width="@dimen/menu_item_icon_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/menu_item_icon_left_margin"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_about" />
+
+            <TextView
+                android:id="@+id/menu_title_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_about"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="About"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="about"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
+
+</com.goldrushcomputing.playsound.view.SlidingFrameLayout>
