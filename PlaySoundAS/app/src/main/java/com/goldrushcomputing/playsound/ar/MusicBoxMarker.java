@@ -41,11 +41,10 @@ public class MusicBoxMarker extends Marker {
 		workVec0.set(0.0f, 0.0f, 0.0f, 1.0f);
 		workMat.transform(workVec0, workVec1);
 
-		// ViewPort座標系でのX座標値を得る
-		// 縦横が反転しているので、縦方向がX軸
-		float sx = workVec1.x / workVec1.w;
+		// ViewPort座標系でのY座標値を得る
+		float sy = workVec1.y / workVec1.w;
 
-		if ( sx < 0.0f ) {
+		if ( sy < 0.0f ) {
 			// 画面の下半分
 			return -1;
 		} else {

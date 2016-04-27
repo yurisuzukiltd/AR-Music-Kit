@@ -154,9 +154,9 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		};
 
 		public UI() {
-			// 縦横が反転しているので、横方向がY軸
-			float sizeX = 0.005f;
-			float sizeY = 1.1f;
+			// 左右にラインを引く
+			float sizeX = 1.0f;
+			float sizeY = 0.005f;
 
 			scaledVertices = new float[vertices.length];
 			for (int i = 0; i < vertices.length; ++i) {
