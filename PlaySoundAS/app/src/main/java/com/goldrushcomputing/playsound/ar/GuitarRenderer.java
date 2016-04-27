@@ -11,7 +11,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	private Example activity;
 
 	// マーカーデータ
-	private static final String[] acousticMarkerParams = {
+	private static final String[] markerParams = {
 			"single;Data/C.pat;64",
 			"single;Data/Dm.pat;64",
 			"single;Data/Em.pat;64",
@@ -21,22 +21,10 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			"single;Data/B5.pat;64",
 	};
 
-	private static final String acousticPlayMarkerParam = "single;Data/guitar.pat;64";
-
-	private static final String[] electricMarkerParams = {
-			"single;Data/C.pat;64",
-			"single;Data/Dm.pat;64",
-			"single;Data/Em.pat;64",
-			"single;Data/F.pat;64",
-			"single;Data/G.pat;64",
-			"single;Data/Am.pat;64",
-			"single;Data/B5.pat;64",
-	};
-
-	private static final String electricPlayMarkerParam = "single;Data/ElectricGuitar.pat;64";
+	private static final String playMarkerParam = "single;Data/guitar.pat;64";
 
 	// 認識時のテクスチャ
-	private static final String[] acousticMarkerTexturePaths = {
+	private static final String[] markerTexturePaths = {
 			"Texture/Code_C.png",
 			"Texture/Code_Dm.png",
 			"Texture/Code_Em.png",
@@ -46,17 +34,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			"Texture/Code_B5.png",
 	};
 
-	private static final String acousticPlayMarkerTexturePath = "Texture/Guitar_Acoustic.png";
-
-	private static final String[] electricMarkerTexturePaths = {
-			"Texture/Code_C.png",
-			"Texture/Code_Dm.png",
-			"Texture/Code_Em.png",
-			"Texture/Code_F.png",
-			"Texture/Code_G.png",
-			"Texture/Code_Am.png",
-			"Texture/Code_B5.png",
-	};
+	private static final String playMarkerTexturePath = "Texture/Guitar_Acoustic.png";
 
 	// コードホールド時用テクスチャ
 	private static final String[] holdTexturePaths = {
@@ -74,19 +52,13 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	// ギターの発音時のテクスチャ
 	private static final String actionTexturePath = "Texture/Action_red.png";
 
-	private boolean acoustic;
 	private GuitarCodeMarker[] codeMarkers;
 	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
 
-	public GuitarRenderer(Example activity, boolean acoustic) {
+	public GuitarRenderer(Example activity) {
 		this.activity = activity;
-		this.acoustic = acoustic;
 
-		if (acoustic) {
-			codeMarkers = new GuitarCodeMarker[acousticMarkerParams.length];
-		} else {
-			codeMarkers = new GuitarCodeMarker[electricMarkerParams.length];
-		}
+		codeMarkers = new GuitarCodeMarker[markerParams.length];
 
 		for (int i = 0; i < codeMarkers.length; ++i) {
 			codeMarkers[i] = new GuitarCodeMarker();
@@ -96,26 +68,15 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	@Override
 	public boolean configureARScene() {
 		for (int i = 0; i < codeMarkers.length; ++i) {
-			boolean ret;
-			String markerParam;
-			if (acoustic) {
-				markerParam = acousticMarkerParams[i];
-			} else {
-				markerParam = electricMarkerParams[i];
-			}
-			ret = codeMarkers[i].init(markerParam, i);
+			String markerParam = markerParams[i];
+			boolean ret = codeMarkers[i].init(markerParam, i);
 			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParam);
 				return false;
 			}
 		}
 
-		if (acoustic) {
-			playMarker.init(acousticPlayMarkerParam, -1);
-		} else {
-			playMarker.init(electricPlayMarkerParam, -1);
-		}
-
+		playMarker.init(playMarkerParam, -1);
 		return true;
 	}
 
@@ -125,12 +86,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 
 		// 各マーカーテクスチャロード
 		for (int i = 0; i < codeMarkers.length; ++i) {
-			String texturePath;
-			if (acoustic) {
-				texturePath = acousticMarkerTexturePaths[i];
-			} else {
-				texturePath = electricMarkerTexturePaths[i];
-			}
+			String texturePath = markerTexturePaths[i];
 			boolean ret0 = codeMarkers[i].loadMarkerTexture(gl, activity, texturePath);
 			if (!ret0) {
 				Log.d(TAG, "marker texture failed:" + texturePath);
@@ -143,11 +99,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			}
 		}
 
-		if (acoustic) {
-			playMarker.loadMarkerTexture(gl, activity, acousticPlayMarkerTexturePath);
-		} else {
-			playMarker.loadMarkerTexture(gl, activity, electricPlayMarkerTexturePath);
-		}
+		playMarker.loadMarkerTexture(gl, activity, playMarkerTexturePath);
 		playMarker.loadActionTexture(gl, activity, actionTexturePath);
 
 		// Enable Texture Mapping
