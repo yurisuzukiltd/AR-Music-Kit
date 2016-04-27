@@ -459,6 +459,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 
 		glView.setRenderer(renderer);
 		*/
+
 	}
     
 }

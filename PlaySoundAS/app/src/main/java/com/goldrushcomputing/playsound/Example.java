@@ -106,8 +106,8 @@ public class Example extends ARActivity {
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	private int instrumentType = INSTRUMENT_TYPE_GUITAR;
-	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	//private int instrumentType = INSTRUMENT_TYPE_GUITAR;
+	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
 	//private int instrumentType = INSTRUMENT_TYPE_PIANO;
 
 	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
@@ -125,6 +125,19 @@ public class Example extends ARActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			String type = extras.getString("type");
+			if(type.equals("guitar")){
+				instrumentType = INSTRUMENT_TYPE_GUITAR;
+			}else if(type.equals("musicbox")){
+				instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+			}else if(type.equals("piano")){
+				instrumentType = INSTRUMENT_TYPE_PIANO;
+			}
+		}
+
 
 		findViewById(R.id.rear_front_switch).setOnClickListener(new View.OnClickListener() {
 			@Override

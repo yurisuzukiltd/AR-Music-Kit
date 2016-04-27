@@ -38,6 +38,7 @@
             android:src="@drawable/char_guitar" />
 
         <ImageView
+            android:id="@+id/icon_start"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"

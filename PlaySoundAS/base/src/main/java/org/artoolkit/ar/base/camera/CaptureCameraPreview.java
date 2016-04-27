@@ -124,8 +124,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
         setCameraEventListener(cel);
 
-        isRearCamera = true;
-        
+        isRearCamera = false;
     }
     
     public void setCameraDisplayOrientation(int cameraId, android.hardware.Camera camera) {
@@ -237,7 +236,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
                     handler2.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startPreviewFrontFace(previewWidth, previewHeight);
+                            startPreviewOriginal(previewWidth, previewHeight);
                         }
                     }, 500);
                 }
