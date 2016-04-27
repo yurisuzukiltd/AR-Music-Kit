@@ -7,7 +7,7 @@ model {
 
         defaultConfig.with {
             applicationId = "com.goldrushcomputing.playsound"
-            minSdkVersion.apiLevel = 15
+            minSdkVersion.apiLevel = 16
             targetSdkVersion.apiLevel = 22
             versionCode = 14
             //Integer type incremented by 1 for every release, major or minor, to Google store
