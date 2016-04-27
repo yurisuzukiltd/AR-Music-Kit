@@ -7,7 +7,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class GuitarCodeMarker extends Marker {
 	/// trackingが外れた後に、holdを継続する時間
-	private static final long HOLDING_DURATION_MILLIS = 10 * 1000;
+	private static final long HOLDING_DURATION_MILLIS = 20 * 1000;
 
 	private long holdStartTime = -1L;
 
