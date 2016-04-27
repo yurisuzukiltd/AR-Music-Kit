@@ -47,13 +47,18 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			"Texture/Action_black.png",
 	};
 
-	private static final String electricPlayMarkerTexturePath = "Texture/Guitar_Electric.png";
-
 	// ギターの発音時のテクスチャ
 	private static final String actionTexturePath = "Texture/Action_red.png";
 
+	// ギターのアウトラインのテクスチャ
+	private static final String acousticOutlineTexturePath = "Texture/Outline_AcousticGuitar.png";
+	private static final String electricOutlineTexturePath = "Texture/Outline_ElectricGuitar.png";
+
 	private GuitarCodeMarker[] codeMarkers;
 	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
+
+	private Plane acousticOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
+	private Plane electricOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
 
 	public GuitarRenderer(Example activity) {
 		this.activity = activity;
@@ -99,8 +104,13 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			}
 		}
 
+		// プレイマーカーの発音テクスチャ
 		playMarker.loadMarkerTexture(gl, activity, playMarkerTexturePath);
 		playMarker.loadActionTexture(gl, activity, actionTexturePath);
+
+		// ギターアウトラインテクスチャ
+		acousticOutlinePlane.loadGLTexture(gl, activity, acousticOutlineTexturePath);
+		electricOutlinePlane.loadGLTexture(gl, activity, electricOutlineTexturePath);
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -134,5 +144,6 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			codeMarker.draw(gl, now);
 		}
 		playMarker.draw(gl, now);
+		playMarker.drawOutline(gl, acousticOutlinePlane, now);
 	}
 }
