@@ -181,8 +181,9 @@ public class GuitarRenderer extends ARRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		for (Marker marker : codeMarkers) {
-			marker.draw(gl, now);
+		for (Marker codeMarker : codeMarkers) {
+			codeMarker.draw(gl, now);
 		}
+		playMarker.draw(gl, now);
 	}
 }

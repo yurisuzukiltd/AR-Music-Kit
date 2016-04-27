@@ -11,15 +11,14 @@ public class Marker {
 	protected long lastTrackedTime = -1L;
 	protected long lastPlayTime = -1L;
 
-	private float[] cachedMarkerMatrix = null;
-	private boolean markerMatrixCached;
+	protected float[] cachedMarkerMatrix = null;
+	protected boolean markerMatrixCached;
 
 	/// ストライプ画像Plane
-	private Plane markerPlane = new Plane(64.0f);
+	protected Plane markerPlane = new Plane(64.0f);
 
 	/// Action画像Plane (Zファイティングを避けるために若干上にずらしてみている)
-	private Plane actionPlane = new Plane(64.0f * 1.3f, 1.0f);
-
+	protected Plane actionPlane = new Plane(64.0f * 1.3f, 1.0f);
 
 	Marker() {
 	}
@@ -50,7 +49,7 @@ public class Marker {
 		return ar.queryMarkerVisible(markerId);
 	}
 
-	private void cacheMarkerMatrix(float markerMatrix[]) {
+	protected void cacheMarkerMatrix(float markerMatrix[]) {
 		if (cachedMarkerMatrix == null || cachedMarkerMatrix.length != markerMatrix.length) {
 			cachedMarkerMatrix = new float[markerMatrix.length];
 		}

@@ -3,6 +3,7 @@ package com.goldrushcomputing.playsound;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.FrameLayout;
 import com.goldrushcomputing.playsound.ar.GuitarRenderer;
 import com.goldrushcomputing.playsound.ar.MusicBoxRenderer;
@@ -116,8 +117,11 @@ public class Example extends ARActivity {
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	//private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
-	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+
+	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
+	private int currentSoundId = -1;
 
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -206,12 +210,27 @@ public class Example extends ARActivity {
 	 * TODO:
 	 * low,mid,highを切り替える時は、ここで値にoffsetを加えて、cPlaySound()を呼び出す.
 	 */
-	public void playSound(int trackIndex) {
-		cPlaySound(trackIndex);
+	public void playSound(int soundId) {
+		cPlaySound(soundId);
 	}
 
 	public void playCurrentSound() {
-		// TODO:
+		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
+		if( currentSoundId >= 0 ) {
+			cPlaySound(currentSoundId);
+		}
+	}
+
+	public void setCurrentSound(int soundId) {
+		Log.d(TAG, "setCurrentSound: soundId=" + soundId);
+		currentSoundId = soundId;
+	}
+
+	public void stopCurrentSound(int soundId) {
+		Log.d(TAG, "stopCurrentSound: soundId=" + soundId + " current=" + currentSoundId);
+		if( currentSoundId == soundId ) {
+			currentSoundId = -1;
+		}
 	}
 
 	@Override
