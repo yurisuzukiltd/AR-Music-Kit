@@ -3,12 +3,11 @@ package com.goldrushcomputing.playsound.ar;
 import android.util.Log;
 import com.goldrushcomputing.playsound.Example;
 import org.artoolkit.ar.base.ARToolKit;
-import org.artoolkit.ar.base.rendering.ARRenderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class PianoRenderer extends ARRenderer {
+public class PianoRenderer extends InstrumentsRenderer {
 	private static final String TAG = "PianoRenderer";
 	private Example activity;
 
@@ -102,8 +101,7 @@ public class PianoRenderer extends ARRenderer {
 			marker.checkPlaySound(now, activity);
 		}
 
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
+		setProjectionMatrix(gl);
 
 		gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);

@@ -6,7 +6,6 @@ import android.util.Log;
 import com.goldrushcomputing.playsound.Example;
 import com.goldrushcomputing.playsound.geom.Matrix4f;
 import org.artoolkit.ar.base.ARToolKit;
-import org.artoolkit.ar.base.rendering.ARRenderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
-public class MusicBoxRenderer extends ARRenderer {
+public class MusicBoxRenderer extends InstrumentsRenderer {
 	private static final String TAG = "PianoRenderer";
 	private Example activity;
 
@@ -41,8 +40,6 @@ public class MusicBoxRenderer extends ARRenderer {
 	};
 
 	private MusicBoxMarker[] markers = new MusicBoxMarker[markerParams.length];
-
-	private Matrix4f projMatrix = new Matrix4f();
 
 	private UI ui = new UI();
 
@@ -114,10 +111,7 @@ public class MusicBoxRenderer extends ARRenderer {
 
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		float[] projectionMatrixArray = ARToolKit.getInstance().getProjectionMatrix();
-		gl.glLoadMatrixf(projectionMatrixArray, 0);
-		projMatrix.set(projectionMatrixArray);
+		setProjectionMatrix(gl);
 
 		gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
@@ -126,9 +120,11 @@ public class MusicBoxRenderer extends ARRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
+		Matrix4f projectionMatrix = getProjectionMatrix();
+
 		for (MusicBoxMarker marker : markers) {
 			// ラインをまたいだかどうかをチェックして発音
-			marker.checkPlaySoundOverLine(now, activity, projMatrix);
+			marker.checkPlaySoundOverLine(now, activity, projectionMatrix);
 			marker.draw(gl, now);
 		}
 

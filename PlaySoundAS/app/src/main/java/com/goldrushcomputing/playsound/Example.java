@@ -26,8 +26,7 @@ public class Example extends ARActivity {
 
 	public static final int INSTRUMENT_TYPE_PIANO = 0;
 	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 1;
-	public static final int INSTRUMENT_TYPE_ACOUSTIC_GUITAR = 2;
-	public static final int INSTRUMENT_TYPE_ELECTRIC_GUITAR = 3;
+	public static final int INSTRUMENT_TYPE_GUITAR = 2;
 
 	private static final String[] pianoSounds = {
 			"piano/l-do.wav",
@@ -83,17 +82,14 @@ public class Example extends ARActivity {
 			"musicbox/h-do-.wav"
 	};
 
-	private static final String[] acousticGuitarSounds = {
+	private static final String[] guitarSounds = {
 			"acousticguitar/C.wav",
 			"acousticguitar/Dm.wav",
 			"acousticguitar/Em.wav",
 			"acousticguitar/F.wav",
 			"acousticguitar/G.wav",
 			"acousticguitar/Am.wav",
-			"acousticguitar/B5.wav"
-	};
-
-	private static final String[] electricGuitarSounds = {
+			"acousticguitar/B5.wav",
 			"electronicguitar/C.wav",
 			"electronicguitar/Dm.wav",
 			"electronicguitar/Em.wav",
@@ -103,24 +99,16 @@ public class Example extends ARActivity {
 			"electronicguitar/B5.wav",
 	};
 
-	/*
-	private static final String[] drumSounds = {
-			"drum/bass.wav",
-			"drum/hat.wav",
-			"drum/snaredrum.wav",
-			"drum/bosa.wav"
-	};
-	*/
-
 	private static final String[][] instrumentSounds = {
-			pianoSounds, musicBoxSounds, acousticGuitarSounds, electricGuitarSounds,
+			pianoSounds, musicBoxSounds, guitarSounds,
 	};
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+	private int instrumentType = INSTRUMENT_TYPE_GUITAR;
 	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	//private int instrumentType = INSTRUMENT_TYPE_PIANO;
 
 	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
 	private int currentSoundId = -1;
@@ -250,10 +238,8 @@ public class Example extends ARActivity {
 			return new PianoRenderer(this);
 		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
 			return new MusicBoxRenderer(this);
-		} else if( instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR ) {
-			return new GuitarRenderer(this, true);
 		} else {
-			return new GuitarRenderer(this, false);
+			return new GuitarRenderer(this);
 		}
 	}
 

@@ -8,8 +8,6 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 public class Plane {
-	private static final String TAG = "Plane";
-
 	private Texture texture;
 	private FloatBuffer vertexBuffer;
 
@@ -20,8 +18,6 @@ public class Plane {
 			0.5f, 0.5f, 0.0f
 	};
 
-	private float scaledVertices[];
-
 	private FloatBuffer texcoordBuffer;
 	private static final float texcoord[] = {
 			0.0f, 1.0f, // top left		(V2)
@@ -29,9 +25,6 @@ public class Plane {
 			1.0f, 1.0f, // top right	(V4)
 			1.0f, 0.0f  // bottom right	(V3)
 	};
-
-	//private Vector4f workVec0 = new Vector4f();
-	//private Vector4f workVec1 = new Vector4f();
 
 	public Plane(float size) {
 		this(size, 0.0f);
@@ -42,11 +35,18 @@ public class Plane {
 	}
 
 	public Plane(float size, float offsetZ) {
-		scaledVertices = new float[vertices.length];
+		this(size, 0.0f, 0.0f, offsetZ);
+	}
+
+	public Plane(float size, float offsetX, float offsetY, float offsetZ) {
+		float[] scaledVertices = new float[vertices.length];
 		for (int i = 0; i < vertices.length; ++i) {
 			scaledVertices[i] = size * vertices[i];
-			if (i % 3 == 2) {
-				// z座標にオフセットを加える
+			if (i % 3 == 0) {
+				scaledVertices[i] += offsetX;
+			} else if (i % 3 == 1) {
+				scaledVertices[i] += offsetY;
+			} else if (i % 3 == 2) {
 				scaledVertices[i] += offsetZ;
 			}
 		}

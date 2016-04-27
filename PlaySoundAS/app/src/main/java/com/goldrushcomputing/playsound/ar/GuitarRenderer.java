@@ -2,18 +2,16 @@ package com.goldrushcomputing.playsound.ar;
 
 import android.util.Log;
 import com.goldrushcomputing.playsound.Example;
-import org.artoolkit.ar.base.ARToolKit;
-import org.artoolkit.ar.base.rendering.ARRenderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class GuitarRenderer extends ARRenderer {
+public class GuitarRenderer extends InstrumentsRenderer {
 	private static final String TAG = "GuitarRenderer";
 	private Example activity;
 
 	// マーカーデータ
-	private static final String[] acousticMarkerParams = {
+	private static final String[] markerParams = {
 			"single;Data/C.pat;64",
 			"single;Data/Dm.pat;64",
 			"single;Data/Em.pat;64",
@@ -23,22 +21,10 @@ public class GuitarRenderer extends ARRenderer {
 			"single;Data/B5.pat;64",
 	};
 
-	private static final String acousticPlayMarkerParam = "single;Data/guitar.pat;64";
-
-	private static final String[] electricMarkerParams = {
-			"single;Data/C.pat;64",
-			"single;Data/Dm.pat;64",
-			"single;Data/Em.pat;64",
-			"single;Data/F.pat;64",
-			"single;Data/G.pat;64",
-			"single;Data/Am.pat;64",
-			"single;Data/B5.pat;64",
-	};
-
-	private static final String electricPlayMarkerParam = "single;Data/ElectricGuitar.pat;64";
+	private static final String playMarkerParam = "single;Data/guitar.pat;64";
 
 	// 認識時のテクスチャ
-	private static final String[] acousticMarkerTexturePaths = {
+	private static final String[] markerTexturePaths = {
 			"Texture/Code_C.png",
 			"Texture/Code_Dm.png",
 			"Texture/Code_Em.png",
@@ -48,17 +34,7 @@ public class GuitarRenderer extends ARRenderer {
 			"Texture/Code_B5.png",
 	};
 
-	private static final String acousticPlayMarkerTexturePath = "Texture/Guitar_Acoustic.png";
-
-	private static final String[] electricMarkerTexturePaths = {
-			"Texture/Code_C.png",
-			"Texture/Code_Dm.png",
-			"Texture/Code_Em.png",
-			"Texture/Code_F.png",
-			"Texture/Code_G.png",
-			"Texture/Code_Am.png",
-			"Texture/Code_B5.png",
-	};
+	private static final String playMarkerTexturePath = "Texture/Guitar_Acoustic.png";
 
 	// コードホールド時用テクスチャ
 	private static final String[] holdTexturePaths = {
@@ -71,24 +47,23 @@ public class GuitarRenderer extends ARRenderer {
 			"Texture/Action_black.png",
 	};
 
-	private static final String electricPlayMarkerTexturePath = "Texture/Guitar_Electric.png";
-
 	// ギターの発音時のテクスチャ
 	private static final String actionTexturePath = "Texture/Action_red.png";
 
-	private boolean acoustic;
+	// ギターのアウトラインのテクスチャ
+	private static final String acousticOutlineTexturePath = "Texture/Outline_AcousticGuitar.png";
+	private static final String electricOutlineTexturePath = "Texture/Outline_ElectricGuitar.png";
+
 	private GuitarCodeMarker[] codeMarkers;
 	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
 
-	public GuitarRenderer(Example activity, boolean acoustic) {
-		this.activity = activity;
-		this.acoustic = acoustic;
+	private Plane acousticOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
+	private Plane electricOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
 
-		if (acoustic) {
-			codeMarkers = new GuitarCodeMarker[acousticMarkerParams.length];
-		} else {
-			codeMarkers = new GuitarCodeMarker[electricMarkerParams.length];
-		}
+	public GuitarRenderer(Example activity) {
+		this.activity = activity;
+
+		codeMarkers = new GuitarCodeMarker[markerParams.length];
 
 		for (int i = 0; i < codeMarkers.length; ++i) {
 			codeMarkers[i] = new GuitarCodeMarker();
@@ -98,26 +73,15 @@ public class GuitarRenderer extends ARRenderer {
 	@Override
 	public boolean configureARScene() {
 		for (int i = 0; i < codeMarkers.length; ++i) {
-			boolean ret;
-			String markerParam;
-			if (acoustic) {
-				markerParam = acousticMarkerParams[i];
-			} else {
-				markerParam = electricMarkerParams[i];
-			}
-			ret = codeMarkers[i].init(markerParam, i);
+			String markerParam = markerParams[i];
+			boolean ret = codeMarkers[i].init(markerParam, i);
 			if (!ret) {
 				Log.d(TAG, "marker load failed:" + markerParam);
 				return false;
 			}
 		}
 
-		if (acoustic) {
-			playMarker.init(acousticPlayMarkerParam, -1);
-		} else {
-			playMarker.init(electricPlayMarkerParam, -1);
-		}
-
+		playMarker.init(playMarkerParam, -1);
 		return true;
 	}
 
@@ -127,12 +91,7 @@ public class GuitarRenderer extends ARRenderer {
 
 		// 各マーカーテクスチャロード
 		for (int i = 0; i < codeMarkers.length; ++i) {
-			String texturePath;
-			if (acoustic) {
-				texturePath = acousticMarkerTexturePaths[i];
-			} else {
-				texturePath = electricMarkerTexturePaths[i];
-			}
+			String texturePath = markerTexturePaths[i];
 			boolean ret0 = codeMarkers[i].loadMarkerTexture(gl, activity, texturePath);
 			if (!ret0) {
 				Log.d(TAG, "marker texture failed:" + texturePath);
@@ -145,12 +104,13 @@ public class GuitarRenderer extends ARRenderer {
 			}
 		}
 
-		if (acoustic) {
-			playMarker.loadMarkerTexture(gl, activity, acousticPlayMarkerTexturePath);
-		} else {
-			playMarker.loadMarkerTexture(gl, activity, electricPlayMarkerTexturePath);
-		}
+		// プレイマーカーの発音テクスチャ
+		playMarker.loadMarkerTexture(gl, activity, playMarkerTexturePath);
 		playMarker.loadActionTexture(gl, activity, actionTexturePath);
+
+		// ギターアウトラインテクスチャ
+		acousticOutlinePlane.loadGLTexture(gl, activity, acousticOutlineTexturePath);
+		electricOutlinePlane.loadGLTexture(gl, activity, electricOutlineTexturePath);
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -171,8 +131,7 @@ public class GuitarRenderer extends ARRenderer {
 		}
 		playMarker.checkPlaySound(now, activity);
 
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glLoadMatrixf(ARToolKit.getInstance().getProjectionMatrix(), 0);
+		setProjectionMatrix(gl);
 
 		gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
@@ -185,5 +144,6 @@ public class GuitarRenderer extends ARRenderer {
 			codeMarker.draw(gl, now);
 		}
 		playMarker.draw(gl, now);
+		playMarker.drawOutline(gl, acousticOutlinePlane, now);
 	}
 }
