@@ -44,6 +44,7 @@ import android.util.Log;
 import org.artoolkit.ar.base.assets.AssetFileTransfer;
 import org.artoolkit.ar.base.assets.AssetFileTransferException;
 
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;

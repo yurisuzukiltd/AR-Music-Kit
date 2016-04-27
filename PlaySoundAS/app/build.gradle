@@ -7,7 +7,7 @@ model {
 
         defaultConfig.with {
             applicationId = "com.goldrushcomputing.playsound"
-            minSdkVersion.apiLevel = 15
+            minSdkVersion.apiLevel = 16
             targetSdkVersion.apiLevel = 22
             versionCode = 14
             //Integer type incremented by 1 for every release, major or minor, to Google store
@@ -52,10 +52,11 @@ model {
 dependencies {
     //compile 'com.android.support:support-v4:23.0.1'
     //compile 'com.android.support:appcompat-v7:23.0.1' //Only required when the target device API level is greater than
-    compile project(':aRBaseLib')
-
-    compile files("libs/fmodex.jar")
+    //compile project(':aRBaseLib')
+    compile project(':base')
+    compile files('libs/fmodex.jar')
     compile 'com.android.support:appcompat-v7:23.3.0'
+
 }
 //the compile and target of the app being deployed to the device
 
