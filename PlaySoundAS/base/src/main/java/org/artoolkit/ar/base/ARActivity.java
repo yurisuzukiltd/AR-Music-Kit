@@ -444,18 +444,21 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 			return;
 		}
 
-		mainLayout = supplyFrameLayout();
+		//mainLayout = supplyFrameLayout();
 		if (mainLayout == null) {
 			Log.e(TAG, "Error: supplyFrameLayout did not return a layout.");
 			return;
 		}
-
+		/*
 		renderer = supplyRenderer();
 		if (renderer == null) {
 			Log.e(TAG, "Error: supplyRenderer did not return a renderer.");
 			// No renderer supplied, use default, which does nothing
 			renderer = new ARRenderer();
 		}
+
+		glView.setRenderer(renderer);
+		*/
 	}
     
 }
