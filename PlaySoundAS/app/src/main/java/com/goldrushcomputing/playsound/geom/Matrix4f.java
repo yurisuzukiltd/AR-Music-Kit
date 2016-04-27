@@ -80,6 +80,28 @@ public class Matrix4f {
 		m33 = m[15];
 	}
 
+	public void get(float[] m) {
+		m[0] = m00;
+		m[1] = m10;
+		m[2] = m20;
+		m[3] = m30;
+
+		m[4] = m01;
+		m[5] = m11;
+		m[6] = m21;
+		m[7] = m31;
+
+		m[8] = m02;
+		m[9] = m12;
+		m[10] = m22;
+		m[11] = m32;
+
+		m[12] = m03;
+		m[13] = m13;
+		m[14] = m23;
+		m[15] = m33;
+	}
+
 	public void set(float m00_, float m10_, float m20_, float m30_, float m01_, float m11_, float m21_, float m31_,
 	                float m02_, float m12_, float m22_, float m32_, float m03_, float m13_, float m23_, float m33_) {
 		m00 = m00_;
@@ -123,6 +145,69 @@ public class Matrix4f {
 				m10 * vin.x + m11 * vin.y + m12 * vin.z + m13 * 1.0f,
 				m20 * vin.x + m21 * vin.y + m22 * vin.z + m23 * 1.0f,
 				m30 * vin.x + m31 * vin.y + m32 * vin.z + m33 * 1.0f);
+	}
+
+	public final void rotX(float angle) {
+		float c = (float) Math.cos(angle);
+		float s = (float) Math.sin(angle);
+		m00 = 1.0f;
+		m01 = 0.0f;
+		m02 = 0.0f;
+		m03 = 0.0f;
+		m10 = 0.0f;
+		m11 = c;
+		m12 = -s;
+		m13 = 0.0f;
+		m20 = 0.0f;
+		m21 = s;
+		m22 = c;
+		m23 = 0.0f;
+		m30 = 0.0f;
+		m31 = 0.0f;
+		m32 = 0.0f;
+		m33 = 1.0f;
+	}
+
+	public final void rotY(float angle) {
+		float c = (float) Math.cos(angle);
+		float s = (float) Math.sin(angle);
+		m00 = c;
+		m01 = 0.0f;
+		m02 = s;
+		m03 = 0.0f;
+		m10 = 0.0f;
+		m11 = 1.0f;
+		m12 = 0.0f;
+		m13 = 0.0f;
+		m20 = -s;
+		m21 = 0.0f;
+		m22 = c;
+		m23 = 0.0f;
+		m30 = 0.0f;
+		m31 = 0.0f;
+		m32 = 0.0f;
+		m33 = 1.0f;
+	}
+
+	public final void rotZ(float angle) {
+		float c = (float) Math.cos(angle);
+		float s = (float) Math.sin(angle);
+		m00 = c;
+		m01 = -s;
+		m02 = 0.0f;
+		m03 = 0.0f;
+		m10 = s;
+		m11 = c;
+		m12 = 0.0f;
+		m13 = 0.0f;
+		m20 = 0.0f;
+		m21 = 0.0f;
+		m22 = 1.0f;
+		m23 = 0.0f;
+		m30 = 0.0f;
+		m31 = 0.0f;
+		m32 = 0.0f;
+		m33 = 1.0f;
 	}
 
 	public String toString() {

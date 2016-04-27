@@ -119,6 +119,7 @@ public class Example extends ARActivity {
 	/// 楽器タイプの切り替え
 	private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
 	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	//private int instrumentType = INSTRUMENT_TYPE_PIANO;
 
 	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
 	private int currentSoundId = -1;
