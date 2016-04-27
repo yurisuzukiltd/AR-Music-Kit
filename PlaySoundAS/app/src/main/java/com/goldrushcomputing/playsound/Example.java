@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import com.goldrushcomputing.playsound.ar.GuitarRenderer;
 import com.goldrushcomputing.playsound.ar.MusicBoxRenderer;
 import com.goldrushcomputing.playsound.ar.PianoRenderer;
 import org.artoolkit.ar.base.ARActivity;
+import org.artoolkit.ar.base.camera.CaptureCameraPreview;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 import org.fmod.FMODAudioDevice;
 
@@ -135,6 +137,15 @@ public class Example extends ARActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
+		findViewById(R.id.rear_front_switch).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				CaptureCameraPreview cameraPreview = getCameraPreview();
+				cameraPreview.swapCamera();
+
+			}
+		});
 	}
 
 	@Override

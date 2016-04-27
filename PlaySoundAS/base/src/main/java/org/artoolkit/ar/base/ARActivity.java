@@ -426,5 +426,36 @@ public abstract class ARActivity extends Activity implements CameraEventListener
     	
 		
     }
+
+	@Override
+	public void cameraPreviewWillRestart(){
+		if (ARToolKit.getInstance().initialiseNativeWithOptions(this.getCacheDir().getAbsolutePath(), pattSize, pattCountMax) == false) { // Use cache directory for Data files.
+
+			new AlertDialog.Builder(this)
+					.setMessage("The native library is not loaded. The application cannot continue.")
+					.setTitle("Error")
+					.setCancelable(true)
+					.setNeutralButton(android.R.string.cancel,
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int whichButton){ finish(); }
+							})
+					.show();
+
+			return;
+		}
+
+		mainLayout = supplyFrameLayout();
+		if (mainLayout == null) {
+			Log.e(TAG, "Error: supplyFrameLayout did not return a layout.");
+			return;
+		}
+
+		renderer = supplyRenderer();
+		if (renderer == null) {
+			Log.e(TAG, "Error: supplyRenderer did not return a renderer.");
+			// No renderer supplied, use default, which does nothing
+			renderer = new ARRenderer();
+		}
+	}
     
 }

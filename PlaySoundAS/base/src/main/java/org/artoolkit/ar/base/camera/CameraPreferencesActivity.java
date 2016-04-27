@@ -128,7 +128,7 @@ public class CameraPreferencesActivity extends PreferenceActivity implements
     	}
         
         addPreferencesFromResource(R.xml.preferences);
-        cameraIndexPreference = (ListPreference)findPreference("pref_cameraIndex");
+		cameraIndexPreference = (ListPreference)findPreference("pref_cameraIndex");
         cameraResolutionPreference = (ListPreference)findPreference("pref_cameraResolution");
         
 		// One time only, we need to build a list of cameras. If more than

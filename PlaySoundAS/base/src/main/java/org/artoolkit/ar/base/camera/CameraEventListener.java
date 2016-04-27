@@ -64,5 +64,7 @@ public interface CameraEventListener {
 	 * Called when the capture preview is stopped. No new frames will be sent.
 	 */
 	public void cameraPreviewStopped();
+
+	public void cameraPreviewWillRestart();
 	
 }
