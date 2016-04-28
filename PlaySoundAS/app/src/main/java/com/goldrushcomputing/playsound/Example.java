@@ -305,6 +305,8 @@ public class Example extends ARActivity {
 
 	public native int cGetChannelsPlaying();
 
+	public native int cDistortionToggle();
+
 	/* FMOD Player */
 	public void startPlayer() {
 		mFMODAudioDevice.start();
@@ -323,6 +325,8 @@ public class Example extends ARActivity {
 
 		String[] filePathes = list.toArray(new String[list.size()]);
 		cBegin(filePathes);
+
+		//cDistortionToggle();
 	}
 
 	public String getTrackDirectory() {
@@ -357,6 +361,10 @@ public class Example extends ARActivity {
 	public void playCurrentSound() {
 		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
 		if( currentSoundId >= 0 ) {
+
+			//cDistortionToggle();
+
+
 			cPlaySound(currentSoundId  + getCurrentOffset());
 		}
 	}

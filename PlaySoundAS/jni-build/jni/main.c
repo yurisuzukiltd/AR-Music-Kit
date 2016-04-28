@@ -19,6 +19,7 @@
 
 FMOD_SYSTEM  *gSystem  = 0;
 FMOD_CHANNEL *gChannel = 0;
+FMOD_DSP     *gDSPDistortion = 0;
 FMOD_SOUND	 *gSound[MAX_NUM_SOUNDS];
 
 int numOfSounds;
@@ -75,6 +76,9 @@ void Java_com_goldrushcomputing_playsound_Example_cBegin(JNIEnv *env,
     			FMOD_DEFAULT | FMOD_LOOP_OFF, 0, &gSound[i]);
     	CHECK_RESULT(result);
     }
+    
+    result = FMOD_System_CreateDSPByType(gSystem, FMOD_DSP_TYPE_DISTORTION, &gDSPDistortion);
+    CHECK_RESULT(result);
 
 }
 
@@ -89,6 +93,10 @@ void Java_com_goldrushcomputing_playsound_Example_cUpdate(JNIEnv *env, jobject t
 void Java_com_goldrushcomputing_playsound_Example_cEnd(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
+    
+    result = FMOD_DSP_Release(gDSPDistortion);
+    CHECK_RESULT(result);
+    
 	unsigned int i = 0;
 
 	for (i = 0; i < numOfSounds; i++)
@@ -176,6 +184,29 @@ jint Java_com_goldrushcomputing_playsound_Example_cGetLength(JNIEnv *env, jobjec
 	}
 
 	return length;
+}
+
+void Java_com_goldrushcomputing_playsound_Example_cDistortionToggle(JNIEnv *env, jobject thiz)
+{
+    FMOD_RESULT result = FMOD_OK;
+    FMOD_BOOL active = 0;
+    
+    result = FMOD_DSP_GetActive(gDSPDistortion, &active);
+    CHECK_RESULT(result);
+    
+    if (active)
+    {
+        result = FMOD_DSP_Remove(gDSPDistortion);
+        CHECK_RESULT(result);
+    }
+    else
+    {
+        result = FMOD_System_AddDSP(gSystem, gDSPDistortion, 0);
+        CHECK_RESULT(result);
+        
+        result = FMOD_DSP_SetParameter(gDSPDistortion, FMOD_DSP_DISTORTION_LEVEL, 0.8f);
+        CHECK_RESULT(result);
+    }
 }
 
 
