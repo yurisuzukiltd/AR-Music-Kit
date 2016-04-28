@@ -1,14 +1,19 @@
 package com.goldrushcomputing.playsound;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+
 import com.goldrushcomputing.playsound.ar.GuitarRenderer;
 import com.goldrushcomputing.playsound.ar.MusicBoxRenderer;
 import com.goldrushcomputing.playsound.ar.PianoRenderer;
+
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.camera.CaptureCameraPreview;
 import org.artoolkit.ar.base.rendering.ARRenderer;
@@ -24,11 +29,68 @@ public class Example extends ARActivity {
 		System.loadLibrary("main");
 	}
 
-	public static final int INSTRUMENT_TYPE_PIANO = 0;
-	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 1;
-	public static final int INSTRUMENT_TYPE_GUITAR = 2;
+	public static final int INSTRUMENT_TYPE_PIANO_L = 0;
+	public static final int INSTRUMENT_TYPE_PIANO_M = 1;
+	public static final int INSTRUMENT_TYPE_PIANO_H = 2;
+	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 3;
+	public static final int INSTRUMENT_TYPE_ACOUSTIC_GUITAR = 4;
+	public static final int INSTRUMENT_TYPE_ELEC_GUITAR = 5;
 
-	private static final String[] pianoSounds = {
+	private static final String[] pianoSoundsL = {
+			"piano/l-do.wav",
+			"piano/l-re.wav",
+			"piano/l-mi.wav",
+			"piano/l-fa.wav",
+			"piano/l-so.wav",
+			"piano/l-la.wav",
+			"piano/l-si.wav",
+			"piano/l-do-.wav",
+			"piano/m-do.wav",
+			"piano/m-re.wav",
+			"piano/m-mi.wav",
+			"piano/m-fa.wav",
+			"piano/m-so.wav",
+			"piano/m-la.wav",
+			"piano/m-si.wav",
+			"piano/m-do-.wav",
+			"piano/h-do.wav",
+			"piano/h-re.wav",
+			"piano/h-mi.wav",
+			"piano/h-fa.wav",
+			"piano/h-so.wav",
+			"piano/h-la.wav",
+			"piano/h-si.wav",
+			"piano/h-do-.wav"
+	};
+
+	private static final String[] pianoSoundsM = {
+			"piano/l-do.wav",
+			"piano/l-re.wav",
+			"piano/l-mi.wav",
+			"piano/l-fa.wav",
+			"piano/l-so.wav",
+			"piano/l-la.wav",
+			"piano/l-si.wav",
+			"piano/l-do-.wav",
+			"piano/m-do.wav",
+			"piano/m-re.wav",
+			"piano/m-mi.wav",
+			"piano/m-fa.wav",
+			"piano/m-so.wav",
+			"piano/m-la.wav",
+			"piano/m-si.wav",
+			"piano/m-do-.wav",
+			"piano/h-do.wav",
+			"piano/h-re.wav",
+			"piano/h-mi.wav",
+			"piano/h-fa.wav",
+			"piano/h-so.wav",
+			"piano/h-la.wav",
+			"piano/h-si.wav",
+			"piano/h-do-.wav"
+	};
+
+	private static final String[] pianoSoundsH = {
 			"piano/l-do.wav",
 			"piano/l-re.wav",
 			"piano/l-mi.wav",
@@ -82,7 +144,24 @@ public class Example extends ARActivity {
 			"musicbox/h-do-.wav"
 	};
 
-	private static final String[] guitarSounds = {
+	private static final String[] acousticGuitarSounds = {
+			"acousticguitar/C.wav",
+			"acousticguitar/Dm.wav",
+			"acousticguitar/Em.wav",
+			"acousticguitar/F.wav",
+			"acousticguitar/G.wav",
+			"acousticguitar/Am.wav",
+			"acousticguitar/B5.wav",
+			"electronicguitar/C.wav",
+			"electronicguitar/Dm.wav",
+			"electronicguitar/Em.wav",
+			"electronicguitar/F.wav",
+			"electronicguitar/G.wav",
+			"electronicguitar/Am.wav",
+			"electronicguitar/B5.wav",
+	};
+
+	private static final String[] elecGuitarSounds = {
 			"acousticguitar/C.wav",
 			"acousticguitar/Dm.wav",
 			"acousticguitar/Em.wav",
@@ -100,15 +179,15 @@ public class Example extends ARActivity {
 	};
 
 	private static final String[][] instrumentSounds = {
-			pianoSounds, musicBoxSounds, guitarSounds,
+			pianoSoundsL, pianoSoundsM, pianoSoundsH, musicBoxSounds, acousticGuitarSounds, elecGuitarSounds
 	};
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	//private int instrumentType = INSTRUMENT_TYPE_GUITAR;
-	private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
-	//private int instrumentType = INSTRUMENT_TYPE_PIANO;
+	//private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+	private int instrumentType = INSTRUMENT_TYPE_PIANO_M;
 
 	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
 	private int currentSoundId = -1;
@@ -121,6 +200,21 @@ public class Example extends ARActivity {
 		}
 	};
 
+	ImageButton currentInstrumentIcon;
+	ImageButton infoButton;
+	ImageButton guitarSwitch;
+	ImageButton octaveSwitch;
+	ImageButton cameraSwapButton;
+
+	Bitmap guitarAcousticIcon;
+	Bitmap guitarElecIcon;
+	Bitmap guitarSwitchAcousticImage;
+	Bitmap guitarSwitchElecImage;
+
+	Bitmap octaveSwitchLImage;
+	Bitmap octaveSwitchMImage;
+	Bitmap octaveSwitchHImage;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -129,17 +223,28 @@ public class Example extends ARActivity {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			String type = extras.getString("type");
-			if(type.equals("guitar")){
-				instrumentType = INSTRUMENT_TYPE_GUITAR;
-			}else if(type.equals("musicbox")){
-				instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
-			}else if(type.equals("piano")){
-				instrumentType = INSTRUMENT_TYPE_PIANO;
+			if(type != null){
+				if(type.equals("guitar")){
+					instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+				}else if(type.equals("musicbox")){
+					instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
+				}else if(type.equals("piano")){
+					instrumentType = INSTRUMENT_TYPE_PIANO_M;
+				}
 			}
 		}
+		guitarAcousticIcon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar);
+		guitarElecIcon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar);
+		guitarSwitchAcousticImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a);
+		guitarSwitchElecImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e);
+
+		octaveSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_l);
+		octaveSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_m);
+		octaveSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_h);
 
 
-		findViewById(R.id.rear_front_switch).setOnClickListener(new View.OnClickListener() {
+		cameraSwapButton = (ImageButton)findViewById(R.id.rear_front_switch);
+		cameraSwapButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				CaptureCameraPreview cameraPreview = getCameraPreview();
@@ -147,6 +252,77 @@ public class Example extends ARActivity {
 
 			}
 		});
+
+		currentInstrumentIcon = (ImageButton)findViewById(R.id.current_instrument_icon);
+		infoButton = (ImageButton)findViewById(R.id.info_icon);
+		guitarSwitch = (ImageButton)findViewById(R.id.guitar_switch);
+		octaveSwitch = (ImageButton)findViewById(R.id.octave_switch);
+
+		if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR || instrumentType == INSTRUMENT_TYPE_ELEC_GUITAR){
+			guitarSwitch.setVisibility(View.VISIBLE);
+			octaveSwitch.setVisibility(View.INVISIBLE);
+			if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR){
+				currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
+				guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
+			}else{
+				currentInstrumentIcon.setImageBitmap(guitarElecIcon);
+				guitarSwitch.setImageBitmap(guitarSwitchElecImage);
+			}
+
+		}else if(instrumentType == INSTRUMENT_TYPE_PIANO_L || instrumentType == INSTRUMENT_TYPE_PIANO_M || instrumentType == INSTRUMENT_TYPE_PIANO_H){
+			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano));
+			guitarSwitch.setVisibility(View.INVISIBLE);
+			octaveSwitch.setVisibility(View.VISIBLE);
+
+			if(instrumentType == INSTRUMENT_TYPE_PIANO_L){
+				octaveSwitch.setImageBitmap(octaveSwitchLImage);
+			}else if(instrumentType == INSTRUMENT_TYPE_PIANO_M){
+				octaveSwitch.setImageBitmap(octaveSwitchMImage);
+			}else{
+				octaveSwitch.setImageBitmap(octaveSwitchHImage);
+			}
+		}else if(instrumentType == INSTRUMENT_TYPE_MUSIC_BOX){
+			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
+			guitarSwitch.setVisibility(View.INVISIBLE);
+			octaveSwitch.setVisibility(View.INVISIBLE);
+		}else{
+			currentInstrumentIcon.setVisibility(View.INVISIBLE);
+			guitarSwitch.setVisibility(View.INVISIBLE);
+			octaveSwitch.setVisibility(View.INVISIBLE);
+		}
+
+		guitarSwitch.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR){
+					instrumentType = INSTRUMENT_TYPE_ELEC_GUITAR;
+					currentInstrumentIcon.setImageBitmap(guitarElecIcon);
+					guitarSwitch.setImageBitmap(guitarSwitchElecImage);
+				}else{
+					instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+					currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
+					guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
+				}
+			}
+		});
+
+		octaveSwitch.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(instrumentType == INSTRUMENT_TYPE_PIANO_L){
+					instrumentType = INSTRUMENT_TYPE_PIANO_M;
+					octaveSwitch.setImageBitmap(octaveSwitchMImage);
+				}else if(instrumentType == INSTRUMENT_TYPE_PIANO_M){
+					instrumentType = INSTRUMENT_TYPE_PIANO_H;
+					octaveSwitch.setImageBitmap(octaveSwitchHImage);
+				}else{
+					instrumentType = INSTRUMENT_TYPE_PIANO_L;
+					octaveSwitch.setImageBitmap(octaveSwitchLImage);
+				}
+			}
+		});
+
+
 	}
 
 	@Override
@@ -247,7 +423,7 @@ public class Example extends ARActivity {
 
 	@Override
 	protected ARRenderer supplyRenderer() {
-		if( instrumentType == INSTRUMENT_TYPE_PIANO ) {
+		if( instrumentType == INSTRUMENT_TYPE_PIANO_L || instrumentType == INSTRUMENT_TYPE_PIANO_M || instrumentType == INSTRUMENT_TYPE_PIANO_H ) {
 			return new PianoRenderer(this);
 		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
 			return new MusicBoxRenderer(this);
@@ -263,4 +439,11 @@ public class Example extends ARActivity {
 	protected FrameLayout supplyFrameLayout() {
 		return (FrameLayout) this.findViewById(R.id.mainLayout);
 	}
+
+	@Override
+	protected FrameLayout supplyOuterFrameLayout() {
+		return (FrameLayout) this.findViewById(R.id.outerLayout);
+	}
 }
+
+

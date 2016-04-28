@@ -58,6 +58,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -106,8 +107,10 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 	/**
 	 * Layout that will be filled with the camera preview and GL views. This is provided by the subclass using {@link supplyFrameLayout()}.
 	 */
-	protected FrameLayout mainLayout; 
-	
+	protected FrameLayout mainLayout;
+
+	protected FrameLayout outerLayout;
+
 	/**
      * For any square template (pattern) markers, the number of rows
      * and columns in the template. May not be less than 16 or more than AR_PATT_SIZE1_MAX.
@@ -121,6 +124,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 	protected int pattCountMax = 25;
 	
 	private boolean firstUpdate = false;
+
 	
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -166,6 +170,8 @@ public abstract class ARActivity extends Activity implements CameraEventListener
      * @return The {@link FrameLayout} to use.
      */
     protected abstract FrameLayout supplyFrameLayout();
+
+	protected abstract FrameLayout supplyOuterFrameLayout();
         
 	@Override
     protected void onStart() {
@@ -190,6 +196,8 @@ public abstract class ARActivity extends Activity implements CameraEventListener
         }
     	
     	mainLayout = supplyFrameLayout();
+		outerLayout = supplyOuterFrameLayout();
+
     	if (mainLayout == null) {
     		Log.e(TAG, "Error: supplyFrameLayout did not return a layout.");
     		return;
@@ -461,5 +469,16 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 		*/
 
 	}
-    
+
+	@Override
+	public void cameraPreviewSizeDetected(int width, int height) {
+		android.widget.FrameLayout.LayoutParams layoutParams = new android.widget.FrameLayout.LayoutParams(
+				width, height);
+		layoutParams.gravity = Gravity.CENTER_VERTICAL;
+
+		Log.d(TAG, "mainLayout to (" + width + "," + height + ")");
+		this.mainLayout.setLayoutParams(layoutParams);
+		this.outerLayout.setLayoutParams(layoutParams);
+	}
+
 }

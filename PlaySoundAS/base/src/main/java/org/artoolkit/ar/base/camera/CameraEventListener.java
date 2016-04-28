@@ -53,7 +53,8 @@ public interface CameraEventListener {
 	 * @param cameraIsFrontFacing false if camera is rear-facing (the default) or true if camera is facing toward the user.
 	 */
 	public void cameraPreviewStarted(int width, int height, int rate, int cameraIndex, boolean cameraIsFrontFacing);
-	
+	public void cameraPreviewSizeDetected(int width, int height);
+
 	/**
 	 * Called when the camera preview has a new frame ready.
 	 * @param frame A byte array from the camera, in the camera's capture format.

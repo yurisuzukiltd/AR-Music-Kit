@@ -107,6 +107,8 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
     int textureWidth;
     int textureHeight;
 
+    boolean isPreviewRunning = false;
+
 
     /**
      * Constructor takes a {@link CameraEventListener} which will be called on 
@@ -291,75 +293,79 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
         Log.i(TAG, "Surfaced changed, setting up camera and starting preview");
 
-        String camResolution = PreferenceManager.getDefaultSharedPreferences(getContext()).getString("pref_cameraResolution", "320x240");
-        String[] dims = camResolution.split("x", 2);
-        Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(Integer.parseInt(dims[0]), Integer.parseInt(dims[1]));
+        if(isPreviewRunning == true){
+            Log.i(TAG, "Preview already running, not re-starting camera");
+        }else{
+            String camResolution = PreferenceManager.getDefaultSharedPreferences(getContext()).getString("pref_cameraResolution", "320x240");
+            String[] dims = camResolution.split("x", 2);
+            Camera.Parameters parameters = camera.getParameters();
+            parameters.setPreviewSize(Integer.parseInt(dims[0]), Integer.parseInt(dims[1]));
 
         /* Insert new algo*/
-        List<Camera.Size> sizes = parameters.getSupportedPreviewSizes();
-        int previewWidth = width;
-        int previewHeight = height;
+            List<Camera.Size> sizes = parameters.getSupportedPreviewSizes();
+            int previewWidth = width;
+            int previewHeight = height;
 
-        int minDiff = Integer.MAX_VALUE;
+            int minDiff = Integer.MAX_VALUE;
 
-        for (int i = 0; i < sizes.size(); i++) {
-            Camera.Size size = sizes.get(i);
+            for (int i = 0; i < sizes.size(); i++) {
+                Camera.Size size = sizes.get(i);
 
-            //Skip square
-            if(size.width == size.height)
-                continue;
+                //Skip square
+                if(size.width == size.height)
+                    continue;
 
-            Log.d(TAG, "[PREVIEW] Supported Size #" + (i + 1) + ": "
-                    + size.width + "x" + size.height);
-            int diff = Math.abs(size.height - height)
-                    + Math.abs(size.width - width);
-            if (diff < minDiff) {
-                previewWidth = size.width;
-                previewHeight = size.height;
-                minDiff = diff;
+                Log.d(TAG, "[PREVIEW] Supported Size #" + (i + 1) + ": "
+                        + size.width + "x" + size.height);
+                int diff = Math.abs(size.height - height)
+                        + Math.abs(size.width - width);
+                if (diff < minDiff) {
+                    previewWidth = size.width;
+                    previewHeight = size.height;
+                    minDiff = diff;
+                }
             }
-        }
 
-        Log.d(TAG, "Set camera preview size to (" + previewWidth + "," + previewHeight + ")");
-        this.previewWidth = previewWidth;
-        this.previewHeight = previewHeight;
+            Log.d(TAG, "Set camera preview size to (" + previewWidth + "," + previewHeight + ")");
+            this.previewWidth = previewWidth;
+            this.previewHeight = previewHeight;
         /* Insert new algo*/
 
-        parameters.setPreviewSize(previewWidth, previewHeight);
+            parameters.setPreviewSize(previewWidth, previewHeight);
 
-        int w = this.getWidth();
-        double hDouble = (double)w * (double)previewWidth / (double)previewHeight;
-        int h = (int)hDouble;
-        android.widget.FrameLayout.LayoutParams layoutParams = new android.widget.FrameLayout.LayoutParams(
-                w, h);
-        layoutParams.gravity = Gravity.CENTER_VERTICAL;
+            int w = this.getWidth();
+            double hDouble = (double)w * (double)previewWidth / (double)previewHeight;
+            int h = (int)hDouble;
+            android.widget.FrameLayout.LayoutParams layoutParams = new android.widget.FrameLayout.LayoutParams(
+                    w, h);
+            layoutParams.gravity = Gravity.CENTER_VERTICAL;
 
-        Log.d(TAG, "surfaceView to (" + w + "," + h + ")");
-        //this.setLayoutParams(layoutParams);
+            Log.d(TAG, "surfaceView to (" + w + "," + h + ")");
+            //this.setLayoutParams(layoutParams);
+            if(listener != null){
+                listener.cameraPreviewSizeDetected(w, h);
+            }
 
-        /*
-        List<String> focusModes = params.getSupportedFocusModes();
-        for(String mode : focusModes){
-            Log.d(TAG, "focusModes to (" + mode + ")");
-        }
+            List<String> focusModes = parameters.getSupportedFocusModes();
+            for(String mode : focusModes){
+                Log.d(TAG, "focusModes to (" + mode + ")");
+            }
 
-        if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)){
-            params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-            Log.d(TAG, "set focusMode to FOCUS_MODE_CONTINUOUS_VIDEO");
-        }
-         */
+            if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)){
+                parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+                Log.d(TAG, "set focusMode to FOCUS_MODE_CONTINUOUS_VIDEO");
+            }
 
-        parameters.setPreviewFrameRate(30);
-        camera.setParameters(parameters);
+            parameters.setPreviewFrameRate(30);
+            camera.setParameters(parameters);
 
-        parameters = camera.getParameters();
-        captureWidth = parameters.getPreviewSize().width;
-        captureHeight = parameters.getPreviewSize().height;
-        captureRate = parameters.getPreviewFrameRate();
-        int pixelformat = parameters.getPreviewFormat(); // android.graphics.imageformat
-        PixelFormat pixelinfo = new PixelFormat();
-        PixelFormat.getPixelFormatInfo(pixelformat, pixelinfo);
+            parameters = camera.getParameters();
+            captureWidth = parameters.getPreviewSize().width;
+            captureHeight = parameters.getPreviewSize().height;
+            captureRate = parameters.getPreviewFrameRate();
+            int pixelformat = parameters.getPreviewFormat(); // android.graphics.imageformat
+            PixelFormat pixelinfo = new PixelFormat();
+            PixelFormat.getPixelFormatInfo(pixelformat, pixelinfo);
 
         /*
         int cameraIndex = 0;
@@ -372,34 +378,39 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
         }
         */
 
-        int cameraIndex = 0;
-        boolean cameraIsFrontFacing = false;
+            int cameraIndex = 0;
+            boolean cameraIsFrontFacing = false;
 
-        if(isRearCamera){
-            cameraIsFrontFacing = false;
-            cameraIndex = getRearCameraId();
-        }else{
-            cameraIsFrontFacing = true;
-            cameraIndex = getFrontCameraId();
+            if(isRearCamera){
+                cameraIsFrontFacing = false;
+                cameraIndex = getRearCameraId();
+            }else{
+                cameraIsFrontFacing = true;
+                cameraIndex = getFrontCameraId();
+            }
+
+
+
+            int bufSize = captureWidth * captureHeight * pixelinfo.bitsPerPixel / 8; // For the default NV21 format, bitsPerPixel = 12.
+            Log.i(TAG, "Camera buffers will be " + captureWidth + "x" + captureHeight + "@" + pixelinfo.bitsPerPixel + "bpp, " + bufSize + "bytes.");
+            cameraWrapper = new CameraWrapper(camera);
+            cameraWrapper.configureCallback(this, true, 10, bufSize); // For the default NV21 format, bitsPerPixel = 12.
+
+            camera.startPreview();
+
+            camera.autoFocus(new Camera.AutoFocusCallback() {
+                @Override
+                public void onAutoFocus(boolean success, Camera camera) {
+                    Log.i(TAG, "Autofocused....");
+                }
+            });
+
+            if (listener != null) listener.cameraPreviewStarted(captureWidth, captureHeight, captureRate, cameraIndex, cameraIsFrontFacing);
+
+            isPreviewRunning = true;
         }
 
 
-
-        int bufSize = captureWidth * captureHeight * pixelinfo.bitsPerPixel / 8; // For the default NV21 format, bitsPerPixel = 12.
-        Log.i(TAG, "Camera buffers will be " + captureWidth + "x" + captureHeight + "@" + pixelinfo.bitsPerPixel + "bpp, " + bufSize + "bytes.");
-        cameraWrapper = new CameraWrapper(camera);
-        cameraWrapper.configureCallback(this, true, 10, bufSize); // For the default NV21 format, bitsPerPixel = 12.
-
-        camera.startPreview();
-
-        camera.autoFocus(new Camera.AutoFocusCallback() {
-            @Override
-            public void onAutoFocus(boolean success, Camera camera) {
-                Log.i(TAG, "Autofocused....");
-            }
-        });
-
-        if (listener != null) listener.cameraPreviewStarted(captureWidth, captureHeight, captureRate, cameraIndex, cameraIsFrontFacing);
 
     }
 
@@ -658,15 +669,13 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
             camera.stopPreview();
             camera.release();
             camera = null;
+            isPreviewRunning = false;
         }
 
         if (listener != null){
             listener.cameraPreviewStopped();
 
         }
-
-
-
     }
 
 
@@ -719,8 +728,6 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
             }
 
             Log.d(TAG, "Unda:camera to (" + previewWidth + "," + previewHeight + ")");
-
-
 
             List<String> focusModes = params.getSupportedFocusModes();
             for(String mode : focusModes){
