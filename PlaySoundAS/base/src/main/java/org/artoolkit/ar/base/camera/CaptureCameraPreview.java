@@ -326,6 +326,9 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
                 }
             }
 
+            previewWidth = 320;
+            previewHeight = 240;
+
             Log.d(TAG, "Set camera preview size to (" + previewWidth + "," + previewHeight + ")");
             this.previewWidth = previewWidth;
             this.previewHeight = previewHeight;
@@ -333,9 +336,14 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
             parameters.setPreviewSize(previewWidth, previewHeight);
 
-            int w = this.getWidth();
-            double hDouble = (double)w * (double)previewWidth / (double)previewHeight;
-            int h = (int)hDouble;
+            int h = this.getHeight();
+
+            double wDouble = (double) h * (double)previewWidth / (double) previewHeight;
+            int w = (int)wDouble;
+
+            //int w = this.getWidth();
+            //double hDouble = (double)w * (double)previewWidth / (double)previewHeight;
+            //int h = (int)hDouble;
             android.widget.FrameLayout.LayoutParams layoutParams = new android.widget.FrameLayout.LayoutParams(
                     w, h);
             layoutParams.gravity = Gravity.CENTER_VERTICAL;
