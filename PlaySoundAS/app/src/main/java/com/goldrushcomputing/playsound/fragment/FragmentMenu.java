@@ -106,6 +106,10 @@ public final class FragmentMenu extends Fragment {
 			if(list.length > 1){
 				firstWord += " ";
 				secondWord = list[1];
+
+				if(list.length == 3){
+					secondWord = secondWord + " " + list[2];
+				}
 			}else{
 				secondWord = "";
 			}

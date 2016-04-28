@@ -15,7 +15,7 @@
 
     <ImageButton
         android:id="@+id/rear_front_switch"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:layout_marginRight="30dp"
@@ -24,7 +24,67 @@
         android:contentDescription="@string/none"
         android:scaleType="centerInside"
         android:src="@drawable/switch_camera"
+        android:background="@null"
         />
+
+
+    <ImageButton
+        android:id="@+id/octave_switch"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom|left"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/switch_octave_l"
+        android:background="@null"
+        />
+
+
+    <ImageButton
+        android:id="@+id/guitar_switch"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom|left"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/switch_guitar_a"
+        android:background="@null"
+        />
+
+    <ImageButton
+        android:id="@+id/current_instrument_icon"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="top|left"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_music_box"
+        android:background="@null"
+        />
+
+    <ImageButton
+        android:id="@+id/info_icon"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="top|right"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_information"
+        android:background="@null"
+        />
+
 
 
     <LinearLayout

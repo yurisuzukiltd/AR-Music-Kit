@@ -124,7 +124,7 @@ public class Example extends ARActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.camera);
 
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {

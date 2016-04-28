@@ -12,12 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="@dimen/menu_item_margin_top"
-        android:paddingBottom="@dimen/menu_item_margin_bottom"
+        android:layout_marginTop="20dp"
         >
         <ImageView
             android:id="@+id/inst_icon"
-            android:layout_width="@dimen/menu_item_icon_make_markers_width"
+            android:layout_width="52dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:layout_alignParentLeft="true"
@@ -36,7 +35,7 @@
             android:layout_centerVertical="true"
             android:text="Guitar"
             android:textColor="@android:color/black"
-            android:textSize="28sp"
+            android:textSize="40sp"
             />
     </RelativeLayout>
 
@@ -45,9 +44,10 @@
         android:id="@+id/inst_illust"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:adjustViewBounds="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="38dp"
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/none"
         android:scaleType="centerInside"
