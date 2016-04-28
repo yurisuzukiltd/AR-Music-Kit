@@ -215,7 +215,16 @@ public class Example extends ARActivity {
 		}else if(instrumentType == INSTRUMENT_TYPE_MUSIC_BOX){
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
 			guitarSwitch.setVisibility(View.INVISIBLE);
-			octaveSwitch.setVisibility(View.INVISIBLE);
+
+			octaveSwitch.setVisibility(View.VISIBLE);
+
+			if(currentOctave == 0){
+				octaveSwitch.setImageBitmap(octaveSwitchLImage);
+			}else if(currentOctave == 1){
+				octaveSwitch.setImageBitmap(octaveSwitchMImage);
+			}else{
+				octaveSwitch.setImageBitmap(octaveSwitchHImage);
+			}
 		}else{
 			currentInstrumentIcon.setVisibility(View.INVISIBLE);
 			guitarSwitch.setVisibility(View.INVISIBLE);
@@ -247,7 +256,7 @@ public class Example extends ARActivity {
 					currentOctave = 2;
 					octaveSwitch.setImageBitmap(octaveSwitchHImage);
 				}else{
-					currentOctave = 3;
+					currentOctave = 0;
 					octaveSwitch.setImageBitmap(octaveSwitchLImage);
 				}
 			}
@@ -327,6 +336,8 @@ public class Example extends ARActivity {
 
 	private int getCurrentOffset(){
 		if(instrumentType == INSTRUMENT_TYPE_PIANO){
+			return currentOctave * 8;
+		}else if(instrumentType == INSTRUMENT_TYPE_MUSIC_BOX){
 			return currentOctave * 8;
 		}else if(instrumentType == INSTRUMENT_TYPE_GUITAR){
 			return currentOctave * 7;
