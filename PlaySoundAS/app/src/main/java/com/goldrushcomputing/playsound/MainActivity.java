@@ -20,9 +20,12 @@ public class MainActivity extends Activity {
             fragment = FragmentMenu.newInstance("foo");
         }
 
-        fm.beginTransaction()
-                .add(R.id.main_container, fragment, "FragmentMenu")
-                .commit();
+        if(fragment.isAdded() == false){
+            fm.beginTransaction()
+                    .add(R.id.main_container, fragment, "FragmentMenu")
+                    .commit();
+        }
+
     }
 
 

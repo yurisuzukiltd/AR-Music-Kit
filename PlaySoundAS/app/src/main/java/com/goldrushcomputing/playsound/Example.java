@@ -29,14 +29,13 @@ public class Example extends ARActivity {
 		System.loadLibrary("main");
 	}
 
-	public static final int INSTRUMENT_TYPE_PIANO_L = 0;
-	public static final int INSTRUMENT_TYPE_PIANO_M = 1;
-	public static final int INSTRUMENT_TYPE_PIANO_H = 2;
-	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 3;
-	public static final int INSTRUMENT_TYPE_ACOUSTIC_GUITAR = 4;
-	public static final int INSTRUMENT_TYPE_ELEC_GUITAR = 5;
+	public static final int INSTRUMENT_TYPE_PIANO = 0;
+	public static final int INSTRUMENT_TYPE_MUSIC_BOX = 1;
+	public static final int INSTRUMENT_TYPE_GUITAR = 2;
 
-	private static final String[] pianoSoundsL = {
+	public int currentOctave = 0;
+
+	private static final String[] pianoSounds = {
 			"piano/l-do.wav",
 			"piano/l-re.wav",
 			"piano/l-mi.wav",
@@ -63,59 +62,6 @@ public class Example extends ARActivity {
 			"piano/h-do-.wav"
 	};
 
-	private static final String[] pianoSoundsM = {
-			"piano/l-do.wav",
-			"piano/l-re.wav",
-			"piano/l-mi.wav",
-			"piano/l-fa.wav",
-			"piano/l-so.wav",
-			"piano/l-la.wav",
-			"piano/l-si.wav",
-			"piano/l-do-.wav",
-			"piano/m-do.wav",
-			"piano/m-re.wav",
-			"piano/m-mi.wav",
-			"piano/m-fa.wav",
-			"piano/m-so.wav",
-			"piano/m-la.wav",
-			"piano/m-si.wav",
-			"piano/m-do-.wav",
-			"piano/h-do.wav",
-			"piano/h-re.wav",
-			"piano/h-mi.wav",
-			"piano/h-fa.wav",
-			"piano/h-so.wav",
-			"piano/h-la.wav",
-			"piano/h-si.wav",
-			"piano/h-do-.wav"
-	};
-
-	private static final String[] pianoSoundsH = {
-			"piano/l-do.wav",
-			"piano/l-re.wav",
-			"piano/l-mi.wav",
-			"piano/l-fa.wav",
-			"piano/l-so.wav",
-			"piano/l-la.wav",
-			"piano/l-si.wav",
-			"piano/l-do-.wav",
-			"piano/m-do.wav",
-			"piano/m-re.wav",
-			"piano/m-mi.wav",
-			"piano/m-fa.wav",
-			"piano/m-so.wav",
-			"piano/m-la.wav",
-			"piano/m-si.wav",
-			"piano/m-do-.wav",
-			"piano/h-do.wav",
-			"piano/h-re.wav",
-			"piano/h-mi.wav",
-			"piano/h-fa.wav",
-			"piano/h-so.wav",
-			"piano/h-la.wav",
-			"piano/h-si.wav",
-			"piano/h-do-.wav"
-	};
 
 	private static final String[] musicBoxSounds = {
 			"musicbox/l-do.wav",
@@ -144,7 +90,7 @@ public class Example extends ARActivity {
 			"musicbox/h-do-.wav"
 	};
 
-	private static final String[] acousticGuitarSounds = {
+	private static final String[] guitarSounds = {
 			"acousticguitar/C.wav",
 			"acousticguitar/Dm.wav",
 			"acousticguitar/Em.wav",
@@ -161,33 +107,18 @@ public class Example extends ARActivity {
 			"electronicguitar/B5.wav",
 	};
 
-	private static final String[] elecGuitarSounds = {
-			"acousticguitar/C.wav",
-			"acousticguitar/Dm.wav",
-			"acousticguitar/Em.wav",
-			"acousticguitar/F.wav",
-			"acousticguitar/G.wav",
-			"acousticguitar/Am.wav",
-			"acousticguitar/B5.wav",
-			"electronicguitar/C.wav",
-			"electronicguitar/Dm.wav",
-			"electronicguitar/Em.wav",
-			"electronicguitar/F.wav",
-			"electronicguitar/G.wav",
-			"electronicguitar/Am.wav",
-			"electronicguitar/B5.wav",
-	};
+
 
 	private static final String[][] instrumentSounds = {
-			pianoSoundsL, pianoSoundsM, pianoSoundsH, musicBoxSounds, acousticGuitarSounds, elecGuitarSounds
+			pianoSounds, musicBoxSounds, guitarSounds
 	};
 
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	//private int instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+	//private int instrumentType = INSTRUMENT_TYPE_GUITAR;
 	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
-	private int instrumentType = INSTRUMENT_TYPE_PIANO_M;
+	private int instrumentType = INSTRUMENT_TYPE_PIANO;
 
 	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
 	private int currentSoundId = -1;
@@ -225,11 +156,11 @@ public class Example extends ARActivity {
 			String type = extras.getString("type");
 			if(type != null){
 				if(type.equals("guitar")){
-					instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+					instrumentType = INSTRUMENT_TYPE_GUITAR;
 				}else if(type.equals("musicbox")){
 					instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
 				}else if(type.equals("piano")){
-					instrumentType = INSTRUMENT_TYPE_PIANO_M;
+					instrumentType = INSTRUMENT_TYPE_PIANO;
 				}
 			}
 		}
@@ -258,10 +189,10 @@ public class Example extends ARActivity {
 		guitarSwitch = (ImageButton)findViewById(R.id.guitar_switch);
 		octaveSwitch = (ImageButton)findViewById(R.id.octave_switch);
 
-		if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR || instrumentType == INSTRUMENT_TYPE_ELEC_GUITAR){
+		if(instrumentType == INSTRUMENT_TYPE_GUITAR){
 			guitarSwitch.setVisibility(View.VISIBLE);
 			octaveSwitch.setVisibility(View.INVISIBLE);
-			if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR){
+			if(currentOctave == 0){
 				currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
 				guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
 			}else{
@@ -269,14 +200,14 @@ public class Example extends ARActivity {
 				guitarSwitch.setImageBitmap(guitarSwitchElecImage);
 			}
 
-		}else if(instrumentType == INSTRUMENT_TYPE_PIANO_L || instrumentType == INSTRUMENT_TYPE_PIANO_M || instrumentType == INSTRUMENT_TYPE_PIANO_H){
+		}else if(instrumentType == INSTRUMENT_TYPE_PIANO){
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano));
 			guitarSwitch.setVisibility(View.INVISIBLE);
 			octaveSwitch.setVisibility(View.VISIBLE);
 
-			if(instrumentType == INSTRUMENT_TYPE_PIANO_L){
+			if(currentOctave == 0){
 				octaveSwitch.setImageBitmap(octaveSwitchLImage);
-			}else if(instrumentType == INSTRUMENT_TYPE_PIANO_M){
+			}else if(currentOctave == 1){
 				octaveSwitch.setImageBitmap(octaveSwitchMImage);
 			}else{
 				octaveSwitch.setImageBitmap(octaveSwitchHImage);
@@ -294,12 +225,12 @@ public class Example extends ARActivity {
 		guitarSwitch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(instrumentType == INSTRUMENT_TYPE_ACOUSTIC_GUITAR){
-					instrumentType = INSTRUMENT_TYPE_ELEC_GUITAR;
+				if(currentOctave == 0){
+					currentOctave = 1;
 					currentInstrumentIcon.setImageBitmap(guitarElecIcon);
 					guitarSwitch.setImageBitmap(guitarSwitchElecImage);
 				}else{
-					instrumentType = INSTRUMENT_TYPE_ACOUSTIC_GUITAR;
+					currentOctave = 0;
 					currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
 					guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
 				}
@@ -309,14 +240,14 @@ public class Example extends ARActivity {
 		octaveSwitch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(instrumentType == INSTRUMENT_TYPE_PIANO_L){
-					instrumentType = INSTRUMENT_TYPE_PIANO_M;
+				if(currentOctave == 0){
+					currentOctave = 1;
 					octaveSwitch.setImageBitmap(octaveSwitchMImage);
-				}else if(instrumentType == INSTRUMENT_TYPE_PIANO_M){
-					instrumentType = INSTRUMENT_TYPE_PIANO_H;
+				}else if(currentOctave == 1){
+					currentOctave = 2;
 					octaveSwitch.setImageBitmap(octaveSwitchHImage);
 				}else{
-					instrumentType = INSTRUMENT_TYPE_PIANO_L;
+					currentOctave = 3;
 					octaveSwitch.setImageBitmap(octaveSwitchLImage);
 				}
 			}
@@ -394,18 +325,28 @@ public class Example extends ARActivity {
 		mFMODAudioDevice.stop();
 	}
 
+	private int getCurrentOffset(){
+		if(instrumentType == INSTRUMENT_TYPE_PIANO){
+			return currentOctave * 8;
+		}else if(instrumentType == INSTRUMENT_TYPE_GUITAR){
+			return currentOctave * 7;
+		}else{
+			return 0;
+		}
+	}
+
 	/**
 	 * TODO:
 	 * low,mid,highを切り替える時は、ここで値にoffsetを加えて、cPlaySound()を呼び出す.
 	 */
 	public void playSound(int soundId) {
-		cPlaySound(soundId);
+		cPlaySound(soundId + getCurrentOffset());
 	}
 
 	public void playCurrentSound() {
 		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
 		if( currentSoundId >= 0 ) {
-			cPlaySound(currentSoundId);
+			cPlaySound(currentSoundId  + getCurrentOffset());
 		}
 	}
 
@@ -423,7 +364,7 @@ public class Example extends ARActivity {
 
 	@Override
 	protected ARRenderer supplyRenderer() {
-		if( instrumentType == INSTRUMENT_TYPE_PIANO_L || instrumentType == INSTRUMENT_TYPE_PIANO_M || instrumentType == INSTRUMENT_TYPE_PIANO_H ) {
+		if( instrumentType == INSTRUMENT_TYPE_PIANO) {
 			return new PianoRenderer(this);
 		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
 			return new MusicBoxRenderer(this);
