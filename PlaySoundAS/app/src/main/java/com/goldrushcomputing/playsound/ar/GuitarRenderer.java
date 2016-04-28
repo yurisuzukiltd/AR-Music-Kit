@@ -133,17 +133,20 @@ public class GuitarRenderer extends InstrumentsRenderer {
 
 		setProjectionMatrix(gl);
 
-		gl.glEnable(GL10.GL_CULL_FACE);
+		//gl.glEnable(GL10.GL_CULL_FACE);
+		gl.glDisable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-		gl.glFrontFace(GL10.GL_CW);
+		//gl.glFrontFace(GL10.GL_CW);
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
+		boolean usingFrontCamera = activity.isUsingFrontCamera();
+
 		for (Marker codeMarker : codeMarkers) {
-			codeMarker.draw(gl, now);
+			codeMarker.draw(gl, now, usingFrontCamera);
 		}
-		playMarker.draw(gl, now);
-		playMarker.drawOutline(gl, acousticOutlinePlane, now);
+		playMarker.draw(gl, now, usingFrontCamera);
+		playMarker.drawOutline(gl, acousticOutlinePlane, now, usingFrontCamera);
 	}
 }

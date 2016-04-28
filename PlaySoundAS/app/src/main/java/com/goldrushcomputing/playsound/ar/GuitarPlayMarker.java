@@ -25,13 +25,23 @@ public class GuitarPlayMarker extends Marker {
 	/**
 	 * アウトラインの表示
 	 */
-	void drawOutline(GL10 gl, Plane outlinePlane, long now) {
+	void drawOutline(GL10 gl, Plane outlinePlane, long now, boolean front) {
 		if (isTracked()) {
 			float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 			if (markerMatrix == null) {
 				return;
 			}
 			gl.glLoadMatrixf(markerMatrix, 0);
+
+
+			if( front ) {
+				// 反転させる
+				markerMatrix[1] = -markerMatrix[1];
+				markerMatrix[5] = -markerMatrix[5];
+				markerMatrix[9] = -markerMatrix[9];
+				markerMatrix[13] = -markerMatrix[13];
+			}
+
 			outlinePlane.draw(gl);
 			lastOutlintDrawnWithTracked = now;
 		} else if( markerMatrixCached && (now - lastOutlintDrawnWithTracked) < 1000 ) {

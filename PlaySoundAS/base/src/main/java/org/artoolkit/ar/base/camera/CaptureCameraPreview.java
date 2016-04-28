@@ -109,6 +109,9 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
     boolean isPreviewRunning = false;
 
+    public boolean isUsingFrontCamera() {
+        return !isRearCamera;
+    }
 
     /**
      * Constructor takes a {@link CameraEventListener} which will be called on 
@@ -760,5 +763,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
         }
     }
+
+
 
 }

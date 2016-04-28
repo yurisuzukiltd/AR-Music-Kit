@@ -475,11 +475,14 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 	public void cameraPreviewSizeDetected(int width, int height) {
 		android.widget.FrameLayout.LayoutParams layoutParams = new android.widget.FrameLayout.LayoutParams(
 				width, height);
-		layoutParams.gravity = Gravity.CENTER_VERTICAL;
+		layoutParams.gravity = Gravity.CENTER_HORIZONTAL;
 
 		Log.d(TAG, "mainLayout to (" + width + "," + height + ")");
 		this.mainLayout.setLayoutParams(layoutParams);
 		this.outerLayout.setLayoutParams(layoutParams);
 	}
 
+	public boolean isUsingFrontCamera() {
+		return preview.isUsingFrontCamera();
+	}
 }

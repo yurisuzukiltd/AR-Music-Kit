@@ -57,7 +57,7 @@ public class Marker {
 		markerMatrixCached = true;
 	}
 
-	void draw(GL10 gl, long now) {
+	void draw(GL10 gl, long now, boolean front) {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
@@ -77,6 +77,14 @@ public class Marker {
 		float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 		if (markerMatrix == null) {
 			return;
+		}
+
+		if( front ) {
+			// 反転させる
+			markerMatrix[1] = -markerMatrix[1];
+			markerMatrix[5] = -markerMatrix[5];
+			markerMatrix[9] = -markerMatrix[9];
+			markerMatrix[13] = -markerMatrix[13];
 		}
 
 		// マーカーマトリクスをキャッシュしておく
