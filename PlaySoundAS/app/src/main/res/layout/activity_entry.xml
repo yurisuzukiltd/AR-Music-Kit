@@ -17,6 +17,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:layout_gravity="top"
         android:adjustViewBounds="true"
         android:contentDescription="@string/none"
         android:scaleType="centerInside"
