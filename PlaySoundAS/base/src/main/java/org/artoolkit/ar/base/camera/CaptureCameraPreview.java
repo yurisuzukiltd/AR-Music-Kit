@@ -329,8 +329,11 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
                 }
             }
 
-            previewWidth = 320;
-            previewHeight = 240;
+            //previewWidth = 320;
+            //previewHeight = 240;
+
+            previewWidth = 640;
+            previewHeight = 480;
 
             Log.d(TAG, "Set camera preview size to (" + previewWidth + "," + previewHeight + ")");
             this.previewWidth = previewWidth;
