@@ -5,7 +5,6 @@ import android.opengl.GLU;
 import android.util.Log;
 import com.goldrushcomputing.playsound.Example;
 import com.goldrushcomputing.playsound.geom.Matrix4f;
-import org.artoolkit.ar.base.ARToolKit;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -24,7 +23,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 			"single;Data/Fa.pat;64",
 			"single;Data/So.pat;64",
 			"single;Data/La.pat;64",
-			"single;Data/Si.pat;64",
+			"single;Data/Ti.pat;64",
 			"single;Data/Do-.pat;64",
 	};
 

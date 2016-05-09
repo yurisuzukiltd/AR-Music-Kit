@@ -35,19 +35,19 @@ public class Plane {
 	}
 
 	public Plane(float size, float offsetZ) {
-		this(size, 0.0f, 0.0f, offsetZ);
+		this(size, size, size, 0.0f, 0.0f, offsetZ);
 	}
 
-	public Plane(float size, float offsetX, float offsetY, float offsetZ) {
+	public Plane(float sizeX, float sizeY, float sizeZ,
+	             float offsetX, float offsetY, float offsetZ) {
 		float[] scaledVertices = new float[vertices.length];
 		for (int i = 0; i < vertices.length; ++i) {
-			scaledVertices[i] = size * vertices[i];
 			if (i % 3 == 0) {
-				scaledVertices[i] += offsetX;
+				scaledVertices[i] = sizeX * vertices[i] + offsetX;
 			} else if (i % 3 == 1) {
-				scaledVertices[i] += offsetY;
+				scaledVertices[i] = sizeY * vertices[i] + offsetY;
 			} else if (i % 3 == 2) {
-				scaledVertices[i] += offsetZ;
+				scaledVertices[i] = sizeZ * vertices[i] + offsetZ;
 			}
 		}
 
