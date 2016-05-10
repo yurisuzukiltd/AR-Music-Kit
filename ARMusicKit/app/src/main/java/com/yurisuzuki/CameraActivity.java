@@ -37,14 +37,6 @@ public class CameraActivity extends ARActivity {
 	public int currentOctave = 0;
 
 	private static final String[] pianoSounds = {
-			"piano/l-do.wav",
-			"piano/l-re.wav",
-			"piano/l-mi.wav",
-			"piano/l-fa.wav",
-			"piano/l-so.wav",
-			"piano/l-la.wav",
-			"piano/l-si.wav",
-			"piano/l-do-.wav",
 			"piano/m-do.wav",
 			"piano/m-re.wav",
 			"piano/m-mi.wav",
@@ -53,14 +45,22 @@ public class CameraActivity extends ARActivity {
 			"piano/m-la.wav",
 			"piano/m-si.wav",
 			"piano/m-do-.wav",
-			"piano/h-do.wav",
-			"piano/h-re.wav",
-			"piano/h-mi.wav",
-			"piano/h-fa.wav",
-			"piano/h-so.wav",
-			"piano/h-la.wav",
-			"piano/h-si.wav",
-			"piano/h-do-.wav"
+			"piano/kb1-do.wav",
+			"piano/kb1-re.wav",
+			"piano/kb1-mi.wav",
+			"piano/kb1-fa.wav",
+			"piano/kb1-so.wav",
+			"piano/kb1-la.wav",
+			"piano/kb1-si.wav",
+			"piano/kb1-do-.wav",
+			"piano/kb2-do.wav",
+			"piano/kb2-re.wav",
+			"piano/kb2-mi.wav",
+			"piano/kb2-fa.wav",
+			"piano/kb2-so.wav",
+			"piano/kb2-la.wav",
+			"piano/kb2-si.wav",
+			"piano/kb2-do-.wav"
 	};
 
 
@@ -93,19 +93,21 @@ public class CameraActivity extends ARActivity {
 
 	private static final String[] guitarSounds = {
 			"acousticguitar/C.wav",
-			"acousticguitar/Dm.wav",
+			"acousticguitar/A.wav",
+			"acousticguitar/G.wav",
+			"acousticguitar/E.wav",
+			"acousticguitar/D.wav",
+			"acousticguitar/Am.wav",
 			"acousticguitar/Em.wav",
 			"acousticguitar/F.wav",
-			"acousticguitar/G.wav",
-			"acousticguitar/Am.wav",
-			"acousticguitar/B5.wav",
 			"electronicguitar/C.wav",
-			"electronicguitar/Dm.wav",
+			"electronicguitar/A.wav",
+			"electronicguitar/G.wav",
+			"electronicguitar/E.wav",
+			"electronicguitar/D.wav",
+			"electronicguitar/Am.wav",
 			"electronicguitar/Em.wav",
 			"electronicguitar/F.wav",
-			"electronicguitar/G.wav",
-			"electronicguitar/Am.wav",
-			"electronicguitar/B5.wav",
 	};
 
 
@@ -347,15 +349,7 @@ public class CameraActivity extends ARActivity {
 	}
 
 	private int getCurrentOffset(){
-		if(instrumentType == INSTRUMENT_TYPE_PIANO){
-			return currentOctave * 8;
-		}else if(instrumentType == INSTRUMENT_TYPE_MUSIC_BOX){
-			return currentOctave * 8;
-		}else if(instrumentType == INSTRUMENT_TYPE_GUITAR){
-			return currentOctave * 7;
-		}else{
-			return 0;
-		}
+		return currentOctave * 8;
 	}
 
 	/**

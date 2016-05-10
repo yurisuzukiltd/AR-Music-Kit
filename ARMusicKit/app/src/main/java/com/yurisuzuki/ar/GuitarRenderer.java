@@ -13,12 +13,13 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	// マーカーデータ
 	private static final String[] markerParams = {
 			"single;Data/C.pat;64",
-			"single;Data/Dm.pat;64",
+			"single;Data/A.pat;64",
+			"single;Data/G.pat;64",
+			"single;Data/E.pat;64",
+			"single;Data/D.pat;64",
+			"single;Data/Am.pat;64",
 			"single;Data/Em.pat;64",
 			"single;Data/F.pat;64",
-			"single;Data/G.pat;64",
-			"single;Data/Am.pat;64",
-			"single;Data/B5.pat;64",
 	};
 
 	private static final String playMarkerParam = "single;Data/guitar.pat;64";
@@ -26,12 +27,13 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	// 認識時のテクスチャ
 	private static final String[] markerTexturePaths = {
 			"Texture/Code_C.png",
-			"Texture/Code_Dm.png",
+			"Texture/Code_A.png",
+			"Texture/Code_G.png",
+			"Texture/Code_E.png",
+			"Texture/Code_D.png",
+			"Texture/Code_Am.png",
 			"Texture/Code_Em.png",
 			"Texture/Code_F.png",
-			"Texture/Code_G.png",
-			"Texture/Code_Am.png",
-			"Texture/Code_B5.png",
 	};
 
 	private static final String playMarkerTexturePath = "Texture/Guitar_Acoustic.png";
@@ -44,6 +46,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			"Texture/Action_yellow.png",
 			"Texture/Action_orange.png",
 			"Texture/Action_brown.png",
+			"Texture/Action_brown.png", // TODO: Emに相当するHOLDの色が無い
 			"Texture/Action_black.png",
 	};
 
@@ -57,8 +60,8 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	private GuitarCodeMarker[] codeMarkers;
 	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
 
-	private Plane acousticOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
-	private Plane electricOutlinePlane = new Plane(64.0f * 6.0f, 50.0f, 50.0f, 0.0f);
+	private Plane acousticOutlinePlane = new Plane(64.0f * 6.0f, 64.0f * 3.0f, 64.0f * 3.0f, 50.0f, 0.0f, 0.0f);
+	private Plane electricOutlinePlane = new Plane(64.0f * 6.0f, 64.0f * 3.0f, 64.0f * 3.0f, 50.0f, 0.0f, 0.0f);
 
 	public GuitarRenderer(CameraActivity activity) {
 		this.activity = activity;
