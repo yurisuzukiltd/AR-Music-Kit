@@ -35,7 +35,7 @@ int numOfSounds;
 }
 
 
-void Java_com_goldrushcomputing_playsound_Example_cBegin(JNIEnv *env,
+void Java_com_yurisuzuki_CameraActivity_cBegin(JNIEnv *env,
 		jobject thiz, jobjectArray pathStringArray) {
 	FMOD_RESULT result = FMOD_OK;
 
@@ -82,7 +82,7 @@ void Java_com_goldrushcomputing_playsound_Example_cBegin(JNIEnv *env,
 
 }
 
-void Java_com_goldrushcomputing_playsound_Example_cUpdate(JNIEnv *env, jobject thiz)
+void Java_com_yurisuzuki_CameraActivity_cUpdate(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT	result = FMOD_OK;
 
@@ -90,7 +90,7 @@ void Java_com_goldrushcomputing_playsound_Example_cUpdate(JNIEnv *env, jobject t
 	CHECK_RESULT(result);
 }
 
-void Java_com_goldrushcomputing_playsound_Example_cEnd(JNIEnv *env, jobject thiz)
+void Java_com_yurisuzuki_CameraActivity_cEnd(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
     
@@ -109,7 +109,7 @@ void Java_com_goldrushcomputing_playsound_Example_cEnd(JNIEnv *env, jobject thiz
 	CHECK_RESULT(result);
 }
 
-void Java_com_goldrushcomputing_playsound_Example_cPlaySound(JNIEnv *env, jobject thiz, int id)
+void Java_com_yurisuzuki_CameraActivity_cPlaySound(JNIEnv *env, jobject thiz, int id)
 {
 	FMOD_RESULT result = FMOD_OK;
 
@@ -117,7 +117,7 @@ void Java_com_goldrushcomputing_playsound_Example_cPlaySound(JNIEnv *env, jobjec
 	CHECK_RESULT(result);
 }
 
-jint Java_com_goldrushcomputing_playsound_Example_cGetChannelsPlaying(JNIEnv *env, jobject thiz)
+jint Java_com_yurisuzuki_CameraActivity_cGetChannelsPlaying(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	int chans = 0;
@@ -128,7 +128,7 @@ jint Java_com_goldrushcomputing_playsound_Example_cGetChannelsPlaying(JNIEnv *en
 	return chans;
 }
 
-jboolean Java_com_goldrushcomputing_playsound_Example_cGetPlaying(JNIEnv *env, jobject thiz)
+jboolean Java_com_yurisuzuki_CameraActivity_cGetPlaying(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	FMOD_BOOL playing = 0;
@@ -145,7 +145,7 @@ jboolean Java_com_goldrushcomputing_playsound_Example_cGetPlaying(JNIEnv *env, j
 	return playing;
 }
 
-jint Java_com_goldrushcomputing_playsound_Example_cGetPosition(JNIEnv *env, jobject thiz)
+jint Java_com_yurisuzuki_CameraActivity_cGetPosition(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	int position = 0;
@@ -162,7 +162,7 @@ jint Java_com_goldrushcomputing_playsound_Example_cGetPosition(JNIEnv *env, jobj
 	return position;
 }
 
-jint Java_com_goldrushcomputing_playsound_Example_cGetLength(JNIEnv *env, jobject thiz)
+jint Java_com_yurisuzuki_CameraActivity_cGetLength(JNIEnv *env, jobject thiz)
 {
 	FMOD_RESULT result = FMOD_OK;
 	FMOD_SOUND *sound = 0;
@@ -186,7 +186,7 @@ jint Java_com_goldrushcomputing_playsound_Example_cGetLength(JNIEnv *env, jobjec
 	return length;
 }
 
-void Java_com_goldrushcomputing_playsound_Example_cDistortionToggle(JNIEnv *env, jobject thiz)
+void Java_com_yurisuzuki_CameraActivity_cDistortionToggle(JNIEnv *env, jobject thiz)
 {
     FMOD_RESULT result = FMOD_OK;
     FMOD_BOOL active = 0;

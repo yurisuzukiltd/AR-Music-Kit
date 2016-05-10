@@ -6,7 +6,7 @@ model {
         buildToolsVersion = "23.0.2"
 
         defaultConfig.with {
-            applicationId = "com.goldrushcomputing.playsound"
+            applicationId = "com.yurisuzuki"
             minSdkVersion.apiLevel = 16
             targetSdkVersion.apiLevel = 22
             versionCode = 14
@@ -50,12 +50,15 @@ model {
 }
 
 dependencies {
+    compile 'com.android.support:support-v13:23.3.0'
+
     //compile 'com.android.support:support-v4:23.0.1'
     //compile 'com.android.support:appcompat-v7:23.0.1' //Only required when the target device API level is greater than
     //compile project(':aRBaseLib')
     compile project(':base')
     compile files('libs/fmodex.jar')
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
 
 }
 //the compile and target of the app being deployed to the device
