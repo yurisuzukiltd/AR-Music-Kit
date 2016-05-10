@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PlaySoundAS.iml" filepath="$PROJECT_DIR$/PlaySoundAS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ARMusicKit.iml" filepath="$PROJECT_DIR$/ARMusicKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
     </modules>

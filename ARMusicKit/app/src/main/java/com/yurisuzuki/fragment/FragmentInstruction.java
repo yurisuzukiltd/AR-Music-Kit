@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yurisuzuki.CameraActivity;
+import com.yurisuzuki.ActivityIntro;
 import com.yurisuzuki.playsound.R;
 
 public final class FragmentInstruction extends Fragment {
@@ -102,10 +101,12 @@ public final class FragmentInstruction extends Fragment {
 		illustView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(FragmentInstruction.this.getActivity(), CameraActivity.class);
-				intent.putExtra("type", type);
-				startActivity(intent);
+				//Intent intent = new Intent(FragmentInstruction.this.getActivity(), CameraActivity.class);
+				//intent.putExtra("type", type);
+				//startActivity(intent);
 				//overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+				((ActivityIntro)FragmentInstruction.this.getActivity()).jumpToCamera();
 			}
 		});
 		return layout;
