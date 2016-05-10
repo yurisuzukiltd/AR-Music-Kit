@@ -1,7 +1,10 @@
+/*
+ *  Author(s): Takamitsu Mizutori, Goldrush Computing Inc.
+ */
+
 package com.yurisuzuki.fragment;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -22,14 +25,10 @@ public final class FragmentMenu extends Fragment {
 	ArrayList<TextView> textViews;
 
 	private int containerId;
-
 	private int containerWidth;
 
-	public static FragmentMenu newInstance(String type) {
+	public static FragmentMenu newInstance() {
 		FragmentMenu fragment = new FragmentMenu();
-		Bundle args = new Bundle();
-		args.putString("type", type);
-		fragment.setArguments(args);
 		return fragment;
 	}
 
@@ -40,13 +39,6 @@ public final class FragmentMenu extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		if (getArguments() != null) {
-			type = getArguments().getString("type");
-		}
-
-
-
 	}
 
 	@Override
@@ -134,7 +126,6 @@ public final class FragmentMenu extends Fragment {
 					}else if(tag.equals("about")){
 
 					}else{
-						//showInstruction(tag);
 						((MainActivity)getActivity()).showInstruction(tag);
 					}
 
@@ -162,49 +153,6 @@ public final class FragmentMenu extends Fragment {
 				.commit();
 	}
 	*/
-
-
-	private void showInstructionOld(String tag) {
-
-		android.app.FragmentManager fm = getFragmentManager();
-
-		FragmentInstruction fragment = (FragmentInstruction) fm.findFragmentByTag("FragmentInstruction");
-		if (fragment == null) {
-			fragment = FragmentInstruction.newInstance(tag);
-		}else{
-			fragment.type = tag;
-		}
-
-
-		FragmentTransaction ft = fm.beginTransaction();
-		//＊＊＊TRANSIT_FRAGMENT_OPENを指定する＊＊＊
-		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-		ft.replace(containerId, fragment);
-		ft.addToBackStack(null);
-		ft.commit();
-	}
-
-	private void showInstruction(String tag) {
-
-		android.app.FragmentManager fm = getFragmentManager();
-
-		FragmentIntroBase fragment = (FragmentIntroBase) fm.findFragmentByTag("FragmentIntroBase");
-		if (fragment == null) {
-			fragment = FragmentIntroBase.newInstance(tag);
-		}else{
-			//fragment.type = tag;
-			fragment = FragmentIntroBase.newInstance(tag);
-		}
-
-
-		FragmentTransaction ft = fm.beginTransaction();
-		//＊＊＊TRANSIT_FRAGMENT_OPENを指定する＊＊＊
-		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-		//ft.replace(containerId, fragment);
-		ft.add(containerId, fragment, "FragmentIntroBase");
-		ft.addToBackStack(null);
-		ft.commit();
-	}
 
 
 }

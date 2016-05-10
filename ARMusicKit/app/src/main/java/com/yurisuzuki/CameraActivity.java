@@ -1,3 +1,9 @@
+/*
+ *  Author(s):
+ *  Takamitsu Mizutori, Goldrush Computing Inc.
+ *  Kosuke Miyoshi, Narrative Nights
+ */
+
 package com.yurisuzuki;
 
 import android.graphics.Bitmap;

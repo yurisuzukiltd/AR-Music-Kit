@@ -1,3 +1,7 @@
+/*
+ *  Author(s): Takamitsu Mizutori, Goldrush Computing Inc.
+ */
+
 package com.yurisuzuki.fragment;
 
 import android.animation.Animator;
@@ -101,11 +105,6 @@ public final class FragmentInstruction extends Fragment {
 		illustView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//Intent intent = new Intent(FragmentInstruction.this.getActivity(), CameraActivity.class);
-				//intent.putExtra("type", type);
-				//startActivity(intent);
-				//overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
 				((ActivityIntro)FragmentInstruction.this.getActivity()).jumpToCamera();
 			}
 		});

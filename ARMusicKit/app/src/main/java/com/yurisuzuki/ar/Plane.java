@@ -1,11 +1,15 @@
+/*
+ *  Author(s): Kosuke Miyoshi, Narrative Nights
+ */
 package com.yurisuzuki.ar;
 
 import android.content.Context;
 
-import javax.microedition.khronos.opengles.GL10;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+
+import javax.microedition.khronos.opengles.GL10;
 
 public class Plane {
 	private Texture texture;

@@ -1,3 +1,6 @@
+/*
+ *  Author(s): Kosuke Miyoshi, Narrative Nights
+ */
 package com.yurisuzuki.ar;
 
 import android.content.Context;
@@ -6,9 +9,10 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 import android.util.Log;
 
-import javax.microedition.khronos.opengles.GL10;
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.microedition.khronos.opengles.GL10;
 
 public class Texture {
 	private static final String TAG = "Texture";

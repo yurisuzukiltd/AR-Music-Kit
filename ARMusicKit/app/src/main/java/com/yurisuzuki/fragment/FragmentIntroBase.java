@@ -1,3 +1,7 @@
+/*
+ *  Author(s): Takamitsu Mizutori, Goldrush Computing Inc.
+ */
+
 package com.yurisuzuki.fragment;
 
 import android.app.Activity;

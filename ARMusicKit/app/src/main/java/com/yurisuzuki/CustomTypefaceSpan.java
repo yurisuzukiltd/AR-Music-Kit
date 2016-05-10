@@ -1,8 +1,9 @@
+/*
+ *  Author(s): Takamitsu Mizutori, Goldrush Computing Inc.
+ */
+
 package com.yurisuzuki;
 
-/**
- * Created by Mizutori on 16/04/26.
- */
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextPaint;

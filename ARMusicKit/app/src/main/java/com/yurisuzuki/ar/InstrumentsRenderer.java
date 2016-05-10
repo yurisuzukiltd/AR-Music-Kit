@@ -1,3 +1,6 @@
+/*
+ *  Author(s): Kosuke Miyoshi, Narrative Nights
+ */
 package com.yurisuzuki.ar;
 
 import com.yurisuzuki.geom.Matrix4f;

@@ -1,15 +1,17 @@
+/*
+ *  Author(s): Takamitsu Mizutori, Goldrush Computing Inc.
+ */
+
 package com.yurisuzuki;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.yurisuzuki.playsound.R;
-import com.yurisuzuki.fragment.FragmentInstruction;
 import com.yurisuzuki.fragment.FragmentMenu;
+import com.yurisuzuki.playsound.R;
 
 public class MainActivity extends Activity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,7 @@ public class MainActivity extends Activity {
         android.app.FragmentManager fm = getFragmentManager();
         FragmentMenu fragment = (FragmentMenu) fm.findFragmentByTag("FragmentMenu");
         if (fragment == null) {
-            fragment = FragmentMenu.newInstance("foo");
+            fragment = FragmentMenu.newInstance();
         }
 
         if(fragment.isAdded() == false){
@@ -27,29 +29,6 @@ public class MainActivity extends Activity {
                     .add(R.id.main_container, fragment, "FragmentMenu")
                     .commit();
         }
-
-    }
-
-
-
-    public void openInstructionOld(){
-
-        android.app.FragmentManager fm = getFragmentManager();
-
-        FragmentInstruction fragment = (FragmentInstruction) fm.findFragmentByTag("FragmentInstruction");
-        if (fragment == null) {
-            fragment = FragmentInstruction.newInstance("guitar");
-        }
-
-        fm.beginTransaction()
-                .setCustomAnimations(R.animator.fragment_slide_in_from_right,
-                        R.animator.fragment_slide_out_to_right,
-                        R.animator.fragment_slide_in_from_right,
-                        R.animator.fragment_slide_out_to_right)
-                .add(R.id.main_container, fragment, "FragmentInstruction")
-                .addToBackStack(null)
-                .commit();
-
 
     }
 
@@ -66,12 +45,6 @@ public class MainActivity extends Activity {
         startActivity(intent);
         //finish();
         //overridePendingTransition(R.anim.fade_in, R.anim.scale_out);
-
     }
-
-
-
-
-
 }
 
