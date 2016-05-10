@@ -170,10 +170,11 @@ public class CameraPreferencesActivity extends PreferenceActivity implements
 
 		Camera cam = null;
 		try {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
 				cam = Camera.open(camIndex);
-			else
+			} else {
 				cam = Camera.open();
+			}
 
 			Camera.Parameters params = cam.getParameters();
 			List<Camera.Size> previewSizes = params.getSupportedPreviewSizes();
@@ -191,19 +192,18 @@ public class CameraPreferencesActivity extends PreferenceActivity implements
 			for (int i = 0; i < previewSizes.size(); i++) {
 				int w = previewSizes.get(i).width;
 				int h = previewSizes.get(i).height;
-				entries[i] = w + "x" + h + "   (" + findAspectRatioName(w, h)
-						+ ")";
+				entries[i] = w + "x" + h + "   (" + findAspectRatioName(w, h) + ")";
 				entryValues[i] = w + "x" + h;
-				if (entryValues[i].equals(camResolution))
+				if (entryValues[i].equals(camResolution)) {
 					foundCurrentResolution = true;
+				}
 			}
 			cameraResolutionPreference.setEntries(entries);
 			cameraResolutionPreference.setEntryValues(entryValues);
 
 			if (!foundCurrentResolution) {
 				cameraResolutionPreference.setValue(entryValues[0].toString());
-				cameraResolutionPreference
-						.setSummary(cameraResolutionPreference.getEntry());
+				cameraResolutionPreference.setSummary(cameraResolutionPreference.getEntry());
 			}
 
 		} catch (RuntimeException e) {
@@ -217,12 +217,10 @@ public class CameraPreferencesActivity extends PreferenceActivity implements
 		super.onResume();
 
 		cameraIndexPreference.setSummary(cameraIndexPreference.getEntry());
-		cameraResolutionPreference.setSummary(cameraResolutionPreference
-				.getEntry());
+		cameraResolutionPreference.setSummary(cameraResolutionPreference.getEntry());
 
 		// Register for changes.
-		getPreferenceManager().getSharedPreferences()
-				.registerOnSharedPreferenceChangeListener(this);
+		getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 	}
 
 	@Override
@@ -243,8 +241,7 @@ public class CameraPreferencesActivity extends PreferenceActivity implements
 		super.onPause();
 
 		// Unregister the listener whenever a key changes
-		getPreferenceManager().getSharedPreferences()
-				.unregisterOnSharedPreferenceChangeListener(this);
+		getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
 	}
 
 	public enum ASPECT_RATIO {
