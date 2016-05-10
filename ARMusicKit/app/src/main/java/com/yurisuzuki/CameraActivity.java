@@ -106,6 +106,7 @@ public class CameraActivity extends ARActivity {
 			"acousticguitar/Am.wav",
 			"acousticguitar/Em.wav",
 			"acousticguitar/F.wav",
+			"acousticguitar/Open.wav",
 			"electronicguitar/C.wav",
 			"electronicguitar/A.wav",
 			"electronicguitar/G.wav",
@@ -114,9 +115,8 @@ public class CameraActivity extends ARActivity {
 			"electronicguitar/Am.wav",
 			"electronicguitar/Em.wav",
 			"electronicguitar/F.wav",
+			"electronicguitar/Open.wav",
 	};
-
-
 
 	private static final String[][] instrumentSounds = {
 			pianoSounds, musicBoxSounds, guitarSounds
@@ -125,12 +125,7 @@ public class CameraActivity extends ARActivity {
 	private FMODAudioDevice mFMODAudioDevice = new FMODAudioDevice();
 
 	/// 楽器タイプの切り替え
-	//private int instrumentType = INSTRUMENT_TYPE_GUITAR;
-	//private int instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
-	private int instrumentType = INSTRUMENT_TYPE_PIANO;
-
-	/// ギターで利用する現在設定されているサウンド(-1だと設定無し)
-	private int currentSoundId = -1;
+	private int instrumentType = INSTRUMENT_TYPE_GUITAR;
 
 	private Handler mUpdateHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -163,12 +158,12 @@ public class CameraActivity extends ARActivity {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			String type = extras.getString("type");
-			if(type != null){
-				if(type.equals("guitar")){
+			if (type != null) {
+				if (type.equals("guitar")) {
 					instrumentType = INSTRUMENT_TYPE_GUITAR;
-				}else if(type.equals("musicbox")){
+				} else if (type.equals("musicbox")) {
 					instrumentType = INSTRUMENT_TYPE_MUSIC_BOX;
-				}else if(type.equals("piano")){
+				} else if (type.equals("piano")) {
 					instrumentType = INSTRUMENT_TYPE_PIANO;
 				}
 			}
@@ -183,7 +178,7 @@ public class CameraActivity extends ARActivity {
 		octaveSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_h);
 
 
-		cameraSwapButton = (ImageButton)findViewById(R.id.rear_front_switch);
+		cameraSwapButton = (ImageButton) findViewById(R.id.rear_front_switch);
 		cameraSwapButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -193,48 +188,48 @@ public class CameraActivity extends ARActivity {
 			}
 		});
 
-		currentInstrumentIcon = (ImageButton)findViewById(R.id.current_instrument_icon);
-		infoButton = (ImageButton)findViewById(R.id.info_icon);
-		guitarSwitch = (ImageButton)findViewById(R.id.guitar_switch);
-		octaveSwitch = (ImageButton)findViewById(R.id.octave_switch);
+		currentInstrumentIcon = (ImageButton) findViewById(R.id.current_instrument_icon);
+		infoButton = (ImageButton) findViewById(R.id.info_icon);
+		guitarSwitch = (ImageButton) findViewById(R.id.guitar_switch);
+		octaveSwitch = (ImageButton) findViewById(R.id.octave_switch);
 
-		if(instrumentType == INSTRUMENT_TYPE_GUITAR){
+		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
 			guitarSwitch.setVisibility(View.VISIBLE);
 			octaveSwitch.setVisibility(View.INVISIBLE);
-			if(currentOctave == 0){
+			if (currentOctave == 0) {
 				currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
 				guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
-			}else{
+			} else {
 				currentInstrumentIcon.setImageBitmap(guitarElecIcon);
 				guitarSwitch.setImageBitmap(guitarSwitchElecImage);
 			}
 
-		}else if(instrumentType == INSTRUMENT_TYPE_PIANO){
+		} else if (instrumentType == INSTRUMENT_TYPE_PIANO) {
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano));
 			guitarSwitch.setVisibility(View.INVISIBLE);
 			octaveSwitch.setVisibility(View.VISIBLE);
 
-			if(currentOctave == 0){
+			if (currentOctave == 0) {
 				octaveSwitch.setImageBitmap(octaveSwitchLImage);
-			}else if(currentOctave == 1){
+			} else if (currentOctave == 1) {
 				octaveSwitch.setImageBitmap(octaveSwitchMImage);
-			}else{
+			} else {
 				octaveSwitch.setImageBitmap(octaveSwitchHImage);
 			}
-		}else if(instrumentType == INSTRUMENT_TYPE_MUSIC_BOX){
+		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
 			guitarSwitch.setVisibility(View.INVISIBLE);
 
 			octaveSwitch.setVisibility(View.VISIBLE);
 
-			if(currentOctave == 0){
+			if (currentOctave == 0) {
 				octaveSwitch.setImageBitmap(octaveSwitchLImage);
-			}else if(currentOctave == 1){
+			} else if (currentOctave == 1) {
 				octaveSwitch.setImageBitmap(octaveSwitchMImage);
-			}else{
+			} else {
 				octaveSwitch.setImageBitmap(octaveSwitchHImage);
 			}
-		}else{
+		} else {
 			currentInstrumentIcon.setVisibility(View.INVISIBLE);
 			guitarSwitch.setVisibility(View.INVISIBLE);
 			octaveSwitch.setVisibility(View.INVISIBLE);
@@ -243,11 +238,11 @@ public class CameraActivity extends ARActivity {
 		guitarSwitch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(currentOctave == 0){
+				if (currentOctave == 0) {
 					currentOctave = 1;
 					currentInstrumentIcon.setImageBitmap(guitarElecIcon);
 					guitarSwitch.setImageBitmap(guitarSwitchElecImage);
-				}else{
+				} else {
 					currentOctave = 0;
 					currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
 					guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
@@ -258,13 +253,13 @@ public class CameraActivity extends ARActivity {
 		octaveSwitch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(currentOctave == 0){
+				if (currentOctave == 0) {
 					currentOctave = 1;
 					octaveSwitch.setImageBitmap(octaveSwitchMImage);
-				}else if(currentOctave == 1){
+				} else if (currentOctave == 1) {
 					currentOctave = 2;
 					octaveSwitch.setImageBitmap(octaveSwitchHImage);
-				}else{
+				} else {
 					currentOctave = 0;
 					octaveSwitch.setImageBitmap(octaveSwitchLImage);
 				}
@@ -354,46 +349,119 @@ public class CameraActivity extends ARActivity {
 		mFMODAudioDevice.stop();
 	}
 
-	private int getCurrentOffset(){
-		return currentOctave * 8;
+	private int getCurrentOffset() {
+		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
+			return currentOctave * 9;
+		} else {
+			return currentOctave * 8;
+		}
 	}
 
 	/**
-	 * TODO:
 	 * low,mid,highを切り替える時は、ここで値にoffsetを加えて、cPlaySound()を呼び出す.
 	 */
 	public void playSound(int soundId) {
 		cPlaySound(soundId + getCurrentOffset());
 	}
 
-	public void playCurrentSound() {
-		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
-		if( currentSoundId >= 0 ) {
+	private static class GuitarMarkerStates {
+		private boolean soundEnableStates[] = new boolean[8];
 
-			//cDistortionToggle();
+		/**
+		 * コードマーカーが認識された.
+		 */
+		void onMarkerDetected(int soundId) {
+			soundEnableStates[soundId] = false;
+		}
 
+		/**
+		 * マーカーが消えた.
+		 */
+		void onMarkerDisappeared(int soundId) {
+			// 既存のonのを消して、新たにsoundIdのものをonにする.
+			for (int i = 0; i < 8; ++i) {
+				if (i == soundId) {
+					soundEnableStates[i] = true;
+				} else {
+					soundEnableStates[i] = false;
+				}
+			}
+		}
 
-			cPlaySound(currentSoundId  + getCurrentOffset());
+		/**
+		 * マーカーがholdされていたのが期限が切れた.
+		 */
+		void onMarkerDisappearExpired(int soundId) {
+			soundEnableStates[soundId] = false;
+		}
+
+		int getCurrentSoundId() {
+			for(int i=0; i<soundEnableStates.length; ++i) {
+				if (soundEnableStates[i]) {
+					return i;
+				}
+			}
+			return -1;
 		}
 	}
 
+	private GuitarMarkerStates guitarMarkerStates;
+
+	private void prepareGuitarMarkerStates() {
+		if( guitarMarkerStates == null ) {
+			guitarMarkerStates = new GuitarMarkerStates();
+		}
+	}
+
+	/**
+	 * ギター専用
+	 */
+	public void playCurrentSound() {
+		prepareGuitarMarkerStates();
+		int currentSoundId = guitarMarkerStates.getCurrentSoundId();
+
+		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
+
+		if (currentSoundId >= 0) {
+			cPlaySound(currentSoundId + getCurrentOffset());
+		} else {
+			// ギターの開放弦
+			cPlaySound(8 + getCurrentOffset());
+		}
+	}
+
+	/**
+	 * マーカーが識された.
+	 */
+	public void suppressCurrentSound(int soundId) {
+		Log.d(TAG, "suppressCurrentSound: soundId=" + soundId);
+		prepareGuitarMarkerStates();
+		guitarMarkerStates.onMarkerDetected(soundId);
+	}
+
+	/**
+	 * ギターマーカーが消された.
+	 */
 	public void setCurrentSound(int soundId) {
 		Log.d(TAG, "setCurrentSound: soundId=" + soundId);
-		currentSoundId = soundId;
+		prepareGuitarMarkerStates();
+		guitarMarkerStates.onMarkerDisappeared(soundId);
 	}
 
+	/**
+	 * ギターマーカーが消されてから一定時間経ったのでholdが無効化された.
+	 */
 	public void stopCurrentSound(int soundId) {
-		Log.d(TAG, "stopCurrentSound: soundId=" + soundId + " current=" + currentSoundId);
-		if( currentSoundId == soundId ) {
-			currentSoundId = -1;
-		}
+		Log.d(TAG, "stopCurrentSound: soundId=" + soundId);
+		prepareGuitarMarkerStates();
+		guitarMarkerStates.onMarkerDisappeared(soundId);
 	}
 
 	@Override
 	protected ARRenderer supplyRenderer() {
-		if( instrumentType == INSTRUMENT_TYPE_PIANO) {
+		if (instrumentType == INSTRUMENT_TYPE_PIANO) {
 			return new PianoRenderer(this);
-		} else if( instrumentType == INSTRUMENT_TYPE_MUSIC_BOX ) {
+		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
 			return new MusicBoxRenderer(this);
 		} else {
 			return new GuitarRenderer(this);
@@ -413,5 +481,4 @@ public class CameraActivity extends ARActivity {
 		return (FrameLayout) this.findViewById(R.id.outerLayout);
 	}
 }
-
 

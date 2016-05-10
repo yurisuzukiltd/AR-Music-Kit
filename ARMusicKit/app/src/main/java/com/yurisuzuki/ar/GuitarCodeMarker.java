@@ -10,7 +10,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class GuitarCodeMarker extends Marker {
 	/// trackingが外れた後に、holdを継続する時間
-	private static final long HOLDING_DURATION_MILLIS = 20 * 1000;
+	private static final long HOLDING_DURATION_MILLIS = 30 * 1000;
 
 	private long holdStartTime = -1L;
 
@@ -19,8 +19,8 @@ public class GuitarCodeMarker extends Marker {
 			// マーカーを認識していたら、lastTrackedTimeを更新
 			lastTrackedTime = now;
 			holdStartTime = -1L;
+			activity.suppressCurrentSound(soundId);
 		} else {
-			// 現在認識しておらず、最後に認識してから1000msec以内だったら、発音する
 			if (lastTrackedTime > 0 && holdStartTime < 0) {
 				// hold開始
 				lastTrackedTime = -1;
@@ -38,9 +38,18 @@ public class GuitarCodeMarker extends Marker {
 		}
 	}
 
-	void draw(GL10 gl, long now) {
+	void draw(GL10 gl, long now, boolean front) {
 		if (isTracked()) {
 			float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
+
+			if( front ) {
+				// 反転させる
+				markerMatrix[1] = -markerMatrix[1];
+				markerMatrix[5] = -markerMatrix[5];
+				markerMatrix[9] = -markerMatrix[9];
+				markerMatrix[13] = -markerMatrix[13];
+			}
+
 			if (markerMatrix != null) {
 				cacheMarkerMatrix(markerMatrix);
 			}
