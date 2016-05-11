@@ -5,23 +5,29 @@
 package com.yurisuzuki;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.yurisuzuki.playsound.R;
 import com.yurisuzuki.fragment.FragmentIntroBase;
-
+import com.yurisuzuki.playsound.R;
 
 ;
 
 public class ActivityIntro extends Activity {
     public static final String TAG = "ActivityIntro";
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            type = extras.getString("type");
+        }
 
         showIntro();
     }
@@ -30,15 +36,18 @@ public class ActivityIntro extends Activity {
         //ActionBar actionBar = getActionBar();
         //actionBar.hide();
 
+        Fragment fragment = FragmentIntroBase.newInstance(type);
+
         getFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, new FragmentIntroBase(),
+                .add(R.id.container, fragment,
                         "FragmentIntroBase").commit();
     }
 
 
     public void jumpToCamera(){
         Intent intent = new Intent(this, CameraActivity.class);
+        intent.putExtra("type", type);
         startActivity(intent);
         finish();
         //overridePendingTransition(R.anim.fade_in, R.anim.scale_out);

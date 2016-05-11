@@ -17,28 +17,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yurisuzuki.ActivityIntro;
 import com.yurisuzuki.playsound.R;
 
 public final class FragmentInstruction extends Fragment {
-	public String type;
+
+	private int illutDrawableResourceId;
+	private int descriptionStringResourceId;
+
+
 	private int containerId;
 	private int containerWidth;
 
-	private Bitmap guitarIcon;
-	private Bitmap pianoIcon;
-	private Bitmap musicBoxIcon;
-
-	private Bitmap guitarIllust;
-	private Bitmap pianoIllust;
-	private Bitmap musicBoxIllust;
 
 
-
-	public static FragmentInstruction newInstance(String type) {
+	public static FragmentInstruction newInstance(int illutDrawableResourceId, int descriptionStringResourceId) {
 		FragmentInstruction fragment = new FragmentInstruction();
 		Bundle args = new Bundle();
-		args.putString("type", type);
+		args.putInt("illutDrawableResourceId", illutDrawableResourceId);
+		args.putInt("descriptionStringResourceId", descriptionStringResourceId);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -52,17 +48,9 @@ public final class FragmentInstruction extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		if (getArguments() != null) {
-			type = getArguments().getString("type");
+			illutDrawableResourceId = getArguments().getInt("illutDrawableResourceId");
+			descriptionStringResourceId = getArguments().getInt("descriptionStringResourceId");
 		}
-
-		guitarIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.char_guitar);
-		pianoIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.char_piano);
-		musicBoxIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.char_music_box);
-
-		guitarIllust = BitmapFactory.decodeResource(this.getResources(), R.drawable.illust_guitar);
-		pianoIllust = BitmapFactory.decodeResource(this.getResources(), R.drawable.illust_piano);
-		musicBoxIllust = BitmapFactory.decodeResource(this.getResources(), R.drawable.illust_music_box);
-
 	}
 
 	@Override
@@ -76,38 +64,18 @@ public final class FragmentInstruction extends Fragment {
 		}
 
 
-		View layout = (View) inflater.inflate(R.layout.fragment_instruction, container, false);
+		View layout = inflater.inflate(R.layout.fragment_instruction, container, false);
 
-		TextView tilteView = (TextView)layout.findViewById(R.id.inst_title);
-		ImageView iconView = (ImageView)layout.findViewById(R.id.inst_icon);
 		ImageView illustView = (ImageView)layout.findViewById(R.id.inst_illust);
 		TextView descriptionView = (TextView)layout.findViewById(R.id.inst_description);
 
-		if(type != null){
-			if(type.equals("guitar")){
-				tilteView.setText("Guitar");
-				iconView.setImageBitmap(guitarIcon);
-				illustView.setImageBitmap(guitarIllust);
-				descriptionView.setText("-------------------------------");
-			}else if(type.equals("piano")){
-				tilteView.setText("Piano");
-				iconView.setImageBitmap(pianoIcon);
-				illustView.setImageBitmap(pianoIllust);
-				descriptionView.setText("-------------------------------");
-			}else if(type.equals("musicbox")){
-				tilteView.setText("Music Box");
-				iconView.setImageBitmap(musicBoxIcon);
-				illustView.setImageBitmap(musicBoxIllust);
-				descriptionView.setText("-------------------------------");
-			}
-		}
+		Bitmap illust = BitmapFactory.decodeResource(getResources(), illutDrawableResourceId);
+		String text = getResources().getString(descriptionStringResourceId);
 
-		illustView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				((ActivityIntro)FragmentInstruction.this.getActivity()).jumpToCamera();
-			}
-		});
+		illustView.setImageBitmap(illust);
+		descriptionView.setText(text);
+
+
 		return layout;
 	}
 	

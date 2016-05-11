@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
 
     public void showInstruction(String tag) {
         Intent intent = new Intent(this, ActivityIntro.class);
+        intent.putExtra("type", tag);
         startActivity(intent);
         //finish();
         //overridePendingTransition(R.anim.fade_in, R.anim.scale_out);

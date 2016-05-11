@@ -43,7 +43,7 @@
             android:layout_gravity="bottom|left"
             android:contentDescription="@string/none"
             android:scaleType="centerInside"
-            android:src="@drawable/switch_octave_l"
+            android:src="@drawable/switch_piano_l"
             android:background="@null"
             />
 

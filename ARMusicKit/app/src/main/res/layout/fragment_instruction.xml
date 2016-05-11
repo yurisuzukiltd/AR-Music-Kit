@@ -6,40 +6,6 @@
     android:background="@android:color/white"
     >
 
-
-    <!-- Make Markers -->
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        >
-        <ImageView
-            android:id="@+id/inst_icon"
-            android:layout_width="52dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/char_markers"
-            />
-
-        <com.yurisuzuki.view.TextViewHelveticaNeueBd
-            android:id="@+id/inst_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/inst_icon"
-            android:layout_marginLeft="@dimen/menu_item_text_margin_left"
-            android:layout_centerVertical="true"
-            android:text="Guitar"
-            android:textColor="@android:color/black"
-            android:textSize="40sp"
-            />
-    </RelativeLayout>
-
-
     <ImageView
         android:id="@+id/inst_illust"
         android:layout_width="match_parent"
@@ -51,11 +17,11 @@
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/none"
         android:scaleType="centerInside"
-        android:src="@drawable/illust_guitar"
+        android:src="@drawable/inst_guitar_0"
         />
 
 
-    <TextView
+    <com.yurisuzuki.view.TextViewHelveticaNeueLt
         android:id="@+id/inst_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,10 +29,11 @@
         android:layout_marginRight="30dp"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:text="Some description here."
         android:textColor="@android:color/black"
-        android:textSize="28sp"
+        android:textSize="22sp"
+        android:textStyle="normal"
         />
 
 

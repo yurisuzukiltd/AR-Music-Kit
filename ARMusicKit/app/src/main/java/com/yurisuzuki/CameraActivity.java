@@ -146,9 +146,14 @@ public class CameraActivity extends ARActivity {
 	Bitmap guitarSwitchAcousticImage;
 	Bitmap guitarSwitchElecImage;
 
-	Bitmap octaveSwitchLImage;
-	Bitmap octaveSwitchMImage;
-	Bitmap octaveSwitchHImage;
+	Bitmap pianoSwitchLImage;
+	Bitmap pianoSwitchMImage;
+	Bitmap pianoSwitchHImage;
+
+	Bitmap musicBoxSwitchLImage;
+	Bitmap musicBoxSwitchMImage;
+	Bitmap musicBoxSwitchHImage;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -173,9 +178,13 @@ public class CameraActivity extends ARActivity {
 		guitarSwitchAcousticImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a);
 		guitarSwitchElecImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e);
 
-		octaveSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_l);
-		octaveSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_m);
-		octaveSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_octave_h);
+		pianoSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l);
+		pianoSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m);
+		pianoSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h);
+
+		musicBoxSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l);
+		musicBoxSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m);
+		musicBoxSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h);
 
 
 		cameraSwapButton = (ImageButton) findViewById(R.id.rear_front_switch);
@@ -210,11 +219,11 @@ public class CameraActivity extends ARActivity {
 			octaveSwitch.setVisibility(View.VISIBLE);
 
 			if (currentOctave == 0) {
-				octaveSwitch.setImageBitmap(octaveSwitchLImage);
+				octaveSwitch.setImageBitmap(pianoSwitchLImage);
 			} else if (currentOctave == 1) {
-				octaveSwitch.setImageBitmap(octaveSwitchMImage);
+				octaveSwitch.setImageBitmap(pianoSwitchMImage);
 			} else {
-				octaveSwitch.setImageBitmap(octaveSwitchHImage);
+				octaveSwitch.setImageBitmap(pianoSwitchHImage);
 			}
 		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
@@ -223,11 +232,11 @@ public class CameraActivity extends ARActivity {
 			octaveSwitch.setVisibility(View.VISIBLE);
 
 			if (currentOctave == 0) {
-				octaveSwitch.setImageBitmap(octaveSwitchLImage);
+				octaveSwitch.setImageBitmap(musicBoxSwitchLImage);
 			} else if (currentOctave == 1) {
-				octaveSwitch.setImageBitmap(octaveSwitchMImage);
+				octaveSwitch.setImageBitmap(musicBoxSwitchMImage);
 			} else {
-				octaveSwitch.setImageBitmap(octaveSwitchHImage);
+				octaveSwitch.setImageBitmap(musicBoxSwitchHImage);
 			}
 		} else {
 			currentInstrumentIcon.setVisibility(View.INVISIBLE);
@@ -253,16 +262,31 @@ public class CameraActivity extends ARActivity {
 		octaveSwitch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (currentOctave == 0) {
-					currentOctave = 1;
-					octaveSwitch.setImageBitmap(octaveSwitchMImage);
-				} else if (currentOctave == 1) {
-					currentOctave = 2;
-					octaveSwitch.setImageBitmap(octaveSwitchHImage);
-				} else {
-					currentOctave = 0;
-					octaveSwitch.setImageBitmap(octaveSwitchLImage);
+
+				if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+					if (currentOctave == 0) {
+						currentOctave = 1;
+						octaveSwitch.setImageBitmap(pianoSwitchMImage);
+					} else if (currentOctave == 1) {
+						currentOctave = 2;
+						octaveSwitch.setImageBitmap(pianoSwitchHImage);
+					} else {
+						currentOctave = 0;
+						octaveSwitch.setImageBitmap(pianoSwitchLImage);
+					}
+				} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+					if (currentOctave == 0) {
+						currentOctave = 1;
+						octaveSwitch.setImageBitmap(musicBoxSwitchMImage);
+					} else if (currentOctave == 1) {
+						currentOctave = 2;
+						octaveSwitch.setImageBitmap(musicBoxSwitchHImage);
+					} else {
+						currentOctave = 0;
+						octaveSwitch.setImageBitmap(musicBoxSwitchLImage);
+					}
 				}
+
 			}
 		});
 

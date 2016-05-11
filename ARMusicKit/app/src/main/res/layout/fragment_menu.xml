@@ -19,6 +19,20 @@ tools:context="com.yurisuzuki.MainActivity"
         android:orientation="vertical"
         android:layout_marginTop="5dp">
 
+
+        <!--
+
+        <TextView
+            android:id="@+id/menu_section_title_make_markers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1 Make your own markers"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            />
+           -->
+
         <!-- Make Markers -->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,6 +40,7 @@ tools:context="com.yurisuzuki.MainActivity"
             android:paddingTop="@dimen/menu_item_margin_top"
             android:paddingBottom="@dimen/menu_item_margin_bottom"
             >
+
             <ImageView
                 android:id="@+id/menu_icon_make_markers"
                 android:layout_width="@dimen/menu_item_icon_make_markers_width"
@@ -52,6 +67,19 @@ tools:context="com.yurisuzuki.MainActivity"
                 android:tag="marker"
                 />
         </RelativeLayout>
+
+
+        <!--
+        <TextView
+            android:id="@+id/menu_section_title_select_your_instrument"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="2 Select your instrument"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            />
+            -->
 
         <!-- Play Guitars -->
         <RelativeLayout
