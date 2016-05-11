@@ -39,6 +39,12 @@ public class GuitarCodeMarker extends Marker {
 		}
 	}
 
+	private boolean exclusiveHold = false;
+
+	void updateExclusiveHold(CameraActivity activity) {
+		exclusiveHold = activity.checkMarkerHolded(soundId);
+	}
+
 	@Override
 	void draw(GL10 gl, long now, CameraRotationInfo camreaCameraRotationInfo) {
 		if (isTracked()) {
@@ -57,7 +63,7 @@ public class GuitarCodeMarker extends Marker {
 			}
 		}
 
-		if (holdStartTime >= 0 && markerMatrixCached) {
+		if (exclusiveHold && markerMatrixCached) {
 			gl.glLoadMatrixf(cachedMarkerMatrix, 0);
 			actionPlane.draw(gl);
 		}

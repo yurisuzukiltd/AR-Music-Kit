@@ -136,6 +136,11 @@ public class GuitarRenderer extends InstrumentsRenderer {
 		for (GuitarCodeMarker codeMarker : codeMarkers) {
 			codeMarker.checkHold(now, activity);
 		}
+		// チェックし終わったら排他的にholdされているかどうかの情報を更新
+		for (GuitarCodeMarker codeMarker : codeMarkers) {
+			codeMarker.updateExclusiveHold(activity);
+		}
+
 		playMarker.checkPlaySound(now, activity);
 
 		setProjectionMatrix(gl);

@@ -478,7 +478,15 @@ public class CameraActivity extends ARActivity {
 	public void stopCurrentSound(int soundId) {
 		Log.d(TAG, "stopCurrentSound: soundId=" + soundId);
 		prepareGuitarMarkerStates();
-		guitarMarkerStates.onMarkerDisappeared(soundId);
+		guitarMarkerStates.onMarkerDisappearExpired(soundId);
+	}
+
+	/**
+	 * 指定したマーカーがexclusiveにhold状態かどうか
+	 */
+	public boolean checkMarkerHolded(int soundId) {
+		prepareGuitarMarkerStates();
+ 		return guitarMarkerStates.getCurrentSoundId() == soundId;
 	}
 
 	@Override
