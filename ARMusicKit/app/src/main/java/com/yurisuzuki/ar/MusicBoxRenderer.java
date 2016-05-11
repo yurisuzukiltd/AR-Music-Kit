@@ -117,11 +117,9 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 
 		setProjectionMatrix(gl);
 
-		//gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glDisable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-		//gl.glFrontFace(GL10.GL_CW);
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
@@ -131,7 +129,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 
 		for (MusicBoxMarker marker : markers) {
 			// ラインをまたいだかどうかをチェックして発音
-			marker.checkPlaySoundOverLine(now, activity, projectionMatrix);
+			marker.checkPlaySoundOverLine(now, activity, projectionMatrix, usingFrontCamera);
 			marker.draw(gl, now, usingFrontCamera);
 		}
 
@@ -163,7 +161,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		public UI() {
 			// 左右にラインを引く
 			float sizeX = 1.0f;
-			float sizeY = 0.005f;
+			float sizeY = 0.01f;
 
 			scaledVertices = new float[vertices.length];
 			for (int i = 0; i < vertices.length; ++i) {

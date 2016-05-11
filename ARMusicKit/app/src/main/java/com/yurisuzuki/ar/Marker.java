@@ -23,6 +23,9 @@ public class Marker {
 	/// Action画像Plane (Zファイティングを避けるために若干上にずらしてみている)
 	protected Plane actionPlane = new Plane(64.0f * 1.3f, 1.0f);
 
+	/// 画面の向き関連でmarker matrixを調整するためのバッファ
+	protected float adjustedMarkerMatrix[] = new float[16];
+
 	Marker() {
 	}
 
@@ -60,6 +63,17 @@ public class Marker {
 		markerMatrixCached = true;
 	}
 
+	protected void adjustMarkerMatrix(float[] matrix, float[] targetMatrix, boolean front) {
+		System.arraycopy(matrix, 0, targetMatrix, 0, 16);
+
+		if( front ) {
+			targetMatrix[1] = -targetMatrix[1];
+			targetMatrix[5] = -targetMatrix[5];
+			targetMatrix[9] = -targetMatrix[9];
+			targetMatrix[13] = -targetMatrix[13];
+		}
+	}
+
 	void draw(GL10 gl, long now, boolean front) {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
@@ -82,21 +96,15 @@ public class Marker {
 			return;
 		}
 
-		if( front ) {
-			// 反転させる
-			markerMatrix[1] = -markerMatrix[1];
-			markerMatrix[5] = -markerMatrix[5];
-			markerMatrix[9] = -markerMatrix[9];
-			markerMatrix[13] = -markerMatrix[13];
-		}
+		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
 
 		// マーカーマトリクスをキャッシュしておく
-		cacheMarkerMatrix(markerMatrix);
+		cacheMarkerMatrix(adjustedMarkerMatrix);
 
 		// トラックマークを表示する
 		if( markerPlane.hasTexture() ) {
 			// MusicBoxの場合はPlanceにテクスチャが無いので表示しない
-			gl.glLoadMatrixf(markerMatrix, 0);
+			gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
 			markerPlane.draw(gl);
 		}
 	}

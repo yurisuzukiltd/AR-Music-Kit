@@ -34,16 +34,9 @@ public class GuitarPlayMarker extends Marker {
 			if (markerMatrix == null) {
 				return;
 			}
-			// TODO:
-			if( front ) {
-				// 反転させる
-				markerMatrix[1] = -markerMatrix[1];
-				markerMatrix[5] = -markerMatrix[5];
-				markerMatrix[9] = -markerMatrix[9];
-				markerMatrix[13] = -markerMatrix[13];
-			}
 
-			gl.glLoadMatrixf(markerMatrix, 0);
+			adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
+			gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
 
 			outlinePlane.draw(gl);
 			lastOutlintDrawnWithTracked = now;

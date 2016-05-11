@@ -3,12 +3,15 @@
  */
 package com.yurisuzuki.ar;
 
+import android.util.Log;
 import com.yurisuzuki.CameraActivity;
 import com.yurisuzuki.geom.Matrix4f;
 import com.yurisuzuki.geom.Vector4f;
 import org.artoolkit.ar.base.ARToolKit;
 
 public class MusicBoxMarker extends Marker {
+	private static final String TAG = "MusicBoxMarker";
+
 	private Matrix4f markerMat;
 
 	private Matrix4f workMat = new Matrix4f();
@@ -21,8 +24,8 @@ public class MusicBoxMarker extends Marker {
 	/**
 	 * 上下のどちらにあるかどうかをチェック.
 	 */
-	private int calcTrackingSide(Matrix4f projMat) {
-		if( !isTracked() ) {
+	private int calcTrackingSide(Matrix4f projMat, boolean front) {
+		if (!isTracked()) {
 			return 0;
 		}
 
@@ -35,7 +38,9 @@ public class MusicBoxMarker extends Marker {
 			markerMat = new Matrix4f();
 		}
 
-		markerMat.set(markerMatrix);
+		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
+
+		markerMat.set(adjustedMarkerMatrix);
 
 		// プロジェクション行列とマーカーのModelView行列をかけて、3D座標からViewPort座標へ変換する行列を作成する
 		workMat.set(projMat);
@@ -47,19 +52,21 @@ public class MusicBoxMarker extends Marker {
 		// ViewPort座標系でのY座標値を得る
 		float sy = workVec1.y / workVec1.w;
 
-		if ( sy < 0.0f ) {
-			// 画面の下半分
+		Log.i(TAG, ">>> sy=" + sy);
+
+		if (sy < 0.0f) {
+			// portraitでみて画面の左半分
 			return -1;
 		} else {
-			// 画面の上半分
+			// portraitでみて画面の右半分
 			return 1;
 		}
 	}
 
-	void checkPlaySoundOverLine(long now, CameraActivity activity, Matrix4f projMat) {
-		int side = calcTrackingSide(projMat);
-		if( side != 0 && lastTrackSide != 0 && side != lastTrackSide ) {
-			if( now - lastPlayTime > 100 ) {
+	void checkPlaySoundOverLine(long now, CameraActivity activity, Matrix4f projMat, boolean front) {
+		int side = calcTrackingSide(projMat, front);
+		if (side != 0 && lastTrackSide != 0 && side != lastTrackSide) {
+			if (now - lastPlayTime > 100) {
 				activity.playSound(soundId);
 				lastPlayTime = now;
 			}

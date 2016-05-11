@@ -157,7 +157,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 				break;
 		}
 
-		Log.i(TAG, ">> info degree=" + degrees);
+		Log.i(TAG, ">> display degree=" + degrees);
 
 		int result;
 		if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {

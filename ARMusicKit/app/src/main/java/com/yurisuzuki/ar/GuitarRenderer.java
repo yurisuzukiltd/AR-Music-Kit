@@ -139,11 +139,9 @@ public class GuitarRenderer extends InstrumentsRenderer {
 
 		setProjectionMatrix(gl);
 
-		//gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glDisable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-		//gl.glFrontFace(GL10.GL_CW);
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
