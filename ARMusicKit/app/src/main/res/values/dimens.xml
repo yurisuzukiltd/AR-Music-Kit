@@ -13,4 +13,6 @@
 
     <dimen name="menu_item_text_margin_left">15dp</dimen>
 
+    <dimen name="header_title_side_margin">55dp</dimen>
+
 </resources>

@@ -13,11 +13,38 @@ tools:context="com.yurisuzuki.MainActivity"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="5dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/header_title_side_margin"
+            android:layout_marginRight="@dimen/header_title_side_margin"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/header_title"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/menu_subtitle"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
 
 
         <!--
@@ -39,6 +66,7 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/menu_item_margin_top"
             android:paddingBottom="@dimen/menu_item_margin_bottom"
+            android:layout_marginTop="15dp"
             >
 
             <ImageView

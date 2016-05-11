@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+android:id="@+id/menu_container"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.yurisuzuki.MainActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="@dimen/menu_item_icon_make_markers_width"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/char_markers"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueBd
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+            android:layout_gravity="center_vertical"
+            android:text="Markers"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:tag="marker"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="left"
+            android:text="@string/To_get_the_markers"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            android:layout_marginTop="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/menu_icon_trace_marker"
+                android:layout_width="@dimen/menu_item_icon_make_markers_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_pen"
+                />
+
+            <TextView
+                android:id="@+id/menu_title_trace_marker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_trace_marker"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="@string/Trace_codes"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="marker"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            android:layout_marginTop="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/menu_icon_open_in_chrome"
+                android:layout_width="@dimen/menu_item_icon_make_markers_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_pen"
+                />
+
+            <TextView
+                android:id="@+id/menu_title_open_in_chrome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_open_in_chrome"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="@string/Open_in_chrome"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="marker"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/menu_item_margin_top"
+            android:paddingBottom="@dimen/menu_item_margin_bottom"
+            android:layout_marginTop="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/menu_icon_email_pdf"
+                android:layout_width="@dimen/menu_item_icon_make_markers_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_pen"
+                />
+
+            <TextView
+                android:id="@+id/menu_title_email_pdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/menu_icon_email_pdf"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_centerVertical="true"
+                android:text="@string/Email_a_PDF"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:tag="marker"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

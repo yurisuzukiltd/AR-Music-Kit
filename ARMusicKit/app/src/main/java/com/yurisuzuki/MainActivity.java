@@ -47,5 +47,10 @@ public class MainActivity extends Activity {
         //finish();
         //overridePendingTransition(R.anim.fade_in, R.anim.scale_out);
     }
+
+    public void showMakeMarkerTop(){
+        Intent intent = new Intent(this, ActivityMakeMarkerTop.class);
+        startActivity(intent);
+    }
 }
 

@@ -60,6 +60,11 @@
 
 
         </activity>
+
+        <activity android:name="com.yurisuzuki.ActivityMakeMarkerTop" android:theme="@style/NoActionBar" android:screenOrientation="portrait">
+
+
+        </activity>
     </application>
 
 </manifest>

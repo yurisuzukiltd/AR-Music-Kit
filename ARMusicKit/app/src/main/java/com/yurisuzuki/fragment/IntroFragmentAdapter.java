@@ -41,6 +41,9 @@ public class IntroFragmentAdapter extends FragmentPagerAdapter implements
 			R.drawable.inst_mb_0, R.drawable.inst_mb_1,
 			R.drawable.inst_mb_2};
 
+	protected static final int[] traceIllustArray = new int[] {
+			R.drawable.inst_trace_0, R.drawable.inst_trace_1};
+
 
 	protected static final int[] guitarTextArray = new int[] {
 			R.string.inst_guitar_0, R.string.inst_guitar_1,
@@ -53,6 +56,9 @@ public class IntroFragmentAdapter extends FragmentPagerAdapter implements
 	protected static final int[] musicTextArray = new int[] {
 			R.string.inst_mb_0, R.string.inst_mb_1,
 			R.string.inst_mb_2};
+
+	protected static final int[] traceTextArray = new int[] {
+			R.string.inst_trace_0, R.string.inst_trace_1};
 
     /*
 	protected static final int[] IMAGES_BLUR = new int[] {
@@ -82,16 +88,22 @@ public class IntroFragmentAdapter extends FragmentPagerAdapter implements
 			}else if(type.equals("musicbox")){
 				illutDrawableResourceId = musicIllustArray[position];
 				descriptionStringResourceId = musicTextArray[position];
+			}else if(type.equals("trace")){
+				illutDrawableResourceId = traceIllustArray[position];
+				descriptionStringResourceId = traceTextArray[position];
 			}else{
-				illutDrawableResourceId = guitarIllustArray[position];
-				descriptionStringResourceId = guitarTextArray[position];
+				illutDrawableResourceId = -1;
+				descriptionStringResourceId = -1;
 			}
 
-			fragment = FragmentInstruction.newInstance(illutDrawableResourceId, descriptionStringResourceId);
+			if(illutDrawableResourceId == -1){
+				fragment = null;
+			}else{
+				fragment = FragmentInstruction.newInstance(illutDrawableResourceId, descriptionStringResourceId);
+			}
 		}else{
 			fragment = null;
 		}
-
 
         return fragment;
 	}
@@ -107,6 +119,8 @@ public class IntroFragmentAdapter extends FragmentPagerAdapter implements
 				cnt = pianoIllustArray.length;
 			}else if(type.equals("musicbox")){
 				cnt = musicIllustArray.length;
+			}else if(type.equals("trace")){
+				cnt = traceIllustArray.length;
 			}
 		}else{
 			cnt = 0;

@@ -58,7 +58,7 @@ public final class FragmentMenu extends Fragment {
 		textViews.add((TextView) layout.findViewById(R.id.menu_title_play_music_box));
 		textViews.add((TextView) layout.findViewById(R.id.menu_title_about));
 
-		adjustTypeface();
+		configureMenus();
 
 		return layout;
 	}
@@ -82,7 +82,7 @@ public final class FragmentMenu extends Fragment {
 
 	}
 
-	public void adjustTypeface(){
+	public void configureMenus(){
 		Typeface tfLight = Typeface.createFromAsset(getActivity().getAssets(),
 				"fonts/HelveticaNeueLTStd-Lt.otf");
 		Typeface tfBold = Typeface.createFromAsset(getActivity().getAssets(),
@@ -122,7 +122,7 @@ public final class FragmentMenu extends Fragment {
 					//((MainActivity)getActivity()).openInstruction();
 					String tag = (String)v.getTag();
 					if(tag.equals("marker")){
-
+						//((MainActivity)getActivity()).showMakeMarkerTop();
 					}else if(tag.equals("about")){
 
 					}else{

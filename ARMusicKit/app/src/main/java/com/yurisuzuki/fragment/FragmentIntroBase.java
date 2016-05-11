@@ -77,8 +77,10 @@ import com.yurisuzuki.playsound.R;
                  title = R.string.inst_title_piano;
              }else if(type.equals("musicbox")){
                  title = R.string.inst_title_mb;
+             }else if(type.equals("trace")){
+                 title = R.string.inst_title_trace;
              }else{
-                 title = R.string.inst_title_guitar;
+                 title = R.string.inst_title_trace;
              }
              titleView.setText(title);
          }

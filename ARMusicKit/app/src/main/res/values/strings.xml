@@ -6,6 +6,7 @@
     <string name="inst_title_guitar">Playing Guitar</string>
     <string name="inst_title_piano">Playing Piano</string>
     <string name="inst_title_mb">Playing Music Box</string>
+    <string name="inst_title_trace">Tracing Markers</string>
 
     <string name="inst_guitar_0">Cut a guitar out of cardboard</string>
     <string name="inst_guitar_1">Place sticky notes on guitar. Make sure to include guitar icon</string>
@@ -17,7 +18,16 @@
     <string name="inst_mb_1">Hold phone over sticky notes</string>
     <string name="inst_mb_2">Move phone across sticky notes to play sound</string>
 
+    <string name="menu_subtitle">Make music using sticky notes and your phone\'s camera</string>
 
+
+    <string name="inst_trace_0">Place sticky note over the phone\'s screen. \nIncrease brightness for easier tracing</string>
+    <string name="inst_trace_1">Carefully trace the outline of marker</string>
+
+    <string name="To_get_the_markers">To get the markers, you can:</string>
+    <string name="Trace_codes">Trace codes onto sticky notes</string>
+    <string name="Open_in_chrome">Save a PDF to your device to print</string>
+    <string name="Email_a_PDF">Email a PDF to yourself to print</string>
 
 
 </resources>
