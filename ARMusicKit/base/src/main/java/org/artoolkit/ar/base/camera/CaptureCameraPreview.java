@@ -69,7 +69,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 	 * The Camera doing the capturing.
 	 */
 	private Camera camera = null;
-	private CameraWrapper cameraWrapper = null;
+	//private CameraWrapper cameraWrapper = null;
 
 	/**
 	 * The camera capture width in pixels.
@@ -104,8 +104,8 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 	int previewWidth;
 	int previewHeight;
 
-	int textureWidth;
-	int textureHeight;
+	//int textureWidth;
+	//int textureHeight;
 
 	boolean isPreviewRunning = false;
 
@@ -138,6 +138,9 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 		android.hardware.Camera.getCameraInfo(cameraId, info);
 		int rotation = mActivity.getWindowManager().getDefaultDisplay().getRotation();
 
+		Log.i(TAG, ">> info orientation=" + info.orientation);
+		Log.i(TAG, ">> display rotation=" + rotation);
+
 		int degrees = 0;
 		switch (rotation) {
 			case Surface.ROTATION_0:
@@ -154,13 +157,22 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 				break;
 		}
 
+		Log.i(TAG, ">> info degree=" + degrees);
+
 		int result;
 		if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+			Log.i(TAG, ">> face front");
+
 			result = (info.orientation + degrees) % 360;
 			result = (360 - result) % 360;  // compensate the mirror
 		} else {  // back-facing
+			Log.i(TAG, ">> face back");
+
 			result = (info.orientation - degrees + 360) % 360;
 		}
+
+		Log.i(TAG, ">> final rot result=" + result);
+
 		camera.setDisplayOrientation(result);
 	}
 
@@ -212,7 +224,8 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 			listener.cameraPreviewFrame(data);
 		}
 
-		cameraWrapper.frameReceived(data);
+		//cameraWrapper.frameReceived(data);
+		camera.addCallbackBuffer(data); //..
 
 		if (fpsCounter.frame()) {
 			Log.i(TAG, "Camera capture FPS: " + fpsCounter.getFPS());
@@ -401,8 +414,14 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
 			int bufSize = captureWidth * captureHeight * pixelinfo.bitsPerPixel / 8; // For the default NV21 format, bitsPerPixel = 12.
 			Log.i(TAG, "Camera buffers will be " + captureWidth + "x" + captureHeight + "@" + pixelinfo.bitsPerPixel + "bpp, " + bufSize + "bytes.");
-			cameraWrapper = new CameraWrapper(camera);
-			cameraWrapper.configureCallback(this, true, 10, bufSize); // For the default NV21 format, bitsPerPixel = 12.
+			//cameraWrapper = new CameraWrapper(camera);
+			//cameraWrapper.configureCallback(this, true, 10, bufSize); // For the default NV21 format, bitsPerPixel = 12.
+			//..
+			camera.setPreviewCallbackWithBuffer(this);
+			for (int i = 0; i < 10; i++) {
+				camera.addCallbackBuffer(new byte[bufSize]);
+			}
+			//..
 
 			camera.startPreview();
 

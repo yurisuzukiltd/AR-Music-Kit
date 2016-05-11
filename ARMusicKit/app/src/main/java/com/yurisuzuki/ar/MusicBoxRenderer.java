@@ -83,7 +83,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		}
 
 		// UI用オーバーレイテクスチャロード
-		ui.loadGLTexture(gl, activity, "Texture/gray20.png");
+		ui.loadGLTexture(gl, activity, "Texture/blue65.png");
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
