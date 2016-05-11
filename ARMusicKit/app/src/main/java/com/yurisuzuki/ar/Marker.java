@@ -80,8 +80,10 @@ public class Marker {
 				targetMatrix[13] = -targetMatrix[13];
 			}
 		} else {
-			// Nexus6pでこの場合になる
+			// Nexus6pでこの場合になる (フロント、リア共に)
+
 			if (cameraRotationInfo.mirror) {
+				// フロントカメラでミラーが必要な場合
 				targetMatrix[1] = -targetMatrix[1];
 				targetMatrix[5] = -targetMatrix[5];
 				targetMatrix[9] = -targetMatrix[9];
