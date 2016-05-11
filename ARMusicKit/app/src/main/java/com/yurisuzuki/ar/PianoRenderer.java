@@ -5,6 +5,7 @@ package com.yurisuzuki.ar;
 
 import android.util.Log;
 import com.yurisuzuki.CameraActivity;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -105,18 +106,17 @@ public class PianoRenderer extends InstrumentsRenderer {
 
 		setProjectionMatrix(gl);
 
-		//gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glDisable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-		//gl.glFrontFace(GL10.GL_CW);
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		boolean usingFrontCamera = activity.isUsingFrontCamera();
+		//boolean usingFrontCamera = activity.isUsingFrontCamera();
+		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
 
 		for (Marker marker : markers) {
-			marker.draw(gl, now, usingFrontCamera);
+			marker.draw(gl, now, cameraRotationInfo);
 		}
 	}
 }

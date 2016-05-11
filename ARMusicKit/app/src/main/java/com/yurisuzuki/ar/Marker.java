@@ -5,6 +5,7 @@ package com.yurisuzuki.ar;
 
 import android.content.Context;
 import org.artoolkit.ar.base.ARToolKit;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -22,6 +23,9 @@ public class Marker {
 
 	/// Action画像Plane (Zファイティングを避けるために若干上にずらしてみている)
 	protected Plane actionPlane = new Plane(64.0f * 1.3f, 1.0f);
+
+	/// 画面の向き関連でmarker matrixを調整するためのバッファ
+	protected float adjustedMarkerMatrix[] = new float[16];
 
 	Marker() {
 	}
@@ -60,7 +64,35 @@ public class Marker {
 		markerMatrixCached = true;
 	}
 
-	void draw(GL10 gl, long now, boolean front) {
+	protected void adjustMarkerMatrix(float[] matrix, float[] targetMatrix, CameraRotationInfo cameraRotationInfo) {
+		System.arraycopy(matrix, 0, targetMatrix, 0, 16);
+
+		if( cameraRotationInfo.rotation == 180 ) {
+			targetMatrix[0] = -targetMatrix[0];
+			targetMatrix[4] = -targetMatrix[4];
+			targetMatrix[8] = -targetMatrix[8];
+			targetMatrix[12] = -targetMatrix[12];
+
+			if( !cameraRotationInfo.mirror ) {
+				targetMatrix[1] = -targetMatrix[1];
+				targetMatrix[5] = -targetMatrix[5];
+				targetMatrix[9] = -targetMatrix[9];
+				targetMatrix[13] = -targetMatrix[13];
+			}
+		} else {
+			// Nexus6pでこの場合になる (フロント、リア共に)
+
+			if (cameraRotationInfo.mirror) {
+				// フロントカメラでミラーが必要な場合
+				targetMatrix[1] = -targetMatrix[1];
+				targetMatrix[5] = -targetMatrix[5];
+				targetMatrix[9] = -targetMatrix[9];
+				targetMatrix[13] = -targetMatrix[13];
+			}
+		}
+	}
+
+	void draw(GL10 gl, long now, CameraRotationInfo cameraRotationInfo) {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
@@ -82,21 +114,15 @@ public class Marker {
 			return;
 		}
 
-		if( front ) {
-			// 反転させる
-			markerMatrix[1] = -markerMatrix[1];
-			markerMatrix[5] = -markerMatrix[5];
-			markerMatrix[9] = -markerMatrix[9];
-			markerMatrix[13] = -markerMatrix[13];
-		}
+		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, cameraRotationInfo);
 
 		// マーカーマトリクスをキャッシュしておく
-		cacheMarkerMatrix(markerMatrix);
+		cacheMarkerMatrix(adjustedMarkerMatrix);
 
 		// トラックマークを表示する
 		if( markerPlane.hasTexture() ) {
 			// MusicBoxの場合はPlanceにテクスチャが無いので表示しない
-			gl.glLoadMatrixf(markerMatrix, 0);
+			gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
 			markerPlane.draw(gl);
 		}
 	}

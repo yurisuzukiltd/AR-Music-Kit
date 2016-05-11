@@ -80,10 +80,6 @@ public class Plane {
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
-		// Set the face rotation
-		//..gl.glFrontFace(GL10.GL_CW);
-		//gl.glFrontFace(GL10.GL_CCW);
-
 		// Point to our vertex buffer
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, texcoordBuffer);

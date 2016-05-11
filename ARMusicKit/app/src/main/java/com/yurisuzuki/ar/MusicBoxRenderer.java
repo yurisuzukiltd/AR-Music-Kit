@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.yurisuzuki.CameraActivity;
 import com.yurisuzuki.geom.Matrix4f;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -83,7 +84,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		}
 
 		// UI用オーバーレイテクスチャロード
-		ui.loadGLTexture(gl, activity, "Texture/gray20.png");
+		ui.loadGLTexture(gl, activity, "Texture/blue65.png");
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -117,22 +118,21 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 
 		setProjectionMatrix(gl);
 
-		//gl.glEnable(GL10.GL_CULL_FACE);
 		gl.glDisable(GL10.GL_CULL_FACE);
 		gl.glShadeModel(GL10.GL_SMOOTH);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-		//gl.glFrontFace(GL10.GL_CW);
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
 		Matrix4f projectionMatrix = getProjectionMatrix();
 
-		boolean usingFrontCamera = activity.isUsingFrontCamera();
+		//boolean usingFrontCamera = activity.isUsingFrontCamera();
+		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
 
 		for (MusicBoxMarker marker : markers) {
 			// ラインをまたいだかどうかをチェックして発音
-			marker.checkPlaySoundOverLine(now, activity, projectionMatrix);
-			marker.draw(gl, now, usingFrontCamera);
+			marker.checkPlaySoundOverLine(now, activity, projectionMatrix, cameraRotationInfo);
+			marker.draw(gl, now, cameraRotationInfo);
 		}
 
 		draw2D(gl);
@@ -163,7 +163,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		public UI() {
 			// 左右にラインを引く
 			float sizeX = 1.0f;
-			float sizeY = 0.005f;
+			float sizeY = 0.01f;
 
 			scaledVertices = new float[vertices.length];
 			for (int i = 0; i < vertices.length; ++i) {
