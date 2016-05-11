@@ -51,21 +51,21 @@ class CameraWrapper {
 	/**
 	 * Android logging tag for this class.
 	 */
-	private static final String TAG = "CameraWrapper";
+	//private static final String TAG = "CameraWrapper";
 
-	private static final String CAMERA_CLASS_NAME = "android.hardware.Camera";
+	//private static final String CAMERA_CLASS_NAME = "android.hardware.Camera";
 
 	private Camera camera;
 
-	private Method setPreviewCallbackMethod = null;
-	private Method setPreviewCallbackWithBufferMethod = null;
-	private Method addCallbackBufferMethod = null;
-
-	private boolean usingBuffers = false;
+	//private Method setPreviewCallbackMethod = null;
+	//private Method setPreviewCallbackWithBufferMethod = null;
+	//private Method addCallbackBufferMethod = null;
+	//private boolean usingBuffers = false;
 
 	public CameraWrapper(Camera cam) {
 		camera = cam;
 
+		/*
 		try {
 			Class<?> cameraClass = Class.forName(CAMERA_CLASS_NAME);
 			Log.i(TAG, "Found class " + CAMERA_CLASS_NAME);
@@ -88,6 +88,7 @@ class CameraWrapper {
 		} catch (ClassNotFoundException cnfe) {
 			Log.w(TAG, "Could not find class " + CAMERA_CLASS_NAME);
 		}
+		*/
 	}
 
 	public boolean configureCallback(Camera.PreviewCallback cb,
@@ -95,6 +96,18 @@ class CameraWrapper {
 	                                 int numBuffersIfAvailable,
 	                                 int bufferSize) {
 
+		if( useBuffersIfAvailable ) {
+			camera.setPreviewCallbackWithBuffer(cb);
+			for (int i = 0; i < numBuffersIfAvailable; i++) {
+				camera.addCallbackBuffer(new byte[bufferSize]);
+			}
+
+			//usingBuffers = true;
+		}
+
+		return true;
+
+		/*
 		boolean success = true;
 
 		if (useBuffersIfAvailable && setPreviewCallbackWithBufferMethod != null && addCallbackBufferMethod != null) {
@@ -118,19 +131,25 @@ class CameraWrapper {
 				Log.i(TAG, "Configured camera callback without buffers");
 			}
 		}
-
 		return success;
+		*/
 	}
 
 	public boolean frameReceived(byte[] data) {
+		camera.addCallbackBuffer(data);
+		return true;
+
 		//Log.d(TAG, "frameReceived");
+		/*
 		if (usingBuffers) {
 			return addCallbackBuffer(data);
 		} else {
 			return true;
 		}
+		*/
 	}
 
+	/*
 	private boolean setPreviewCallback(Camera.PreviewCallback cb) {
 		if (setPreviewCallbackMethod == null) {
 			return false;
@@ -150,9 +169,10 @@ class CameraWrapper {
 		}
 
 		return true;
-
 	}
+	*/
 
+	/*
 	private boolean setPreviewCallbackWithBuffer(Camera.PreviewCallback cb) {
 		if (setPreviewCallbackMethod == null) {
 			return false;
@@ -196,4 +216,5 @@ class CameraWrapper {
 
 		return true;
 	}
+	*/
 }
