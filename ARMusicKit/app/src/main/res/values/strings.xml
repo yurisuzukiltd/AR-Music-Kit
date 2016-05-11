@@ -2,4 +2,22 @@
 <resources>
     <string name="app_name">AR Music Kit</string>
     <string name="none"></string>
+
+    <string name="inst_title_guitar">Playing Guitar</string>
+    <string name="inst_title_piano">Playing Piano</string>
+    <string name="inst_title_mb">Playing Music Box</string>
+
+    <string name="inst_guitar_0">Cut a guitar out of cardboard</string>
+    <string name="inst_guitar_1">Place sticky notes on guitar. Make sure to include guitar icon</string>
+    <string name="inst_guitar_2">Position phone so camera sees you holding guitar</string>
+    <string name="inst_guitar_3">Move hand over guitar icon to play sound</string>
+    <string name="inst_piano_0">Place sticky notes on a flat surface</string>
+    <string name="inst_piano_1">Hold phone over sticky notes. Use hand to cover sticky notes to play sound</string>
+    <string name="inst_mb_0">Place sticky notes on a flat surface</string>
+    <string name="inst_mb_1">Hold phone over sticky notes</string>
+    <string name="inst_mb_2">Move phone across sticky notes to play sound</string>
+
+
+
+
 </resources>

@@ -10,19 +10,42 @@
     tools:context="com.yurisuzuki.EntryActivity"
     android:background="@android:color/white">
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:orientation="vertical"
         android:layout_gravity="top"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/none"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo"
-        />
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:id="@+id/inst_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:text="By Yuri Suzuki"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"

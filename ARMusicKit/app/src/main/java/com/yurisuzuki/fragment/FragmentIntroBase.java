@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.yurisuzuki.MainActivity;
-import com.yurisuzuki.playsound.R;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
+import com.yurisuzuki.ActivityIntro;
+import com.yurisuzuki.MainActivity;
+import com.yurisuzuki.playsound.R;
 
 /**
   * A simple {@link Fragment} subclass.
@@ -66,6 +68,30 @@ import com.viewpagerindicator.PageIndicator;
          // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_intro_base, container, false);
 
+         TextView titleView = (TextView)view.findViewById(R.id.inst_title);
+         if(type != null){
+             int title;
+             if(type.equals("guitar")){
+                 title = R.string.inst_title_guitar;
+             }else if(type.equals("piano")){
+                 title = R.string.inst_title_piano;
+             }else if(type.equals("musicbox")){
+                 title = R.string.inst_title_mb;
+             }else{
+                 title = R.string.inst_title_guitar;
+             }
+             titleView.setText(title);
+         }
+
+         Button startButton = (Button)view.findViewById(R.id.get_started_button);
+
+         startButton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 ((ActivityIntro)FragmentIntroBase.this.getActivity()).jumpToCamera();
+             }
+         });
+
          return view;
      }
 
@@ -78,17 +104,6 @@ import com.viewpagerindicator.PageIndicator;
                  pageIndicator = (CirclePageIndicator) getActivity().findViewById(
                          R.id.indicator);
 
-                 Button getStartedButton = (Button) getActivity().findViewById(
-                         R.id.intro_get_started_button);
-
-
-                 getStartedButton.setOnClickListener(new View.OnClickListener() {
-                     @Override
-                     public void onClick(View v) {
-                         ((MainActivity) getActivity()).jumpToCamera();
-
-                     }
-                 });
 
                  introFragmentAdapter = new IntroFragmentAdapter(this.getActivity()
                          .getFragmentManager());
