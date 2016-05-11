@@ -5,6 +5,7 @@ package com.yurisuzuki.ar;
 
 import android.content.Context;
 import org.artoolkit.ar.base.ARToolKit;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -63,18 +64,33 @@ public class Marker {
 		markerMatrixCached = true;
 	}
 
-	protected void adjustMarkerMatrix(float[] matrix, float[] targetMatrix, boolean front) {
+	protected void adjustMarkerMatrix(float[] matrix, float[] targetMatrix, CameraRotationInfo cameraRotationInfo) {
 		System.arraycopy(matrix, 0, targetMatrix, 0, 16);
 
-		if( front ) {
-			targetMatrix[1] = -targetMatrix[1];
-			targetMatrix[5] = -targetMatrix[5];
-			targetMatrix[9] = -targetMatrix[9];
-			targetMatrix[13] = -targetMatrix[13];
+		if( cameraRotationInfo.rotation == 180 ) {
+			targetMatrix[0] = -targetMatrix[0];
+			targetMatrix[4] = -targetMatrix[4];
+			targetMatrix[8] = -targetMatrix[8];
+			targetMatrix[12] = -targetMatrix[12];
+
+			if( !cameraRotationInfo.mirror ) {
+				targetMatrix[1] = -targetMatrix[1];
+				targetMatrix[5] = -targetMatrix[5];
+				targetMatrix[9] = -targetMatrix[9];
+				targetMatrix[13] = -targetMatrix[13];
+			}
+		} else {
+			// Nexus6pでこの場合になる
+			if (cameraRotationInfo.mirror) {
+				targetMatrix[1] = -targetMatrix[1];
+				targetMatrix[5] = -targetMatrix[5];
+				targetMatrix[9] = -targetMatrix[9];
+				targetMatrix[13] = -targetMatrix[13];
+			}
 		}
 	}
 
-	void draw(GL10 gl, long now, boolean front) {
+	void draw(GL10 gl, long now, CameraRotationInfo cameraRotationInfo) {
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
@@ -96,7 +112,7 @@ public class Marker {
 			return;
 		}
 
-		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
+		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, cameraRotationInfo);
 
 		// マーカーマトリクスをキャッシュしておく
 		cacheMarkerMatrix(adjustedMarkerMatrix);

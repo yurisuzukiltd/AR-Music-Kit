@@ -41,6 +41,7 @@ import org.artoolkit.ar.base.NativeInterface;
 import org.artoolkit.ar.base.R;
 import org.artoolkit.ar.base.camera.CameraEventListener;
 import org.artoolkit.ar.base.camera.CameraPreferencesActivity;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 import org.artoolkit.ar.base.camera.CaptureCameraPreview;
 import org.artoolkit.ar.base.rendering.ARRenderer;
 import android.annotation.TargetApi;
@@ -484,5 +485,9 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 
 	public boolean isUsingFrontCamera() {
 		return preview.isUsingFrontCamera();
+	}
+
+	public CameraRotationInfo getCameraRotationInfo() {
+		return preview.getCameraRotationInfo();
 	}
 }

@@ -107,10 +107,16 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 	//int textureWidth;
 	//int textureHeight;
 
+	private CameraRotationInfo cameraRotationInfo = new CameraRotationInfo(0, false);
+
 	boolean isPreviewRunning = false;
 
 	public boolean isUsingFrontCamera() {
 		return !isRearCamera;
+	}
+
+	public CameraRotationInfo getCameraRotationInfo() {
+		return cameraRotationInfo;
 	}
 
 	/**
@@ -165,10 +171,15 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
 			result = (info.orientation + degrees) % 360;
 			result = (360 - result) % 360;  // compensate the mirror
+
+			cameraRotationInfo = new CameraRotationInfo(result, true);
+
 		} else {  // back-facing
 			Log.i(TAG, ">> face back");
 
 			result = (info.orientation - degrees + 360) % 360;
+
+			cameraRotationInfo = new CameraRotationInfo(result, false);
 		}
 
 		Log.i(TAG, ">> final rot result=" + result);

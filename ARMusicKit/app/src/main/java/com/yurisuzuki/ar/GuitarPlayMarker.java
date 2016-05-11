@@ -5,6 +5,7 @@ package com.yurisuzuki.ar;
 
 import com.yurisuzuki.CameraActivity;
 import org.artoolkit.ar.base.ARToolKit;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -28,14 +29,14 @@ public class GuitarPlayMarker extends Marker {
 	/**
 	 * アウトラインの表示
 	 */
-	void drawOutline(GL10 gl, Plane outlinePlane, long now, boolean front) {
+	void drawOutline(GL10 gl, Plane outlinePlane, long now, CameraRotationInfo cameraRotationInfo) {
 		if (isTracked()) {
 			float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 			if (markerMatrix == null) {
 				return;
 			}
 
-			adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
+			adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, cameraRotationInfo);
 			gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
 
 			outlinePlane.draw(gl);

@@ -5,6 +5,7 @@ package com.yurisuzuki.ar;
 
 import android.util.Log;
 import com.yurisuzuki.CameraActivity;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -145,12 +146,13 @@ public class GuitarRenderer extends InstrumentsRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		boolean usingFrontCamera = activity.isUsingFrontCamera();
+		//boolean usingFrontCamera = activity.isUsingFrontCamera();
+		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
 
 		for (Marker codeMarker : codeMarkers) {
-			codeMarker.draw(gl, now, usingFrontCamera);
+			codeMarker.draw(gl, now, cameraRotationInfo);
 		}
-		playMarker.draw(gl, now, usingFrontCamera);
-		playMarker.drawOutline(gl, acousticOutlinePlane, now, usingFrontCamera);
+		playMarker.draw(gl, now, cameraRotationInfo);
+		playMarker.drawOutline(gl, acousticOutlinePlane, now, cameraRotationInfo);
 	}
 }

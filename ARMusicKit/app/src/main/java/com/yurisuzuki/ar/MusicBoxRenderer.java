@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.yurisuzuki.CameraActivity;
 import com.yurisuzuki.geom.Matrix4f;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -125,12 +126,13 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 
 		Matrix4f projectionMatrix = getProjectionMatrix();
 
-		boolean usingFrontCamera = activity.isUsingFrontCamera();
+		//boolean usingFrontCamera = activity.isUsingFrontCamera();
+		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
 
 		for (MusicBoxMarker marker : markers) {
 			// ラインをまたいだかどうかをチェックして発音
-			marker.checkPlaySoundOverLine(now, activity, projectionMatrix, usingFrontCamera);
-			marker.draw(gl, now, usingFrontCamera);
+			marker.checkPlaySoundOverLine(now, activity, projectionMatrix, cameraRotationInfo);
+			marker.draw(gl, now, cameraRotationInfo);
 		}
 
 		draw2D(gl);

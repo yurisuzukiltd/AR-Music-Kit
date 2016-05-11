@@ -8,6 +8,7 @@ import com.yurisuzuki.CameraActivity;
 import com.yurisuzuki.geom.Matrix4f;
 import com.yurisuzuki.geom.Vector4f;
 import org.artoolkit.ar.base.ARToolKit;
+import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 public class MusicBoxMarker extends Marker {
 	private static final String TAG = "MusicBoxMarker";
@@ -24,7 +25,7 @@ public class MusicBoxMarker extends Marker {
 	/**
 	 * 上下のどちらにあるかどうかをチェック.
 	 */
-	private int calcTrackingSide(Matrix4f projMat, boolean front) {
+	private int calcTrackingSide(Matrix4f projMat, CameraRotationInfo cameraRotationInfo) {
 		if (!isTracked()) {
 			return 0;
 		}
@@ -38,7 +39,7 @@ public class MusicBoxMarker extends Marker {
 			markerMat = new Matrix4f();
 		}
 
-		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, front);
+		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, cameraRotationInfo);
 
 		markerMat.set(adjustedMarkerMatrix);
 
@@ -63,8 +64,8 @@ public class MusicBoxMarker extends Marker {
 		}
 	}
 
-	void checkPlaySoundOverLine(long now, CameraActivity activity, Matrix4f projMat, boolean front) {
-		int side = calcTrackingSide(projMat, front);
+	void checkPlaySoundOverLine(long now, CameraActivity activity, Matrix4f projMat, CameraRotationInfo cameraRotationInfo) {
+		int side = calcTrackingSide(projMat, cameraRotationInfo);
 		if (side != 0 && lastTrackSide != 0 && side != lastTrackSide) {
 			if (now - lastPlayTime > 100) {
 				activity.playSound(soundId);
