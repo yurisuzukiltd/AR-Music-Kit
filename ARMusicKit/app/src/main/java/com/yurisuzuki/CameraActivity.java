@@ -489,6 +489,10 @@ public class CameraActivity extends ARActivity {
  		return guitarMarkerStates.getCurrentSoundId() == soundId;
 	}
 
+	public int getCurrentOctave() {
+		return currentOctave;
+	}
+
 	@Override
 	protected ARRenderer supplyRenderer() {
 		if (instrumentType == INSTRUMENT_TYPE_PIANO) {
