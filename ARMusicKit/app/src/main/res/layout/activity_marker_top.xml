@@ -53,7 +53,7 @@ tools:context="com.yurisuzuki.MainActivity"
             android:gravity="left"
             android:text="@string/To_get_the_markers"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="@dimen/munu_make_markers_text_size"
             android:textStyle="normal"
             />
 
@@ -62,14 +62,14 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/menu_item_margin_top"
             android:paddingBottom="@dimen/menu_item_margin_bottom"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             >
 
             <ImageView
                 android:id="@+id/menu_icon_trace_marker"
                 android:layout_width="@dimen/menu_item_icon_make_markers_width"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="@dimen/munu_make_markers_icon_left_margin"
                 android:adjustViewBounds="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
@@ -78,16 +78,16 @@ tools:context="com.yurisuzuki.MainActivity"
                 android:src="@drawable/icon_pen"
                 />
 
-            <TextView
+            <com.yurisuzuki.view.TextViewHelveticaNeueBd
                 android:id="@+id/menu_title_trace_marker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/menu_icon_trace_marker"
-                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_marginLeft="@dimen/munu_make_markers_text_left_margin"
                 android:layout_centerVertical="true"
                 android:text="@string/Trace_codes"
                 android:textColor="@android:color/black"
-                android:textSize="28sp"
+                android:textSize="@dimen/munu_make_markers_text_size"
                 android:tag="marker"
                 />
         </RelativeLayout>
@@ -97,32 +97,32 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/menu_item_margin_top"
             android:paddingBottom="@dimen/menu_item_margin_bottom"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             >
 
             <ImageView
                 android:id="@+id/menu_icon_open_in_chrome"
                 android:layout_width="@dimen/menu_item_icon_make_markers_width"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="@dimen/munu_make_markers_icon_left_margin"
                 android:adjustViewBounds="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/none"
                 android:scaleType="centerInside"
-                android:src="@drawable/icon_pen"
+                android:src="@drawable/icon_download"
                 />
 
-            <TextView
+            <com.yurisuzuki.view.TextViewHelveticaNeueBd
                 android:id="@+id/menu_title_open_in_chrome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/menu_icon_open_in_chrome"
-                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_marginLeft="@dimen/munu_make_markers_text_left_margin"
                 android:layout_centerVertical="true"
                 android:text="@string/Open_in_chrome"
                 android:textColor="@android:color/black"
-                android:textSize="28sp"
+                android:textSize="@dimen/munu_make_markers_text_size"
                 android:tag="marker"
                 />
         </RelativeLayout>
@@ -132,32 +132,32 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/menu_item_margin_top"
             android:paddingBottom="@dimen/menu_item_margin_bottom"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             >
 
             <ImageView
                 android:id="@+id/menu_icon_email_pdf"
                 android:layout_width="@dimen/menu_item_icon_make_markers_width"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="@dimen/munu_make_markers_icon_left_margin"
                 android:adjustViewBounds="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/none"
                 android:scaleType="centerInside"
-                android:src="@drawable/icon_pen"
+                android:src="@drawable/icon_email"
                 />
 
-            <TextView
+            <com.yurisuzuki.view.TextViewHelveticaNeueBd
                 android:id="@+id/menu_title_email_pdf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/menu_icon_email_pdf"
-                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:layout_marginLeft="@dimen/munu_make_markers_text_left_margin"
                 android:layout_centerVertical="true"
                 android:text="@string/Email_a_PDF"
                 android:textColor="@android:color/black"
-                android:textSize="28sp"
+                android:textSize="@dimen/munu_make_markers_text_size"
                 android:tag="marker"
                 />
         </RelativeLayout>

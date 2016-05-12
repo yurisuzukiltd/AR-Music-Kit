@@ -15,4 +15,8 @@
 
     <dimen name="header_title_side_margin">55dp</dimen>
 
+    <dimen name="munu_make_markers_text_size">18sp</dimen>
+    <dimen name="munu_make_markers_icon_left_margin">30dp</dimen>
+    <dimen name="munu_make_markers_text_left_margin">18dp</dimen>
+
 </resources>

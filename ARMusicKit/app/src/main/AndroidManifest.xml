@@ -56,15 +56,12 @@
 
         </activity>
 
-        <activity android:name="com.yurisuzuki.ActivityIntro" android:theme="@style/NoActionBar" android:screenOrientation="portrait">
+        <activity android:name="com.yurisuzuki.ActivityIntro" android:theme="@style/NoActionBar" android:screenOrientation="portrait"/>
 
+        <activity android:name="com.yurisuzuki.ActivityMakeMarkerTop" android:theme="@style/NoActionBar" android:screenOrientation="portrait"/>
 
-        </activity>
+        <activity android:name="com.yurisuzuki.ActivityMakeMarkerTrace" android:theme="@style/NoActionBar" android:screenOrientation="portrait"/>
 
-        <activity android:name="com.yurisuzuki.ActivityMakeMarkerTop" android:theme="@style/NoActionBar" android:screenOrientation="portrait">
-
-
-        </activity>
     </application>
 
 </manifest>

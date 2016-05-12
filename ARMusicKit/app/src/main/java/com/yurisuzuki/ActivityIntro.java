@@ -49,7 +49,7 @@ public class ActivityIntro extends Activity {
         Intent intent = new Intent(this, CameraActivity.class);
         intent.putExtra("type", type);
         startActivity(intent);
-        finish();
+        //finish();
         //overridePendingTransition(R.anim.fade_in, R.anim.scale_out);
     }
 

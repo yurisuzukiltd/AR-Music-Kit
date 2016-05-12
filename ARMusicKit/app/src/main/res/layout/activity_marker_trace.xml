@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yurisuzuki.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_icon_make_markers_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/char_markers" />
+
+            <com.yurisuzuki.view.TextViewHelveticaNeueBd
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/menu_item_text_margin_left"
+                android:tag="marker"
+                android:text="Markers"
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <com.yurisuzuki.view.TextViewHelveticaNeueLt
+                android:id="@+id/marker_trace_guitar_tab_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="40dp"
+                android:tag="guitar"
+                android:text="Guitar"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+
+            <com.yurisuzuki.view.TextViewHelveticaNeueLt
+                android:id="@+id/marker_trace_musicbox_tab_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:tag="musicbox"
+                android:text="Music Box"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+
+            <com.yurisuzuki.view.TextViewHelveticaNeueLt
+                android:id="@+id/marker_trace_piano_tab_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:tag="piano"
+                android:text="Piano"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/trace_marker_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/none"
+        android:scaleType="centerInside"
+        android:src="@drawable/mk_piano_la"
+        android:background="#FF0000"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/to_left_marker_button"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/button_skip"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            />
+
+        <Button
+            android:id="@+id/to_right_marker_button"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:adjustViewBounds="true"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/button_skip"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            />
+
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -87,8 +87,6 @@ public final class FragmentMenu extends Fragment {
 				"fonts/HelveticaNeueLTStd-Lt.otf");
 		Typeface tfBold = Typeface.createFromAsset(getActivity().getAssets(),
 				"fonts/HelveticaNeueLTStd-Bd.otf");
-		Typeface tfHeavy = Typeface.createFromAsset(getActivity().getAssets(),
-				"fonts/HelveticaNeueLTStd-Hv.otf");
 
 		for(TextView textView : textViews){
 			final String text = (String)textView.getText();
@@ -122,7 +120,7 @@ public final class FragmentMenu extends Fragment {
 					//((MainActivity)getActivity()).openInstruction();
 					String tag = (String)v.getTag();
 					if(tag.equals("marker")){
-						//((MainActivity)getActivity()).showMakeMarkerTop();
+						((MainActivity)getActivity()).showMakeMarkerTop();
 					}else if(tag.equals("about")){
 
 					}else{
