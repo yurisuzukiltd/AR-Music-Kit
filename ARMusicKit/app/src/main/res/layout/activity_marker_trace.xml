@@ -81,48 +81,51 @@
 
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/trace_marker_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/mk_piano_la"
+            />
+
+
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/trace_marker_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/none"
-        android:scaleType="centerInside"
-        android:src="@drawable/mk_piano_la"
-        android:background="#FF0000"/>
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="18dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/to_left_marker_button"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/button_skip"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/to_left_button"
             android:contentDescription="@string/none"
             android:scaleType="centerInside"
             />
 
         <Button
             android:id="@+id/to_right_marker_button"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
-            android:layout_marginLeft="40dp"
-            android:background="@drawable/button_skip"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/to_right_button"
             android:contentDescription="@string/none"
             android:scaleType="centerInside"
             />
