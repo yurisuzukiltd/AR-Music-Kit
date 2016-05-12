@@ -33,6 +33,17 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 			"single;Data/Do-.pat;64",
 	};
 
+	private static final String[] markerTexturePaths = {
+			"Texture/Do.png",
+			"Texture/Re.png",
+			"Texture/Mi.png",
+			"Texture/Fa.png",
+			"Texture/So.png",
+			"Texture/La.png",
+			"Texture/Si.png",
+			"Texture/Do-.png",
+	};
+
 	private static final String[] actionTexturePaths = {
 			"Texture/Action_purple.png",
 			"Texture/Action_blue.png",
@@ -73,12 +84,14 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		super.onSurfaceCreated(gl, config);
 
-		// 発音テクスチャロード
-
-		// 各マーカーテクスチャロード
+		// 各マーカーテクスチャ、発音テクスチャロード
 		for (int i = 0; i < markers.length; ++i) {
-			boolean ret = markers[i].loadActionTexture(gl, activity, actionTexturePaths[i]);
-			if (!ret) {
+			boolean ret0 = markers[i].loadMarkerTexture(gl, activity, markerTexturePaths[i]);
+			boolean ret1 = markers[i].loadActionTexture(gl, activity, actionTexturePaths[i]);
+			if (!ret0) {
+				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
+			}
+			if (!ret1) {
 				Log.d(TAG, "action texture failed:" + actionTexturePaths[i]);
 			}
 		}

@@ -50,7 +50,7 @@ public class GuitarRenderer extends InstrumentsRenderer {
 			"Texture/Action_yellow.png",
 			"Texture/Action_orange.png",
 			"Texture/Action_brown.png",
-			"Texture/Action_brown.png", // TODO: Emに相当するHOLDの色が無い
+			"Texture/Action_lightbrown.png", // Emのライトブラウンのものと新規に作って追加した
 			"Texture/Action_black.png",
 	};
 
@@ -64,8 +64,11 @@ public class GuitarRenderer extends InstrumentsRenderer {
 	private GuitarCodeMarker[] codeMarkers;
 	private GuitarPlayMarker playMarker = new GuitarPlayMarker();
 
-	private Plane acousticOutlinePlane = new Plane(64.0f * 6.0f, 64.0f * 3.0f, 64.0f * 3.0f, 50.0f, 0.0f, 0.0f);
-	private Plane electricOutlinePlane = new Plane(64.0f * 6.0f, 64.0f * 3.0f, 64.0f * 3.0f, 50.0f, 0.0f, 0.0f);
+
+	private static final float GUITAR_WIDTH = 768.34f;
+
+	private Plane acousticOutlinePlane = new Plane(GUITAR_WIDTH, GUITAR_WIDTH * 0.5f, GUITAR_WIDTH * 0.5f, 150.0f, 0.0f, 0.0f);
+	private Plane electricOutlinePlane = new Plane(GUITAR_WIDTH, GUITAR_WIDTH * 0.5f, GUITAR_WIDTH * 0.5f, 150.0f, 0.0f, 0.0f);
 
 	public GuitarRenderer(CameraActivity activity) {
 		this.activity = activity;
@@ -157,7 +160,12 @@ public class GuitarRenderer extends InstrumentsRenderer {
 		for (Marker codeMarker : codeMarkers) {
 			codeMarker.draw(gl, now, cameraRotationInfo);
 		}
+
 		playMarker.draw(gl, now, cameraRotationInfo);
-		playMarker.drawOutline(gl, acousticOutlinePlane, now, cameraRotationInfo);
+		if (activity.getCurrentOctave() == 0) {
+			playMarker.drawOutline(gl, acousticOutlinePlane, now, cameraRotationInfo);
+		} else {
+			playMarker.drawOutline(gl, electricOutlinePlane, now, cameraRotationInfo);
+		}
 	}
 }
