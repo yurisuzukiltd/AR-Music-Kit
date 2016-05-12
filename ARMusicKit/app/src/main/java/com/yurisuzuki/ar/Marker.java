@@ -18,6 +18,9 @@ public class Marker {
 	protected float[] cachedMarkerMatrix = null;
 	protected boolean markerMatrixCached;
 
+	/// trueならactionがなっている間、planeは表示しない. (musicでのみ利用)
+	protected boolean suppressMarkerPlaneWhenActionShown = false;
+
 	/// ストライプ画像Plane
 	protected Plane markerPlane = new Plane(64.0f);
 
@@ -67,13 +70,13 @@ public class Marker {
 	protected void adjustMarkerMatrix(float[] matrix, float[] targetMatrix, CameraRotationInfo cameraRotationInfo) {
 		System.arraycopy(matrix, 0, targetMatrix, 0, 16);
 
-		if( cameraRotationInfo.rotation == 180 ) {
+		if (cameraRotationInfo.rotation == 180) {
 			targetMatrix[0] = -targetMatrix[0];
 			targetMatrix[4] = -targetMatrix[4];
 			targetMatrix[8] = -targetMatrix[8];
 			targetMatrix[12] = -targetMatrix[12];
 
-			if( !cameraRotationInfo.mirror ) {
+			if (!cameraRotationInfo.mirror) {
 				targetMatrix[1] = -targetMatrix[1];
 				targetMatrix[5] = -targetMatrix[5];
 				targetMatrix[9] = -targetMatrix[9];
@@ -93,12 +96,16 @@ public class Marker {
 	}
 
 	void draw(GL10 gl, long now, CameraRotationInfo cameraRotationInfo) {
+		boolean actionPlaneDrawn = false;
+
 		if (lastPlayTime > 0) {
 			if (now - lastPlayTime < 200 & markerMatrixCached) {
 				// 発音テクスチャを表示する
-				if( actionPlane.hasTexture() ) {
+				if (actionPlane.hasTexture()) {
 					gl.glLoadMatrixf(cachedMarkerMatrix, 0);
 					actionPlane.draw(gl);
+
+					actionPlaneDrawn = true;
 				}
 			} else {
 				lastPlayTime = -1L;
@@ -120,10 +127,12 @@ public class Marker {
 		cacheMarkerMatrix(adjustedMarkerMatrix);
 
 		// トラックマークを表示する
-		if( markerPlane.hasTexture() ) {
-			// MusicBoxの場合はPlanceにテクスチャが無いので表示しない
-			gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
-			markerPlane.draw(gl);
+		if (markerPlane.hasTexture()) {
+			if( !actionPlaneDrawn || !suppressMarkerPlaneWhenActionShown ) {
+				// MusicBoxの場合はPlaneにテクスチャが無いので表示しない
+				gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
+				markerPlane.draw(gl);
+			}
 		}
 	}
 }

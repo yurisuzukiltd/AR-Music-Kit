@@ -22,6 +22,10 @@ public class MusicBoxMarker extends Marker {
 	/// 最後にトラックされた位置が画面の上半分か下半分か
 	private int lastTrackSide = 0;
 
+	MusicBoxMarker() {
+		suppressMarkerPlaneWhenActionShown = true;
+	}
+
 	/**
 	 * 上下のどちらにあるかどうかをチェック.
 	 */
