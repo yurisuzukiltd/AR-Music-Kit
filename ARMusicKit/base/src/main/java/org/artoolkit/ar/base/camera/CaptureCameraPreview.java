@@ -126,7 +126,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 	 * @param cel CameraEventListener to use. Can be null.
 	 */
 	@SuppressWarnings("deprecation")
-	public CaptureCameraPreview(Activity activity, CameraEventListener cel) {
+	public CaptureCameraPreview(Activity activity, CameraEventListener cel, boolean isRear) {
 		super(activity);
 		mActivity = activity;
 
@@ -136,7 +136,8 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
 		setCameraEventListener(cel);
 
-		isRearCamera = false;
+
+		isRearCamera = isRear;
 	}
 
 	public void setCameraDisplayOrientation(int cameraId, android.hardware.Camera camera) {
@@ -243,7 +244,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 		}
 	}
 
-	public void swapCamera() {
+	public void setCameraDirection(boolean isRear) {
 		closeCamera();
 
 		if (listener != null) {
@@ -252,11 +253,7 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
 		final SurfaceHolder holder = this.getHolder();
 		if (holder != null) {
-			if (isRearCamera) {
-				isRearCamera = false;
-			} else {
-				isRearCamera = true;
-			}
+			isRearCamera = isRear;
 
 			final Handler handler = new Handler();
 			handler.postDelayed(new Runnable() {
@@ -275,6 +272,10 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 				}
 			}, 200);
 		}
+	}
+
+	public void swapCamera() {
+		setCameraDirection(!isRearCamera);
 	}
 
 	public void openCamera(SurfaceHolder holder, boolean isRearCamera) {
