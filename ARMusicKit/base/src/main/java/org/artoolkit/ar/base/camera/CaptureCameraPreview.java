@@ -436,12 +436,17 @@ public class CaptureCameraPreview extends SurfaceView implements SurfaceHolder.C
 
 			camera.startPreview();
 
-			camera.autoFocus(new Camera.AutoFocusCallback() {
-				@Override
-				public void onAutoFocus(boolean success, Camera camera) {
-					Log.i(TAG, "Autofocused....");
-				}
-			});
+			boolean enableContinuousAutoFocus = true;
+			// calling "camera.autoFocus" causes the continous autofocus to stop
+			// see: http://developer.android.com/reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO
+			if (!enableContinuousAutoFocus) {
+				camera.autoFocus(new Camera.AutoFocusCallback() {
+					@Override
+					public void onAutoFocus(boolean success, Camera camera) {
+						Log.i(TAG, "Autofocused....");
+					}
+				});
+			}
 
 			if (listener != null) {
 				listener.cameraPreviewStarted(captureWidth, captureHeight, captureRate, cameraIndex, cameraIsFrontFacing);
