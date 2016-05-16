@@ -126,6 +126,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 	
 	private boolean firstUpdate = false;
 
+	protected boolean isRearCameraDefault = false;
 	
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -219,9 +220,9 @@ public abstract class ARActivity extends Activity implements CameraEventListener
     public void onResume() {
     	//Log.i(TAG, "onResume()");
     	super.onResume();
-    	
+
     	// Create the camera preview
-    	preview = new CaptureCameraPreview(this, this);
+    	preview = new CaptureCameraPreview(this, this, isRearCameraDefault );
     	
     	Log.i(TAG, "CaptureCameraPreview created"); 
     	

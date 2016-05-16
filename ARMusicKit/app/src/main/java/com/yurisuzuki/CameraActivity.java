@@ -118,6 +118,7 @@ public class CameraActivity extends ARActivity {
 			"electronicguitar/Open.wav",
 	};
 
+
 	private static final String[][] instrumentSounds = {
 			pianoSounds, musicBoxSounds, guitarSounds
 	};
@@ -202,6 +203,7 @@ public class CameraActivity extends ARActivity {
 		guitarSwitch = (ImageButton) findViewById(R.id.guitar_switch);
 		octaveSwitch = (ImageButton) findViewById(R.id.octave_switch);
 
+
 		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
 			guitarSwitch.setVisibility(View.VISIBLE);
 			octaveSwitch.setVisibility(View.INVISIBLE);
@@ -212,7 +214,7 @@ public class CameraActivity extends ARActivity {
 				currentInstrumentIcon.setImageBitmap(guitarElecIcon);
 				guitarSwitch.setImageBitmap(guitarSwitchElecImage);
 			}
-
+			isRearCameraDefault = false;
 		} else if (instrumentType == INSTRUMENT_TYPE_PIANO) {
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano));
 			guitarSwitch.setVisibility(View.INVISIBLE);
@@ -225,6 +227,7 @@ public class CameraActivity extends ARActivity {
 			} else {
 				octaveSwitch.setImageBitmap(pianoSwitchHImage);
 			}
+			isRearCameraDefault = true;
 		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
 			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
 			guitarSwitch.setVisibility(View.INVISIBLE);
@@ -238,6 +241,7 @@ public class CameraActivity extends ARActivity {
 			} else {
 				octaveSwitch.setImageBitmap(musicBoxSwitchHImage);
 			}
+			isRearCameraDefault = true;
 		} else {
 			currentInstrumentIcon.setVisibility(View.INVISIBLE);
 			guitarSwitch.setVisibility(View.INVISIBLE);
