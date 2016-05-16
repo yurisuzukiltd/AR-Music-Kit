@@ -93,9 +93,11 @@ public class Plane {
 	}
 
 	public boolean loadGLTexture(GL10 gl, Context context, String assetPath) {
+		if( texture != null ) {
+			texture.release(gl);
+			texture = null;
+		}
 		texture = new Texture();
 		return texture.load(gl, context, assetPath);
 	}
-
-	// TODO: テクスチャメモリの解放
 }
