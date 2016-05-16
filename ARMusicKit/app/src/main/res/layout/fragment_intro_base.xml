@@ -44,8 +44,8 @@
         >
         <Button
             android:id="@+id/get_started_button"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:adjustViewBounds="true"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"

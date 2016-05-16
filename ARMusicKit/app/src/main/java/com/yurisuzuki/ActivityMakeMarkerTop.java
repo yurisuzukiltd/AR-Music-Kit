@@ -15,7 +15,7 @@ import com.yurisuzuki.playsound.R;
 
 public class ActivityMakeMarkerTop extends Activity {
 
-    private final static String PDF_LINK = "https://www.dropbox.com/s/oj1k0v0oef5aav1/overrayinteractionsV2.pdf?dl=0";
+    private final static String PDF_LINK = "https://drive.google.com/open?id=0B4BQYn0qAlAgUmxBUThZcWFiSmM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

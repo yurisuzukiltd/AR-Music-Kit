@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+android:id="@+id/menu_container"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.yurisuzuki.MainActivity"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/header_title_side_margin"
+            android:layout_marginRight="@dimen/header_title_side_margin"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/none"
+            android:scaleType="centerInside"
+            android:src="@drawable/header_title"
+            />
+
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueBd
+            android:id="@+id/inst_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/inst_title_guitar"
+            android:textColor="@android:color/black"
+            android:textSize="35sp"
+            />
+
+
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/about_text"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:id="@+id/about_gpl_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/none"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:id="@+id/about_lgpl_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/none"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/about_suzuki"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
+
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/about_google"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            />
+
+
+    </LinearLayout>
+
+</FrameLayout>

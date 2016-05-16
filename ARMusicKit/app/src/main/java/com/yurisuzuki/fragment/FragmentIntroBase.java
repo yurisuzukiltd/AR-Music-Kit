@@ -33,6 +33,8 @@ import com.yurisuzuki.playsound.R;
     PageIndicator pageIndicator;
     public String type;
 
+
+
      /**
       * Use this factory method to create a new instance of
       * this fragment using the provided parameters.
@@ -90,6 +92,7 @@ import com.yurisuzuki.playsound.R;
          startButton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+                 viewPager.setCurrentItem(0);
                  ((ActivityIntro)FragmentIntroBase.this.getActivity()).jumpToCamera();
              }
          });
@@ -105,6 +108,8 @@ import com.yurisuzuki.playsound.R;
                  viewPager = (ViewPager) getActivity().findViewById(R.id.pager);
                  pageIndicator = (CirclePageIndicator) getActivity().findViewById(
                          R.id.indicator);
+                 pageIndicator.setFillColor(0x939597);
+
 
 
                  introFragmentAdapter = new IntroFragmentAdapter(this.getActivity()
@@ -114,6 +119,9 @@ import com.yurisuzuki.playsound.R;
 
                  pageIndicator.setViewPager(viewPager);
                  introFragmentAdapter.notifyDataSetChanged();
+
+
+
              }
 
          }

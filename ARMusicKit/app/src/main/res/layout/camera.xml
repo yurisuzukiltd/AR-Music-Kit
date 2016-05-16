@@ -97,6 +97,20 @@
                 android:background="@null"
                 />
 
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait0"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+                />
+
         </FrameLayout>
 
 

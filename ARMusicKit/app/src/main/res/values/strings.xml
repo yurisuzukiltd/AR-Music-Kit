@@ -7,6 +7,7 @@
     <string name="inst_title_piano">Playing Piano</string>
     <string name="inst_title_mb">Playing Music Box</string>
     <string name="inst_title_trace">Tracing Markers</string>
+    <string name="inst_title_about">About</string>
 
     <string name="inst_guitar_0">Cut a guitar out of cardboard</string>
     <string name="inst_guitar_1">Place sticky notes on guitar. Make sure to include guitar icon</string>
@@ -28,6 +29,10 @@
     <string name="Trace_codes">Trace codes onto sticky notes</string>
     <string name="Open_in_chrome">Save a PDF to your device to print</string>
     <string name="Email_a_PDF">Email a PDF to yourself to print</string>
+
+    <string name="about_text">This application is used by AR TOOL KIT.\nAR TOOL KIT is provided by GPLv3 and LGPLv3.</string>
+    <string name="about_suzuki">www.yurisuzuki.com</string>
+    <string name="about_google">Made with some friends at Google</string>
 
 
 </resources>

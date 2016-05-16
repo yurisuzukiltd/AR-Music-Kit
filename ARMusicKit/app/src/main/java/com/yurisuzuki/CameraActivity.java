@@ -235,6 +235,10 @@ public class CameraActivity extends ARActivity {
 	int currentInstrumentWidthForPiano;
 
 
+	final Handler uiThreadHalder = new Handler();
+
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -351,26 +355,58 @@ public class CameraActivity extends ARActivity {
 						buttonLayout270.setVisibility(View.INVISIBLE);
 
 						if(currentOrientation == CameraOrientation.Portlait0){
-							buttonLayout0.setVisibility(View.VISIBLE);
-							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
-								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+							if (instrumentType == INSTRUMENT_TYPE_PIANO || instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+								uiThreadHalder.post(new Runnable() {
+									@Override
+									public void run() {
+										buttonLayout0.setVisibility(View.VISIBLE);
+										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+									}
+								});
 							}else{
-								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+								uiThreadHalder.post(new Runnable() {
+									@Override
+									public void run() {
+										buttonLayout0.setVisibility(View.VISIBLE);
+										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+									}
+								});
 							}
 						}else if(currentOrientation == CameraOrientation.Landscape90){
-							buttonLayout90.setVisibility(View.VISIBLE);
-							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+							uiThreadHalder.post(new Runnable() {
+								@Override
+								public void run() {
+									buttonLayout90.setVisibility(View.VISIBLE);
+									currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+								}
+							});
 						}else if(currentOrientation == CameraOrientation.Portrailt180){
-							buttonLayout180.setVisibility(View.VISIBLE);
-							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
-							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
-								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+							if (instrumentType == INSTRUMENT_TYPE_PIANO || instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+								uiThreadHalder.post(new Runnable() {
+									@Override
+									public void run() {
+										buttonLayout180.setVisibility(View.VISIBLE);
+										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+									}
+								});
 							}else{
-								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+								uiThreadHalder.post(new Runnable() {
+									@Override
+									public void run() {
+										buttonLayout180.setVisibility(View.VISIBLE);
+										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+									}
+								});
 							}
 						}else if(currentOrientation == CameraOrientation.Landscape270){
-							buttonLayout270.setVisibility(View.VISIBLE);
-							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+
+							uiThreadHalder.post(new Runnable() {
+								@Override
+								public void run() {
+									buttonLayout270.setVisibility(View.VISIBLE);
+									currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+								}
+							});
 						}else{
 
 						}
@@ -429,7 +465,7 @@ public class CameraActivity extends ARActivity {
 		octaveSwitch270 = (ImageButton) findViewById(R.id.octave_switch_landscape270);
 
 		currentInstrumentWidthForGuitar = currentInstrumentIcon270.getLayoutParams().width;
-		currentInstrumentWidthForPiano = (int)((double)currentInstrumentWidthForGuitar * 40.0 / 54.0);
+		currentInstrumentWidthForPiano = (int)((double)currentInstrumentWidthForGuitar * 25.0 / 54.0);
 
 
 		configureButton();
