@@ -19,6 +19,10 @@ public class Texture {
 
 	private int[] textureId = new int[1];
 
+	public Texture() {
+		textureId[0] = -1;
+	}
+
 	public boolean load(GL10 gl, Context context, String assetPath) {
 		// loading texture
 		Bitmap bitmap;
@@ -57,5 +61,15 @@ public class Texture {
 	public void bind(GL10 gl) {
 		// bind the previously generated texture
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId[0]);
+	}
+
+	/**
+	 * release texture
+	 */
+	public void release(GL10 gl) {
+		if( textureId[0] != -1 ) {
+			gl.glDeleteTextures(1, textureId, 0);
+			textureId[0] = -1;
+		}
 	}
 }
