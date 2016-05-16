@@ -147,6 +147,8 @@ public class CameraActivity extends ARActivity {
 	};
 
 	ImageButton currentInstrumentIcon0;
+	ImageButton currentInstrumentIcon0_Piano;
+	ImageButton currentInstrumentIcon0_MusicBox;
 	ImageButton infoButton0;
 	ImageButton guitarSwitch0;
 	ImageButton octaveSwitch0;
@@ -159,6 +161,8 @@ public class CameraActivity extends ARActivity {
 	ImageButton cameraSwapButton90;
 
 	ImageButton currentInstrumentIcon180;
+	ImageButton currentInstrumentIcon180_Piano;
+	ImageButton currentInstrumentIcon180_MusicBox;
 	ImageButton infoButton180;
 	ImageButton guitarSwitch180;
 	ImageButton octaveSwitch180;
@@ -230,13 +234,6 @@ public class CameraActivity extends ARActivity {
 	View buttonLayout270;
 
 	OrientationEventListener mOrientationListener;
-
-	int currentInstrumentWidthForGuitar;
-	int currentInstrumentWidthForPiano;
-
-
-	final Handler uiThreadHalder = new Handler();
-
 
 
 	@Override
@@ -355,58 +352,43 @@ public class CameraActivity extends ARActivity {
 						buttonLayout270.setVisibility(View.INVISIBLE);
 
 						if(currentOrientation == CameraOrientation.Portlait0){
-							if (instrumentType == INSTRUMENT_TYPE_PIANO || instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
-								uiThreadHalder.post(new Runnable() {
-									@Override
-									public void run() {
-										buttonLayout0.setVisibility(View.VISIBLE);
-										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
-									}
-								});
+							buttonLayout0.setVisibility(View.VISIBLE);
+
+							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+								currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon0_Piano.setVisibility(View.VISIBLE);
+								currentInstrumentIcon0_MusicBox.setVisibility(View.INVISIBLE);
+							}else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+								currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon0_Piano.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon0_MusicBox.setVisibility(View.VISIBLE);
 							}else{
-								uiThreadHalder.post(new Runnable() {
-									@Override
-									public void run() {
-										buttonLayout0.setVisibility(View.VISIBLE);
-										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
-									}
-								});
+								currentInstrumentIcon0.setVisibility(View.VISIBLE);
+								currentInstrumentIcon0_Piano.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon0_MusicBox.setVisibility(View.INVISIBLE);
 							}
 						}else if(currentOrientation == CameraOrientation.Landscape90){
-							uiThreadHalder.post(new Runnable() {
-								@Override
-								public void run() {
-									buttonLayout90.setVisibility(View.VISIBLE);
-									currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
-								}
-							});
+							buttonLayout90.setVisibility(View.VISIBLE);
+
 						}else if(currentOrientation == CameraOrientation.Portrailt180){
-							if (instrumentType == INSTRUMENT_TYPE_PIANO || instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
-								uiThreadHalder.post(new Runnable() {
-									@Override
-									public void run() {
-										buttonLayout180.setVisibility(View.VISIBLE);
-										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
-									}
-								});
+							buttonLayout180.setVisibility(View.VISIBLE);
+
+							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+								currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon180_Piano.setVisibility(View.VISIBLE);
+								currentInstrumentIcon180_MusicBox.setVisibility(View.INVISIBLE);
+							}else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+								currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon180_Piano.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon180_MusicBox.setVisibility(View.VISIBLE);
 							}else{
-								uiThreadHalder.post(new Runnable() {
-									@Override
-									public void run() {
-										buttonLayout180.setVisibility(View.VISIBLE);
-										currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
-									}
-								});
+								currentInstrumentIcon180.setVisibility(View.VISIBLE);
+								currentInstrumentIcon180_Piano.setVisibility(View.INVISIBLE);
+								currentInstrumentIcon180_MusicBox.setVisibility(View.INVISIBLE);
 							}
 						}else if(currentOrientation == CameraOrientation.Landscape270){
+							buttonLayout270.setVisibility(View.VISIBLE);
 
-							uiThreadHalder.post(new Runnable() {
-								@Override
-								public void run() {
-									buttonLayout270.setVisibility(View.VISIBLE);
-									currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
-								}
-							});
 						}else{
 
 						}
@@ -442,6 +424,8 @@ public class CameraActivity extends ARActivity {
 
 		cameraSwapButton0 = (ImageButton) findViewById(R.id.rear_front_switch_portlait0);
 		currentInstrumentIcon0 = (ImageButton) findViewById(R.id.current_instrument_icon_portlait0);
+		currentInstrumentIcon0_Piano = (ImageButton) findViewById(R.id.current_instrument_icon_portlait0_piano);
+		currentInstrumentIcon0_MusicBox = (ImageButton) findViewById(R.id.current_instrument_icon_portlait0_mb);
 		infoButton0 = (ImageButton) findViewById(R.id.info_icon_portlait0);
 		guitarSwitch0 = (ImageButton) findViewById(R.id.guitar_switch_portlait0);
 		octaveSwitch0 = (ImageButton) findViewById(R.id.octave_switch_portlait0);
@@ -454,6 +438,8 @@ public class CameraActivity extends ARActivity {
 
 		cameraSwapButton180 = (ImageButton) findViewById(R.id.rear_front_switch_portlait180);
 		currentInstrumentIcon180 = (ImageButton) findViewById(R.id.current_instrument_icon_portlait180);
+		currentInstrumentIcon180_Piano = (ImageButton) findViewById(R.id.current_instrument_icon_portlait180_piano);
+		currentInstrumentIcon180_MusicBox = (ImageButton) findViewById(R.id.current_instrument_icon_portlait180_mb);
 		infoButton180 = (ImageButton) findViewById(R.id.info_icon_portlait180);
 		guitarSwitch180 = (ImageButton) findViewById(R.id.guitar_switch_portlait180);
 		octaveSwitch180 = (ImageButton) findViewById(R.id.octave_switch_portlait180);
@@ -464,8 +450,6 @@ public class CameraActivity extends ARActivity {
 		guitarSwitch270 = (ImageButton) findViewById(R.id.guitar_switch_landscape270);
 		octaveSwitch270 = (ImageButton) findViewById(R.id.octave_switch_landscape270);
 
-		currentInstrumentWidthForGuitar = currentInstrumentIcon270.getLayoutParams().width;
-		currentInstrumentWidthForPiano = (int)((double)currentInstrumentWidthForGuitar * 25.0 / 54.0);
 
 
 		configureButton();
@@ -512,10 +496,17 @@ public class CameraActivity extends ARActivity {
 				guitarSwitch270.setImageBitmap(guitarSwitchElecImage270);
 			}
 
+			currentInstrumentIcon0.setVisibility(View.VISIBLE);
+			currentInstrumentIcon0_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_MusicBox.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180.setVisibility(View.VISIBLE);
+			currentInstrumentIcon180_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_MusicBox.setVisibility(View.INVISIBLE);
+
 		} else if (instrumentType == INSTRUMENT_TYPE_PIANO) {
-			currentInstrumentIcon0.setImageBitmap(pianoIcon0);
+			currentInstrumentIcon0_Piano.setImageBitmap(pianoIcon0);
 			currentInstrumentIcon90.setImageBitmap(pianoIcon90);
-			currentInstrumentIcon180.setImageBitmap(pianoIcon180);
+			currentInstrumentIcon180_Piano.setImageBitmap(pianoIcon180);
 			currentInstrumentIcon270.setImageBitmap(pianoIcon270);
 			guitarSwitch0.setVisibility(View.INVISIBLE);
 			guitarSwitch90.setVisibility(View.INVISIBLE);
@@ -543,10 +534,17 @@ public class CameraActivity extends ARActivity {
 				octaveSwitch270.setImageBitmap(pianoSwitchHImage270);
 			}
 
+			currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_Piano.setVisibility(View.VISIBLE);
+			currentInstrumentIcon0_MusicBox.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_Piano.setVisibility(View.VISIBLE);
+			currentInstrumentIcon180_MusicBox.setVisibility(View.INVISIBLE);
+
 		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
-			currentInstrumentIcon0.setImageBitmap(musicBoxIcon0);
+			currentInstrumentIcon0_MusicBox.setImageBitmap(musicBoxIcon0);
 			currentInstrumentIcon90.setImageBitmap(musicBoxIcon90);
-			currentInstrumentIcon180.setImageBitmap(musicBoxIcon180);
+			currentInstrumentIcon180_MusicBox.setImageBitmap(musicBoxIcon180);
 			currentInstrumentIcon270.setImageBitmap(musicBoxIcon270);
 			guitarSwitch0.setVisibility(View.INVISIBLE);
 			guitarSwitch90.setVisibility(View.INVISIBLE);
@@ -575,10 +573,21 @@ public class CameraActivity extends ARActivity {
 				octaveSwitch270.setImageBitmap(musicBoxSwitchHImage270);
 			}
 
+			currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_MusicBox.setVisibility(View.VISIBLE);
+			currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_MusicBox.setVisibility(View.VISIBLE);
+
 		} else {
 			currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon0_MusicBox.setVisibility(View.INVISIBLE);
 			currentInstrumentIcon90.setVisibility(View.INVISIBLE);
 			currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_Piano.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180_MusicBox.setVisibility(View.INVISIBLE);
 			currentInstrumentIcon270.setVisibility(View.INVISIBLE);
 			guitarSwitch0.setVisibility(View.INVISIBLE);
 			guitarSwitch90.setVisibility(View.INVISIBLE);

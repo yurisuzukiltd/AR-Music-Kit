@@ -98,8 +98,22 @@
                 />
 
             <ImageButton
-                android:id="@+id/current_instrument_icon_portlait0"
-                android:layout_width="54dp"
+                android:id="@+id/current_instrument_icon_portlait0_piano"
+                android:layout_width="26dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait0_mb"
+                android:layout_width="39dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:layout_marginLeft="25dp"
@@ -341,6 +355,36 @@
             <ImageButton
                 android:id="@+id/current_instrument_icon_portlait180"
                 android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait180_piano"
+                android:layout_width="26dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait180_mb"
+                android:layout_width="39dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:layout_marginRight="20dp"
