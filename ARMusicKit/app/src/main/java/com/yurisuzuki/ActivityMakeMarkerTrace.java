@@ -120,10 +120,7 @@ public class ActivityMakeMarkerTrace extends Activity {
         });
 
         tabSelected("guitar");
-
-
     }
-
 
     private void tabSelected(String tabName){
         if(tabName.equals("guitar")){

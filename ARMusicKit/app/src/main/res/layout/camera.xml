@@ -18,78 +18,345 @@
             />
 
 
-        <ImageButton
-            android:id="@+id/rear_front_switch"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="top|right"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/switch_camera"
-            android:background="@null"
-            />
 
-
-        <ImageButton
-            android:id="@+id/octave_switch"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="bottom|left"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/switch_piano_l"
-            android:background="@null"
-            />
-
-
-        <ImageButton
-            android:id="@+id/guitar_switch"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="bottom|left"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/switch_guitar_a"
-            android:background="@null"
+        <!-- Portrait 0 -->
+        <FrameLayout
+            android:id="@+id/buttons_portlait0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:visibility="invisible"
-            />
+            >
 
-        <ImageButton
-            android:id="@+id/current_instrument_icon"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="top|left"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/icon_music_box"
-            android:background="@null"
-            />
+            <ImageButton
+                android:id="@+id/info_icon_portlait0"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="27dp"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_information0"
+                android:background="@null"
+                />
 
-        <ImageButton
-            android:id="@+id/info_icon"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="bottom|right"
-            android:contentDescription="@string/none"
-            android:scaleType="centerInside"
-            android:src="@drawable/icon_information"
-            android:background="@null"
-            />
+            <ImageButton
+                android:id="@+id/guitar_switch_portlait0"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_guitar_a"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/rear_front_switch_portlait0"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_camera0"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/octave_switch_portlait0"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_piano_l"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait0"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+                />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/buttons_landscape90"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            >
+
+            <ImageButton
+                android:id="@+id/octave_switch_landscape90"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_piano_l"
+                android:background="@null"
+                />
+
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_landscape90"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+                />
+
+
+
+            <ImageButton
+                android:id="@+id/rear_front_switch_landscape90"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_camera90"
+                android:background="@null"
+                />
+
+
+
+            <ImageButton
+                android:id="@+id/info_icon_landscape90"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="27dp"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_information90"
+                android:background="@null"
+
+                />
+
+
+            <ImageButton
+                android:id="@+id/guitar_switch_landscape90"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_guitar_a"
+                android:background="@null"
+                />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/buttons_landscape270"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            >
+
+            <ImageButton
+                android:id="@+id/rear_front_switch_landscape270"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_camera"
+                android:background="@null"
+                />
+
+
+            <ImageButton
+                android:id="@+id/octave_switch_landscape270"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_piano_l"
+                android:background="@null"
+                />
+
+
+            <ImageButton
+                android:id="@+id/guitar_switch_landscape270"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_guitar_a"
+                android:background="@null"
+
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_landscape270"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/info_icon_landscape270"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="27dp"
+                android:layout_gravity="bottom|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_information"
+                android:background="@null"
+                />
+
+        </FrameLayout>
+
+
+
+
+        <!-- Portrait 180 -->
+        <FrameLayout
+            android:id="@+id/buttons_portlait180"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            >
+
+            <ImageButton
+                android:id="@+id/guitar_switch_portlait180"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_guitar_a"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/info_icon_portlait180"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="27dp"
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="bottom|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_information180"
+                android:background="@null"
+                />
+
+            <ImageButton
+                android:id="@+id/octave_switch_portlait180"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_piano_l"
+                android:background="@null"
+
+                />
+
+            <ImageButton
+                android:id="@+id/current_instrument_icon_portlait180"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="top|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_music_box"
+                android:background="@null"
+
+                />
+
+            <ImageButton
+                android:id="@+id/rear_front_switch_portlait180"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="bottom|right"
+                android:contentDescription="@string/none"
+                android:scaleType="centerInside"
+                android:src="@drawable/switch_camera180"
+                android:background="@null"
+                />
+
+        </FrameLayout>
+
+
+
 
 
     </FrameLayout>

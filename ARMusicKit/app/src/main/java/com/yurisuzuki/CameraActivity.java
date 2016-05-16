@@ -8,18 +8,20 @@ package com.yurisuzuki;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
-import com.yurisuzuki.playsound.R;
 import com.yurisuzuki.ar.GuitarRenderer;
 import com.yurisuzuki.ar.MusicBoxRenderer;
 import com.yurisuzuki.ar.PianoRenderer;
+import com.yurisuzuki.playsound.R;
 
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.camera.CaptureCameraPreview;
@@ -31,6 +33,15 @@ import java.util.List;
 
 @SuppressWarnings("JniMissingFunction")
 public class CameraActivity extends ARActivity {
+
+	public enum CameraOrientation {
+		Portlait0, Landscape90, Portrailt180, Landscape270,
+	};
+
+	CameraOrientation currentOrientation;
+
+
+
 	static {
 		System.loadLibrary("fmodex");
 		System.loadLibrary("main");
@@ -135,24 +146,93 @@ public class CameraActivity extends ARActivity {
 		}
 	};
 
-	ImageButton currentInstrumentIcon;
-	ImageButton infoButton;
-	ImageButton guitarSwitch;
-	ImageButton octaveSwitch;
-	ImageButton cameraSwapButton;
+	ImageButton currentInstrumentIcon0;
+	ImageButton infoButton0;
+	ImageButton guitarSwitch0;
+	ImageButton octaveSwitch0;
+	ImageButton cameraSwapButton0;
 
-	Bitmap guitarAcousticIcon;
-	Bitmap guitarElecIcon;
-	Bitmap guitarSwitchAcousticImage;
-	Bitmap guitarSwitchElecImage;
+	ImageButton currentInstrumentIcon90;
+	ImageButton infoButton90;
+	ImageButton guitarSwitch90;
+	ImageButton octaveSwitch90;
+	ImageButton cameraSwapButton90;
 
-	Bitmap pianoSwitchLImage;
-	Bitmap pianoSwitchMImage;
-	Bitmap pianoSwitchHImage;
+	ImageButton currentInstrumentIcon180;
+	ImageButton infoButton180;
+	ImageButton guitarSwitch180;
+	ImageButton octaveSwitch180;
+	ImageButton cameraSwapButton180;
 
-	Bitmap musicBoxSwitchLImage;
-	Bitmap musicBoxSwitchMImage;
-	Bitmap musicBoxSwitchHImage;
+	ImageButton currentInstrumentIcon270;
+	ImageButton infoButton270;
+	ImageButton guitarSwitch270;
+	ImageButton octaveSwitch270;
+	ImageButton cameraSwapButton270;
+
+	Bitmap guitarAcousticIcon0;
+	Bitmap guitarAcousticIcon90;
+	Bitmap guitarAcousticIcon180;
+	Bitmap guitarAcousticIcon270;
+	Bitmap guitarElecIcon0;
+	Bitmap guitarElecIcon90;
+	Bitmap guitarElecIcon180;
+	Bitmap guitarElecIcon270;
+
+	Bitmap pianoIcon0;
+	Bitmap pianoIcon90;
+	Bitmap pianoIcon180;
+	Bitmap pianoIcon270;
+
+	Bitmap musicBoxIcon0;
+	Bitmap musicBoxIcon90;
+	Bitmap musicBoxIcon180;
+	Bitmap musicBoxIcon270;
+
+	Bitmap guitarSwitchAcousticImage0;
+	Bitmap guitarSwitchAcousticImage90;
+	Bitmap guitarSwitchAcousticImage180;
+	Bitmap guitarSwitchAcousticImage270;
+	Bitmap guitarSwitchElecImage0;
+	Bitmap guitarSwitchElecImage90;
+	Bitmap guitarSwitchElecImage180;
+	Bitmap guitarSwitchElecImage270;
+
+	Bitmap pianoSwitchLImage0;
+	Bitmap pianoSwitchLImage90;
+	Bitmap pianoSwitchLImage180;
+	Bitmap pianoSwitchLImage270;
+	Bitmap pianoSwitchMImage0;
+	Bitmap pianoSwitchMImage90;
+	Bitmap pianoSwitchMImage180;
+	Bitmap pianoSwitchMImage270;
+	Bitmap pianoSwitchHImage0;
+	Bitmap pianoSwitchHImage90;
+	Bitmap pianoSwitchHImage180;
+	Bitmap pianoSwitchHImage270;
+
+	Bitmap musicBoxSwitchLImage0;
+	Bitmap musicBoxSwitchLImage90;
+	Bitmap musicBoxSwitchLImage180;
+	Bitmap musicBoxSwitchLImage270;
+	Bitmap musicBoxSwitchMImage0;
+	Bitmap musicBoxSwitchMImage90;
+	Bitmap musicBoxSwitchMImage180;
+	Bitmap musicBoxSwitchMImage270;
+	Bitmap musicBoxSwitchHImage0;
+	Bitmap musicBoxSwitchHImage90;
+	Bitmap musicBoxSwitchHImage180;
+	Bitmap musicBoxSwitchHImage270;
+
+	View buttonLayout0;
+	View buttonLayout90;
+	View buttonLayout180;
+	View buttonLayout270;
+
+	OrientationEventListener mOrientationListener;
+
+	int currentInstrumentWidthForGuitar;
+	int currentInstrumentWidthForPiano;
 
 
 	@Override
@@ -173,22 +253,333 @@ public class CameraActivity extends ARActivity {
 				}
 			}
 		}
-		guitarAcousticIcon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar);
-		guitarElecIcon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar);
-		guitarSwitchAcousticImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a);
-		guitarSwitchElecImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e);
-
-		pianoSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l);
-		pianoSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m);
-		pianoSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h);
-
-		musicBoxSwitchLImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l);
-		musicBoxSwitchMImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m);
-		musicBoxSwitchHImage = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h);
 
 
-		cameraSwapButton = (ImageButton) findViewById(R.id.rear_front_switch);
-		cameraSwapButton.setOnClickListener(new View.OnClickListener() {
+		guitarAcousticIcon0 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar0);
+		guitarAcousticIcon90 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar90);
+		guitarAcousticIcon180 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar180);
+		guitarAcousticIcon270 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_acoustic_guitar);
+
+		guitarElecIcon0 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar0);
+		guitarElecIcon90 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar90);
+		guitarElecIcon180 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar180);
+		guitarElecIcon270 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_electric_guitar);
+
+		pianoIcon0 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano0);
+		pianoIcon90 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano90);
+		pianoIcon180 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano180);
+		pianoIcon270 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano);
+
+		musicBoxIcon0 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box0);
+		musicBoxIcon90 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box90);
+		musicBoxIcon180 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box180);
+		musicBoxIcon270 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box);
+
+		guitarSwitchAcousticImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a0);
+		guitarSwitchAcousticImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a90);
+		guitarSwitchAcousticImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a180);
+		guitarSwitchAcousticImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_a);
+
+		guitarSwitchElecImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e0);
+		guitarSwitchElecImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e90);
+		guitarSwitchElecImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e180);
+		guitarSwitchElecImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_guitar_e);
+
+		pianoSwitchLImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l0);
+		pianoSwitchLImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l90);
+		pianoSwitchLImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l180);
+		pianoSwitchLImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_l);
+
+		pianoSwitchMImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m0);
+		pianoSwitchMImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m90);
+		pianoSwitchMImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m180);
+		pianoSwitchMImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_m);
+
+		pianoSwitchHImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h0);
+		pianoSwitchHImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h90);
+		pianoSwitchHImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h180);
+		pianoSwitchHImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_piano_h);
+
+		musicBoxSwitchLImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l0);
+		musicBoxSwitchLImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l90);
+		musicBoxSwitchLImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l180);
+		musicBoxSwitchLImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_l);
+
+		musicBoxSwitchMImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m0);
+		musicBoxSwitchMImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m90);
+		musicBoxSwitchMImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m180);
+		musicBoxSwitchMImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_m);
+
+		musicBoxSwitchHImage0 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h0);
+		musicBoxSwitchHImage90 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h90);
+		musicBoxSwitchHImage180 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h180);
+		musicBoxSwitchHImage270 = BitmapFactory.decodeResource(getResources(), R.drawable.switch_mb_h);
+
+		mOrientationListener = new OrientationEventListener(this,
+				SensorManager.SENSOR_DELAY_NORMAL) {
+
+			@Override
+			public void onOrientationChanged(int orientation) {
+				int margin = 10;
+				//Log.v(TAG, "Orientation changed to " + orientation);
+
+				CameraOrientation newOrientation = null;
+
+				if((orientation >= 0 && orientation <= 10) || (orientation >= 350 && orientation <= 360)){
+					newOrientation = CameraOrientation.Portlait0;
+
+				}else if(orientation >= 80 && orientation <= 100){
+					newOrientation = CameraOrientation.Landscape90;
+
+				}else if(orientation >= 170 && orientation <= 190){
+					newOrientation = CameraOrientation.Portrailt180;
+
+				}else if(orientation >= 260 && orientation <= 290){
+					newOrientation = CameraOrientation.Landscape270;
+
+				}
+
+				if(newOrientation != null){
+					if(currentOrientation != newOrientation){
+						currentOrientation = newOrientation;
+						Log.v(TAG,
+								"New screen orientation: " + currentOrientation);
+
+						buttonLayout0.setVisibility(View.INVISIBLE);
+						buttonLayout90.setVisibility(View.INVISIBLE);
+						buttonLayout180.setVisibility(View.INVISIBLE);
+						buttonLayout270.setVisibility(View.INVISIBLE);
+
+						if(currentOrientation == CameraOrientation.Portlait0){
+							buttonLayout0.setVisibility(View.VISIBLE);
+							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+							}else{
+								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+							}
+						}else if(currentOrientation == CameraOrientation.Landscape90){
+							buttonLayout90.setVisibility(View.VISIBLE);
+							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+						}else if(currentOrientation == CameraOrientation.Portrailt180){
+							buttonLayout180.setVisibility(View.VISIBLE);
+							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+							if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForPiano;
+							}else{
+								currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+							}
+						}else if(currentOrientation == CameraOrientation.Landscape270){
+							buttonLayout270.setVisibility(View.VISIBLE);
+							currentInstrumentIcon0.getLayoutParams().width = currentInstrumentWidthForGuitar;
+						}else{
+
+						}
+
+
+					}
+				}
+
+
+
+			}
+		};
+
+		if (mOrientationListener.canDetectOrientation() == true) {
+			Log.v(TAG, "Can detect orientation");
+			mOrientationListener.enable();
+		} else {
+			Log.v(TAG, "Cannot detect orientation");
+			mOrientationListener.disable();
+		}
+
+		currentOrientation = CameraOrientation.Landscape270;
+
+		buttonLayout0 = findViewById(R.id.buttons_portlait0);
+		buttonLayout90 = findViewById(R.id.buttons_landscape90);
+		buttonLayout180 = findViewById(R.id.buttons_portlait180);
+		buttonLayout270 = findViewById(R.id.buttons_landscape270);
+
+		buttonLayout0.setVisibility(View.VISIBLE);
+		buttonLayout90.setVisibility(View.INVISIBLE);
+		buttonLayout180.setVisibility(View.INVISIBLE);
+		buttonLayout270.setVisibility(View.INVISIBLE);
+
+		cameraSwapButton0 = (ImageButton) findViewById(R.id.rear_front_switch_portlait0);
+		currentInstrumentIcon0 = (ImageButton) findViewById(R.id.current_instrument_icon_portlait0);
+		infoButton0 = (ImageButton) findViewById(R.id.info_icon_portlait0);
+		guitarSwitch0 = (ImageButton) findViewById(R.id.guitar_switch_portlait0);
+		octaveSwitch0 = (ImageButton) findViewById(R.id.octave_switch_portlait0);
+
+		cameraSwapButton90 = (ImageButton) findViewById(R.id.rear_front_switch_landscape90);
+		currentInstrumentIcon90 = (ImageButton) findViewById(R.id.current_instrument_icon_landscape90);
+		infoButton90 = (ImageButton) findViewById(R.id.info_icon_landscape90);
+		guitarSwitch90 = (ImageButton) findViewById(R.id.guitar_switch_landscape90);
+		octaveSwitch90 = (ImageButton) findViewById(R.id.octave_switch_landscape90);
+
+		cameraSwapButton180 = (ImageButton) findViewById(R.id.rear_front_switch_portlait180);
+		currentInstrumentIcon180 = (ImageButton) findViewById(R.id.current_instrument_icon_portlait180);
+		infoButton180 = (ImageButton) findViewById(R.id.info_icon_portlait180);
+		guitarSwitch180 = (ImageButton) findViewById(R.id.guitar_switch_portlait180);
+		octaveSwitch180 = (ImageButton) findViewById(R.id.octave_switch_portlait180);
+
+		cameraSwapButton270 = (ImageButton) findViewById(R.id.rear_front_switch_landscape270);
+		currentInstrumentIcon270 = (ImageButton) findViewById(R.id.current_instrument_icon_landscape270);
+		infoButton270 = (ImageButton) findViewById(R.id.info_icon_landscape270);
+		guitarSwitch270 = (ImageButton) findViewById(R.id.guitar_switch_landscape270);
+		octaveSwitch270 = (ImageButton) findViewById(R.id.octave_switch_landscape270);
+
+		currentInstrumentWidthForGuitar = currentInstrumentIcon270.getLayoutParams().width;
+		currentInstrumentWidthForPiano = (int)((double)currentInstrumentWidthForGuitar * 40.0 / 54.0);
+
+
+		configureButton();
+
+
+	}
+
+	private void configureButton(){
+
+
+		//currentInstrumentIcon = (ImageButton) findViewById(R.id.current_instrument_icon);
+		//infoButton = (ImageButton) findViewById(R.id.info_icon);
+		//guitarSwitch = (ImageButton) findViewById(R.id.guitar_switch);
+		//octaveSwitch = (ImageButton) findViewById(R.id.octave_switch);
+
+		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
+			guitarSwitch0.setVisibility(View.VISIBLE);
+			guitarSwitch90.setVisibility(View.VISIBLE);
+			guitarSwitch180.setVisibility(View.VISIBLE);
+			guitarSwitch270.setVisibility(View.VISIBLE);
+
+			octaveSwitch0.setVisibility(View.INVISIBLE);
+			octaveSwitch90.setVisibility(View.INVISIBLE);
+			octaveSwitch180.setVisibility(View.INVISIBLE);
+			octaveSwitch270.setVisibility(View.INVISIBLE);
+
+			if (currentOctave == 0) {
+				currentInstrumentIcon0.setImageBitmap(guitarAcousticIcon0);
+				currentInstrumentIcon90.setImageBitmap(guitarAcousticIcon90);
+				currentInstrumentIcon180.setImageBitmap(guitarAcousticIcon180);
+				currentInstrumentIcon270.setImageBitmap(guitarAcousticIcon270);
+				guitarSwitch0.setImageBitmap(guitarSwitchAcousticImage0);
+				guitarSwitch90.setImageBitmap(guitarSwitchAcousticImage90);
+				guitarSwitch180.setImageBitmap(guitarSwitchAcousticImage180);
+				guitarSwitch270.setImageBitmap(guitarSwitchAcousticImage270);
+			} else {
+				currentInstrumentIcon0.setImageBitmap(guitarElecIcon0);
+				currentInstrumentIcon90.setImageBitmap(guitarElecIcon90);
+				currentInstrumentIcon180.setImageBitmap(guitarElecIcon180);
+				currentInstrumentIcon270.setImageBitmap(guitarElecIcon270);
+				guitarSwitch0.setImageBitmap(guitarSwitchElecImage0);
+				guitarSwitch90.setImageBitmap(guitarSwitchElecImage90);
+				guitarSwitch180.setImageBitmap(guitarSwitchElecImage180);
+				guitarSwitch270.setImageBitmap(guitarSwitchElecImage270);
+			}
+
+		} else if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+			currentInstrumentIcon0.setImageBitmap(pianoIcon0);
+			currentInstrumentIcon90.setImageBitmap(pianoIcon90);
+			currentInstrumentIcon180.setImageBitmap(pianoIcon180);
+			currentInstrumentIcon270.setImageBitmap(pianoIcon270);
+			guitarSwitch0.setVisibility(View.INVISIBLE);
+			guitarSwitch90.setVisibility(View.INVISIBLE);
+			guitarSwitch180.setVisibility(View.INVISIBLE);
+			guitarSwitch270.setVisibility(View.INVISIBLE);
+			octaveSwitch0.setVisibility(View.VISIBLE);
+			octaveSwitch90.setVisibility(View.VISIBLE);
+			octaveSwitch180.setVisibility(View.VISIBLE);
+			octaveSwitch270.setVisibility(View.VISIBLE);
+
+			if (currentOctave == 0) {
+				octaveSwitch0.setImageBitmap(pianoSwitchLImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchLImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchLImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchLImage270);
+			} else if (currentOctave == 1) {
+				octaveSwitch0.setImageBitmap(pianoSwitchMImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchMImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchMImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchMImage270);
+			} else {
+				octaveSwitch0.setImageBitmap(pianoSwitchHImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchHImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchHImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchHImage270);
+			}
+
+		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+			currentInstrumentIcon0.setImageBitmap(musicBoxIcon0);
+			currentInstrumentIcon90.setImageBitmap(musicBoxIcon90);
+			currentInstrumentIcon180.setImageBitmap(musicBoxIcon180);
+			currentInstrumentIcon270.setImageBitmap(musicBoxIcon270);
+			guitarSwitch0.setVisibility(View.INVISIBLE);
+			guitarSwitch90.setVisibility(View.INVISIBLE);
+			guitarSwitch180.setVisibility(View.INVISIBLE);
+			guitarSwitch270.setVisibility(View.INVISIBLE);
+
+			octaveSwitch0.setVisibility(View.VISIBLE);
+			octaveSwitch90.setVisibility(View.VISIBLE);
+			octaveSwitch180.setVisibility(View.VISIBLE);
+			octaveSwitch270.setVisibility(View.VISIBLE);
+
+			if (currentOctave == 0) {
+				octaveSwitch0.setImageBitmap(musicBoxSwitchLImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchLImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchLImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchLImage270);
+			} else if (currentOctave == 1) {
+				octaveSwitch0.setImageBitmap(musicBoxSwitchMImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchMImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchMImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchMImage270);
+			} else {
+				octaveSwitch0.setImageBitmap(musicBoxSwitchHImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchHImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchHImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchHImage270);
+			}
+
+		} else {
+			currentInstrumentIcon0.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon90.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon180.setVisibility(View.INVISIBLE);
+			currentInstrumentIcon270.setVisibility(View.INVISIBLE);
+			guitarSwitch0.setVisibility(View.INVISIBLE);
+			guitarSwitch90.setVisibility(View.INVISIBLE);
+			guitarSwitch180.setVisibility(View.INVISIBLE);
+			guitarSwitch270.setVisibility(View.INVISIBLE);
+			octaveSwitch0.setVisibility(View.INVISIBLE);
+			octaveSwitch90.setVisibility(View.INVISIBLE);
+			octaveSwitch180.setVisibility(View.INVISIBLE);
+			octaveSwitch270.setVisibility(View.INVISIBLE);
+		}
+
+		//cameraSwapButton = (ImageButton) findViewById(R.id.rear_front_switch);
+		cameraSwapButton0.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				CaptureCameraPreview cameraPreview = getCameraPreview();
+				cameraPreview.swapCamera();
+
+			}
+		});
+		cameraSwapButton90.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				CaptureCameraPreview cameraPreview = getCameraPreview();
+				cameraPreview.swapCamera();
+
+			}
+		});
+		cameraSwapButton180.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				CaptureCameraPreview cameraPreview = getCameraPreview();
+				cameraPreview.swapCamera();
+
+			}
+		});
+		cameraSwapButton270.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				CaptureCameraPreview cameraPreview = getCameraPreview();
@@ -197,108 +588,153 @@ public class CameraActivity extends ARActivity {
 			}
 		});
 
-		currentInstrumentIcon = (ImageButton) findViewById(R.id.current_instrument_icon);
-		infoButton = (ImageButton) findViewById(R.id.info_icon);
-		guitarSwitch = (ImageButton) findViewById(R.id.guitar_switch);
-		octaveSwitch = (ImageButton) findViewById(R.id.octave_switch);
-
-		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
-			guitarSwitch.setVisibility(View.VISIBLE);
-			octaveSwitch.setVisibility(View.INVISIBLE);
-			if (currentOctave == 0) {
-				currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
-				guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
-			} else {
-				currentInstrumentIcon.setImageBitmap(guitarElecIcon);
-				guitarSwitch.setImageBitmap(guitarSwitchElecImage);
-			}
-
-		} else if (instrumentType == INSTRUMENT_TYPE_PIANO) {
-			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_piano));
-			guitarSwitch.setVisibility(View.INVISIBLE);
-			octaveSwitch.setVisibility(View.VISIBLE);
-
-			if (currentOctave == 0) {
-				octaveSwitch.setImageBitmap(pianoSwitchLImage);
-			} else if (currentOctave == 1) {
-				octaveSwitch.setImageBitmap(pianoSwitchMImage);
-			} else {
-				octaveSwitch.setImageBitmap(pianoSwitchHImage);
-			}
-		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
-			currentInstrumentIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_music_box));
-			guitarSwitch.setVisibility(View.INVISIBLE);
-
-			octaveSwitch.setVisibility(View.VISIBLE);
-
-			if (currentOctave == 0) {
-				octaveSwitch.setImageBitmap(musicBoxSwitchLImage);
-			} else if (currentOctave == 1) {
-				octaveSwitch.setImageBitmap(musicBoxSwitchMImage);
-			} else {
-				octaveSwitch.setImageBitmap(musicBoxSwitchHImage);
-			}
-		} else {
-			currentInstrumentIcon.setVisibility(View.INVISIBLE);
-			guitarSwitch.setVisibility(View.INVISIBLE);
-			octaveSwitch.setVisibility(View.INVISIBLE);
-		}
-
-		guitarSwitch.setOnClickListener(new View.OnClickListener() {
+		guitarSwitch0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (currentOctave == 0) {
-					currentOctave = 1;
-					currentInstrumentIcon.setImageBitmap(guitarElecIcon);
-					guitarSwitch.setImageBitmap(guitarSwitchElecImage);
-				} else {
-					currentOctave = 0;
-					currentInstrumentIcon.setImageBitmap(guitarAcousticIcon);
-					guitarSwitch.setImageBitmap(guitarSwitchAcousticImage);
-				}
+				guitarSwitchAction();
+			}
+		});
+		guitarSwitch90.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				guitarSwitchAction();
+			}
+		});
+		guitarSwitch180.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				guitarSwitchAction();
+			}
+		});
+		guitarSwitch270.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				guitarSwitchAction();
 			}
 		});
 
-		octaveSwitch.setOnClickListener(new View.OnClickListener() {
+		octaveSwitch0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
-				if (instrumentType == INSTRUMENT_TYPE_PIANO) {
-					if (currentOctave == 0) {
-						currentOctave = 1;
-						octaveSwitch.setImageBitmap(pianoSwitchMImage);
-					} else if (currentOctave == 1) {
-						currentOctave = 2;
-						octaveSwitch.setImageBitmap(pianoSwitchHImage);
-					} else {
-						currentOctave = 0;
-						octaveSwitch.setImageBitmap(pianoSwitchLImage);
-					}
-				} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
-					if (currentOctave == 0) {
-						currentOctave = 1;
-						octaveSwitch.setImageBitmap(musicBoxSwitchMImage);
-					} else if (currentOctave == 1) {
-						currentOctave = 2;
-						octaveSwitch.setImageBitmap(musicBoxSwitchHImage);
-					} else {
-						currentOctave = 0;
-						octaveSwitch.setImageBitmap(musicBoxSwitchLImage);
-					}
-				}
-
+				octaveSwitchAction();
+			}
+		});
+		octaveSwitch90.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				octaveSwitchAction();
+			}
+		});
+		octaveSwitch180.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				octaveSwitchAction();
+			}
+		});
+		octaveSwitch270.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				octaveSwitchAction();
 			}
 		});
 
-		infoButton.setOnClickListener(new View.OnClickListener() {
+		infoButton0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				finish();
 			}
 		});
 
+		infoButton90.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 
+		infoButton180.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
+		infoButton270.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 	}
+
+	private void guitarSwitchAction(){
+		if (currentOctave == 0) {
+			currentOctave = 1;
+			currentInstrumentIcon0.setImageBitmap(guitarElecIcon0);
+			currentInstrumentIcon90.setImageBitmap(guitarElecIcon90);
+			currentInstrumentIcon180.setImageBitmap(guitarElecIcon180);
+			currentInstrumentIcon270.setImageBitmap(guitarElecIcon270);
+			guitarSwitch0.setImageBitmap(guitarSwitchElecImage0);
+			guitarSwitch90.setImageBitmap(guitarSwitchElecImage90);
+			guitarSwitch180.setImageBitmap(guitarSwitchElecImage180);
+			guitarSwitch270.setImageBitmap(guitarSwitchElecImage270);
+		} else {
+			currentOctave = 0;
+			currentInstrumentIcon0.setImageBitmap(guitarAcousticIcon0);
+			currentInstrumentIcon90.setImageBitmap(guitarAcousticIcon90);
+			currentInstrumentIcon180.setImageBitmap(guitarAcousticIcon180);
+			currentInstrumentIcon270.setImageBitmap(guitarAcousticIcon270);
+			guitarSwitch0.setImageBitmap(guitarSwitchAcousticImage0);
+			guitarSwitch90.setImageBitmap(guitarSwitchAcousticImage90);
+			guitarSwitch180.setImageBitmap(guitarSwitchAcousticImage180);
+			guitarSwitch270.setImageBitmap(guitarSwitchAcousticImage270);
+		}
+	}
+
+	private void octaveSwitchAction(){
+		if (instrumentType == INSTRUMENT_TYPE_PIANO) {
+			if (currentOctave == 0) {
+				currentOctave = 1;
+				octaveSwitch0.setImageBitmap(pianoSwitchMImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchMImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchMImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchMImage270);
+			} else if (currentOctave == 1) {
+				currentOctave = 2;
+				octaveSwitch0.setImageBitmap(pianoSwitchHImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchHImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchHImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchHImage270);
+			} else {
+				currentOctave = 0;
+				octaveSwitch0.setImageBitmap(pianoSwitchLImage0);
+				octaveSwitch90.setImageBitmap(pianoSwitchLImage90);
+				octaveSwitch180.setImageBitmap(pianoSwitchLImage180);
+				octaveSwitch270.setImageBitmap(pianoSwitchLImage270);
+			}
+		} else if (instrumentType == INSTRUMENT_TYPE_MUSIC_BOX) {
+			if (currentOctave == 0) {
+				currentOctave = 1;
+				octaveSwitch0.setImageBitmap(musicBoxSwitchMImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchMImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchMImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchMImage270);
+			} else if (currentOctave == 1) {
+				currentOctave = 2;
+				octaveSwitch0.setImageBitmap(musicBoxSwitchHImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchHImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchHImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchHImage270);
+			} else {
+				currentOctave = 0;
+				octaveSwitch0.setImageBitmap(musicBoxSwitchLImage0);
+				octaveSwitch90.setImageBitmap(musicBoxSwitchLImage90);
+				octaveSwitch180.setImageBitmap(musicBoxSwitchLImage180);
+				octaveSwitch270.setImageBitmap(musicBoxSwitchLImage270);
+			}
+		}
+	}
+
 
 	@Override
 	public void onStart() {
@@ -322,6 +758,12 @@ public class CameraActivity extends ARActivity {
 		cEnd();
 		mFMODAudioDevice.stop();
 		super.onStop();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		mOrientationListener.disable();
 	}
 
 	public native void cBegin(String[] soundPathArray);
@@ -516,5 +958,7 @@ public class CameraActivity extends ARActivity {
 	protected FrameLayout supplyOuterFrameLayout() {
 		return (FrameLayout) this.findViewById(R.id.outerLayout);
 	}
+
+
 }
 
