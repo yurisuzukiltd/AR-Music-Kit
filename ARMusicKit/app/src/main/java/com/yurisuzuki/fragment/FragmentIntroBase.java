@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 import com.yurisuzuki.ActivityIntro;
-import com.yurisuzuki.MainActivity;
 import com.yurisuzuki.playsound.R;
 
 /**
@@ -108,7 +107,7 @@ import com.yurisuzuki.playsound.R;
                  viewPager = (ViewPager) getActivity().findViewById(R.id.pager);
                  pageIndicator = (CirclePageIndicator) getActivity().findViewById(
                          R.id.indicator);
-                 pageIndicator.setFillColor(0x939597);
+                 ((CirclePageIndicator)pageIndicator).setFillColor(0xFF939597);
 
 
 

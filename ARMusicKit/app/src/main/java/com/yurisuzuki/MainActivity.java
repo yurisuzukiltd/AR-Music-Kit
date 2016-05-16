@@ -52,5 +52,10 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, ActivityMakeMarkerTop.class);
         startActivity(intent);
     }
+
+    public void showAbout(){
+        Intent intent = new Intent(this, ActivityAbout.class);
+        startActivity(intent);
+    }
 }
 

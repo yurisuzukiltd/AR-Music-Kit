@@ -35,7 +35,7 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
-            android:text="@string/inst_title_guitar"
+            android:text="@string/inst_title_about"
             android:textColor="@android:color/black"
             android:textSize="35sp"
             />
@@ -51,24 +51,11 @@ tools:context="com.yurisuzuki.MainActivity"
             android:paddingRight="15dp"
             android:text="@string/about_text"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="17sp"
             />
 
         <com.yurisuzuki.view.TextViewHelveticaNeueLt
             android:id="@+id/about_gpl_link"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/none"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            />
-
-        <com.yurisuzuki.view.TextViewHelveticaNeueLt
-            android:id="@+id/about_lgpl_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -77,7 +64,20 @@ tools:context="com.yurisuzuki.MainActivity"
             android:paddingRight="15dp"
             android:text="@string/none"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="17sp"
+            />
+
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:id="@+id/about_lgpl_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/none"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
             />
 
 
@@ -85,12 +85,12 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/about_suzuki"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="17sp"
             />
 
 
@@ -99,12 +99,12 @@ tools:context="com.yurisuzuki.MainActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/about_google"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="17sp"
             />
 
 

@@ -122,7 +122,7 @@ public final class FragmentMenu extends Fragment {
 					if(tag.equals("marker")){
 						((MainActivity)getActivity()).showMakeMarkerTop();
 					}else if(tag.equals("about")){
-
+						((MainActivity)getActivity()).showAbout();
 					}else{
 						((MainActivity)getActivity()).showInstruction(tag);
 					}

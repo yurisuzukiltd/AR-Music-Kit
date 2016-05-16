@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ARMusicKit.iml" filepath="$PROJECT_DIR$/ARMusicKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" filepath="$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" />
     </modules>
   </component>
 </project>

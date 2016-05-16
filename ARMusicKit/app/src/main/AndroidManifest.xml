@@ -62,6 +62,8 @@
 
         <activity android:name="com.yurisuzuki.ActivityMakeMarkerTrace" android:theme="@style/NoActionBar" android:screenOrientation="portrait"/>
 
+        <activity android:name="com.yurisuzuki.ActivityAbout" android:theme="@style/NoActionBar" android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@
     <string name="Open_in_chrome">Save a PDF to your device to print</string>
     <string name="Email_a_PDF">Email a PDF to yourself to print</string>
 
-    <string name="about_text">This application is used by AR TOOL KIT.\nAR TOOL KIT is provided by GPLv3 and LGPLv3.</string>
+    <string name="about_text">This application uses AR TOOL KIT.\nAR TOOL KIT is provided under GPLv3 and LGPLv3.</string>
     <string name="about_suzuki">www.yurisuzuki.com</string>
     <string name="about_google">Made with some friends at Google</string>
 
