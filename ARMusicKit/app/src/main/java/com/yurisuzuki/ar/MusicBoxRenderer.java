@@ -89,21 +89,21 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 			boolean ret0 = markers[i].loadMarkerTexture(gl, activity, markerTexturePaths[i]);
 			boolean ret1 = markers[i].loadActionTexture(gl, activity, actionTexturePaths[i]);
 			if (!ret0) {
-				Log.d(TAG, "marker texture failed:" + markerTexturePaths[i]);
+				Log.d(TAG, "marker onTexture failed:" + markerTexturePaths[i]);
 			}
 			if (!ret1) {
-				Log.d(TAG, "action texture failed:" + actionTexturePaths[i]);
+				Log.d(TAG, "action onTexture failed:" + actionTexturePaths[i]);
 			}
 		}
 
 		// UI用オーバーレイテクスチャロード
-		ui.loadGLTexture(gl, activity, "Texture/blue65.png");
+		ui.loadGLTexture(gl, activity, "Texture/blue65.png", "Texture/white65.png");
 
 		// Enable Texture Mapping
 		gl.glEnable(GL10.GL_TEXTURE_2D);
 	}
 
-	private void draw2D(GL10 gl) {
+	private void draw2D(GL10 gl, boolean actionPlaneDrawn) {
 		gl.glDisable(GL10.GL_DEPTH_TEST);
 		gl.glDisable(GL10.GL_CULL_FACE);
 
@@ -117,7 +117,7 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		gl.glLoadIdentity();
 
-		ui.draw(gl);
+		ui.draw(gl, actionPlaneDrawn);
 
 		gl.glEnable(GL10.GL_DEPTH_TEST);
 		gl.glEnable(GL10.GL_CULL_FACE);
@@ -139,21 +139,23 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 
 		Matrix4f projectionMatrix = getProjectionMatrix();
 
-		//boolean usingFrontCamera = activity.isUsingFrontCamera();
 		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
+
+		boolean actionPlaneDrawn = false;
 
 		for (MusicBoxMarker marker : markers) {
 			// ラインをまたいだかどうかをチェックして発音
 			marker.checkPlaySoundOverLine(now, activity, projectionMatrix, cameraRotationInfo);
-			marker.draw(gl, now, cameraRotationInfo);
+			actionPlaneDrawn |= marker.draw(gl, now, cameraRotationInfo);
 		}
 
-		draw2D(gl);
+		draw2D(gl, actionPlaneDrawn);
 	}
 
 	// トラック範囲を表示するためのグレーオーバーレイ
 	public class UI {
-		private Texture texture;
+		private Texture onTexture;
+		private Texture offTexture;
 		private FloatBuffer vertexBuffer;
 
 		private final float vertices[] = {
@@ -201,16 +203,21 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 			texcoordBuffer.position(0);
 		}
 
-		public void draw(GL10 gl) {
-			// bind the previously generated texture
-			texture.bind(gl);
+		public void draw(GL10 gl, boolean actionPlaneDrawn) {
+			if( actionPlaneDrawn ) {
+				// draw blue line when action plane was drawn
+				onTexture.bind(gl);
+			} else {
+				// draw white line
+				offTexture.bind(gl);
+			}
 
 			// Point to our buffers
 			gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 			gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
 			// Set the face rotation
-			gl.glFrontFace(GL10.GL_CW);
+			//gl.glFrontFace(GL10.GL_CW);
 
 			// Point to our vertex buffer
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
@@ -224,9 +231,14 @@ public class MusicBoxRenderer extends InstrumentsRenderer {
 			gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 		}
 
-		public boolean loadGLTexture(GL10 gl, Context context, String assetPath) {
-			texture = new Texture();
-			return texture.load(gl, context, assetPath);
+		public boolean loadGLTexture(GL10 gl, Context context, String onAssetPath, String offAssetPath) {
+			onTexture = new Texture();
+			boolean ret0 = onTexture.load(gl, context, onAssetPath);
+
+			offTexture = new Texture();
+			boolean ret1 = offTexture.load(gl, context, offAssetPath);
+
+			return ret0 && ret1;
 		}
 
 		// TODO: テクスチャメモリの解放

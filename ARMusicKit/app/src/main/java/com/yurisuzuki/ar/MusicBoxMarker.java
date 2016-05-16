@@ -3,7 +3,6 @@
  */
 package com.yurisuzuki.ar;
 
-import android.util.Log;
 import com.yurisuzuki.CameraActivity;
 import com.yurisuzuki.geom.Matrix4f;
 import com.yurisuzuki.geom.Vector4f;
@@ -56,8 +55,6 @@ public class MusicBoxMarker extends Marker {
 
 		// ViewPort座標系でのY座標値を得る
 		float sy = workVec1.y / workVec1.w;
-
-		Log.i(TAG, ">>> sy=" + sy);
 
 		if (sy < 0.0f) {
 			// portraitでみて画面の左半分

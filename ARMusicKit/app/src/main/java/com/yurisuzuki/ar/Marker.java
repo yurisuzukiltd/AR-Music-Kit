@@ -95,7 +95,10 @@ public class Marker {
 		}
 	}
 
-	void draw(GL10 gl, long now, CameraRotationInfo cameraRotationInfo) {
+	/**
+	 * @return whethere action plane was drawn or not.
+	 */
+	boolean draw(GL10 gl, long now, CameraRotationInfo cameraRotationInfo) {
 		boolean actionPlaneDrawn = false;
 
 		if (lastPlayTime > 0) {
@@ -113,12 +116,12 @@ public class Marker {
 		}
 
 		if (!isTracked()) {
-			return;
+			return actionPlaneDrawn;
 		}
 
 		float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 		if (markerMatrix == null) {
-			return;
+			return actionPlaneDrawn;
 		}
 
 		adjustMarkerMatrix(markerMatrix, adjustedMarkerMatrix, cameraRotationInfo);
@@ -129,10 +132,11 @@ public class Marker {
 		// トラックマークを表示する
 		if (markerPlane.hasTexture()) {
 			if( !actionPlaneDrawn || !suppressMarkerPlaneWhenActionShown ) {
-				// MusicBoxの場合はPlaneにテクスチャが無いので表示しない
 				gl.glLoadMatrixf(adjustedMarkerMatrix, 0);
 				markerPlane.draw(gl);
 			}
 		}
+
+		return actionPlaneDrawn;
 	}
 }
