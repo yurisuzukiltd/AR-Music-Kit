@@ -46,7 +46,7 @@ public class GuitarCodeMarker extends Marker {
 	}
 
 	@Override
-	void draw(GL10 gl, long now, CameraRotationInfo camreaCameraRotationInfo) {
+	boolean draw(GL10 gl, long now, CameraRotationInfo camreaCameraRotationInfo) {
 		if (isTracked()) {
 			float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 
@@ -66,6 +66,9 @@ public class GuitarCodeMarker extends Marker {
 		if (exclusiveHold && markerMatrixCached) {
 			gl.glLoadMatrixf(cachedMarkerMatrix, 0);
 			actionPlane.draw(gl);
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

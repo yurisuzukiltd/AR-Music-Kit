@@ -154,7 +154,6 @@ public class GuitarRenderer extends InstrumentsRenderer {
 
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-		//boolean usingFrontCamera = activity.isUsingFrontCamera();
 		CameraRotationInfo cameraRotationInfo = activity.getCameraRotationInfo();
 
 		for (Marker codeMarker : codeMarkers) {
