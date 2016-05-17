@@ -9,9 +9,9 @@ model {
             applicationId = "com.yurisuzuki"
             minSdkVersion.apiLevel = 16
             targetSdkVersion.apiLevel = 22
-            versionCode = 14
+            versionCode = 15
             //Integer type incremented by 1 for every release, major or minor, to Google store
-            versionName = "1.4" //Real fully qualified major and minor release description
+            versionName = "1.0" //Real fully qualified major and minor release description
 
             buildConfigFields.with {
                 //Defines fields in the generated Java BuildConfig class, in this case, for
