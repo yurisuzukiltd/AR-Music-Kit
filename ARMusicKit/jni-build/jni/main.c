@@ -23,6 +23,7 @@ FMOD_DSP     *gDSPDistortion = 0;
 FMOD_SOUND	 *gSound[MAX_NUM_SOUNDS];
 
 int numOfSounds;
+int isMonoPhonic;
 
 #define CHECK_RESULT(x) \
 { \
@@ -36,8 +37,10 @@ int numOfSounds;
 
 
 void Java_com_yurisuzuki_CameraActivity_cBegin(JNIEnv *env,
-		jobject thiz, jobjectArray pathStringArray) {
+		jobject thiz, jobjectArray pathStringArray, int isMonoPhone) {
 	FMOD_RESULT result = FMOD_OK;
+
+	isMonoPhonic = isMonoPhone;
 
 	result = FMOD_System_Create(&gSystem);
 	CHECK_RESULT(result);
@@ -113,7 +116,15 @@ void Java_com_yurisuzuki_CameraActivity_cPlaySound(JNIEnv *env, jobject thiz, in
 {
 	FMOD_RESULT result = FMOD_OK;
 
+	// stop current sound if playing
+	if ((isMonoPhonic == 1 ) && (gChannel))
+	{
+		FMOD_Channel_Stop(gChannel);
+	}
+
+
 	result = FMOD_System_PlaySound(gSystem, FMOD_CHANNEL_FREE, gSound[id], 0, &gChannel);
+
 	CHECK_RESULT(result);
 }
 
