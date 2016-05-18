@@ -811,7 +811,7 @@ public class CameraActivity extends ARActivity {
 		mOrientationListener.disable();
 	}
 
-	public native void cBegin(String[] soundPathArray);
+	public native void cBegin(String[] soundPathArray, int isMonoPhone);
 
 	public native void cUpdate();
 
@@ -846,7 +846,13 @@ public class CameraActivity extends ARActivity {
 		}
 
 		String[] filePathes = list.toArray(new String[list.size()]);
-		cBegin(filePathes);
+
+		int isMonoPhonic = 0;
+		if (instrumentType == INSTRUMENT_TYPE_GUITAR) {
+			isMonoPhonic = 1;
+		}
+
+		cBegin(filePathes, isMonoPhonic);
 
 		//cDistortionToggle();
 	}
