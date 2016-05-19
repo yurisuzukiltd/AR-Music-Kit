@@ -7,9 +7,9 @@ model {
 
         defaultConfig.with {
             applicationId = "com.yurisuzuki"
-            minSdkVersion.apiLevel = 16
+            minSdkVersion.apiLevel = 21
             targetSdkVersion.apiLevel = 22
-            versionCode = 16
+            versionCode = 19
             //Integer type incremented by 1 for every release, major or minor, to Google store
             versionName = "1.0" //Real fully qualified major and minor release description
 
