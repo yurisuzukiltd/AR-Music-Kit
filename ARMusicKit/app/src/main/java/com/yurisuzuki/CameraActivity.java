@@ -938,7 +938,7 @@ public class CameraActivity extends ARActivity {
 	public void playCurrentSound() {
 
 		long time= System.currentTimeMillis();
-		long minTimeBetweenSounds = 200;
+		long minTimeBetweenSounds = 120;
 
 		// don't play sounds too close together (to avoid stutter)
 		if (time > (lastTimeGuitarSoundPlayed + minTimeBetweenSounds)) {
@@ -958,7 +958,7 @@ public class CameraActivity extends ARActivity {
 			lastTimeGuitarSoundPlayed = time;
 		} else
 		{
-			Log.d(TAG, "TOO SOO!");
+			//Log.d(TAG, "TOO FAST!");
 		}
 
 	}
