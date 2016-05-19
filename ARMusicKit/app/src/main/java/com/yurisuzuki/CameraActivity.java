@@ -53,6 +53,8 @@ public class CameraActivity extends ARActivity {
 
 	public int currentOctave = 0;
 
+	private long lastTimeGuitarSoundPlayed = 0;
+
 	private static final String[] pianoSounds = {
 			"piano/m-do.wav",
 			"piano/m-re.wav",
@@ -934,17 +936,31 @@ public class CameraActivity extends ARActivity {
 	 * ギター専用
 	 */
 	public void playCurrentSound() {
-		prepareGuitarMarkerStates();
-		int currentSoundId = guitarMarkerStates.getCurrentSoundId();
 
-		Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
+		long time= System.currentTimeMillis();
+		long minTimeBetweenSounds = 120;
 
-		if (currentSoundId >= 0) {
-			cPlaySound(currentSoundId + getCurrentOffset());
-		} else {
-			// ギターの開放弦
-			cPlaySound(8 + getCurrentOffset());
+		// don't play sounds too close together (to avoid stutter)
+		if (time > (lastTimeGuitarSoundPlayed + minTimeBetweenSounds)) {
+
+			prepareGuitarMarkerStates();
+			int currentSoundId = guitarMarkerStates.getCurrentSoundId();
+
+			Log.d(TAG, "playCurrentSound: currentSoundId=" + currentSoundId);
+
+			if (currentSoundId >= 0) {
+				cPlaySound(currentSoundId + getCurrentOffset());
+			} else {
+				// ギターの開放弦
+				cPlaySound(8 + getCurrentOffset());
+			}
+
+			lastTimeGuitarSoundPlayed = time;
+		} else
+		{
+			//Log.d(TAG, "TOO FAST!");
 		}
+
 	}
 
 	/**
