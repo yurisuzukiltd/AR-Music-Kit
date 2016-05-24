@@ -11,6 +11,8 @@ import org.artoolkit.ar.base.camera.CameraRotationInfo;
 
 public class MusicBoxMarker extends Marker {
 	private static final String TAG = "MusicBoxMarker";
+	// play sound only if relative position is within this value
+	private static final float TRACKING_POS_THREDHOLD = 0.15f;
 
 	private Matrix4f markerMat;
 
@@ -18,8 +20,9 @@ public class MusicBoxMarker extends Marker {
 	private Vector4f workVec0 = new Vector4f();
 	private Vector4f workVec1 = new Vector4f();
 
-	/// 最後にトラックされた位置が画面の上半分か下半分か
-	private int lastTrackSide = 0;
+	private boolean lastTracked = false;
+	private float lastTrackingSideValue = 0.0f;
+	private float trackingSideValue = 0.0f;
 
 	MusicBoxMarker() {
 		suppressMarkerPlaneWhenActionShown = true;
@@ -28,14 +31,14 @@ public class MusicBoxMarker extends Marker {
 	/**
 	 * 上下のどちらにあるかどうかをチェック.
 	 */
-	private int calcTrackingSide(Matrix4f projMat, CameraRotationInfo cameraRotationInfo) {
+	private boolean updateTrackingSideValue(Matrix4f projMat, CameraRotationInfo cameraRotationInfo) {
 		if (!isTracked()) {
-			return 0;
+			return false;
 		}
 
 		float markerMatrix[] = ARToolKit.getInstance().queryMarkerTransformation(markerId);
 		if (markerMatrix == null) {
-			return 0;
+			return false;
 		}
 
 		if (markerMat == null) {
@@ -53,26 +56,25 @@ public class MusicBoxMarker extends Marker {
 		workVec0.set(0.0f, 0.0f, 0.0f, 1.0f);
 		workMat.transform(workVec0, workVec1);
 
-		// ViewPort座標系でのY座標値を得る
-		float sy = workVec1.y / workVec1.w;
+		// get Y axis value in ViewPort coordinate.
 
-		if (sy < 0.0f) {
-			// portraitでみて画面の左半分
-			return -1;
-		} else {
-			// portraitでみて画面の右半分
-			return 1;
-		}
+		trackingSideValue = workVec1.y / workVec1.w;
+		// if trackingSideValue < 0.0f, then marker is located left side when portrait.
+		// otherwise right side
+
+		return true;
 	}
 
 	void checkPlaySoundOverLine(long now, CameraActivity activity, Matrix4f projMat, CameraRotationInfo cameraRotationInfo) {
-		int side = calcTrackingSide(projMat, cameraRotationInfo);
-		if (side != 0 && lastTrackSide != 0 && side != lastTrackSide) {
+		boolean tracked = updateTrackingSideValue(projMat, cameraRotationInfo);
+		if (tracked && lastTracked && lastTrackingSideValue * trackingSideValue < 0.0f &&
+				 Math.abs(trackingSideValue) < TRACKING_POS_THREDHOLD) {
 			if (now - lastPlayTime > 100) {
 				activity.playSound(soundId);
 				lastPlayTime = now;
 			}
 		}
-		lastTrackSide = side;
+		lastTracked = tracked;
+		lastTrackingSideValue = trackingSideValue;
 	}
 }
