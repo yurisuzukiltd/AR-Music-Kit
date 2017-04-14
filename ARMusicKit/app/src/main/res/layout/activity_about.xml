@@ -80,6 +80,19 @@ tools:context="com.yurisuzuki.MainActivity"
             android:textSize="17sp"
             />
 
+        <com.yurisuzuki.view.TextViewHelveticaNeueLt
+            android:id="@+id/about_privacy_policy_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/none"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            />
+
 
         <com.yurisuzuki.view.TextViewHelveticaNeueLt
             android:layout_width="match_parent"
